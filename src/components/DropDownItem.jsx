@@ -10,7 +10,7 @@ export default function DropDownItem({children, identification}) {
 
     return(
         <ul className={`cursor-pointer transition-[grid-template-rows] w-full grid ${isClicked ? "grid-rows-[max-content_1fr]": "grid-rows-[max-content_0fr]"}`} >
-            <li className="relative bg-blue-800 w-full rounded-md p-1 hover:bg-blue-700" onClick={handleClick}>
+            <li className="relative bg-blue-700 w-full rounded-md p-1 hover:bg-blue-600" onClick={handleClick}>
                 {identification}
                 <ArrowForward className={`text-white transition-transform absolute size-7 top-1/2 -translate-y-1/2 right-0 ${isClicked && "rotate-90"}`}/>  
             </li>
