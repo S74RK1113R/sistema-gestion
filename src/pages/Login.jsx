@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../components/Input";
+import { EyeClosed, EyeOpen } from "../icons/Icons";
 
 
 export default function Login() {
@@ -25,11 +26,14 @@ export default function Login() {
           </label>
           
           <div className="relative">
-            <Input type={onPasswordChange ? "text" : "password" } inputName={"password"} maxLength="20" required/>
-            <span className={`transition-color duration-200 size-4 rounded-full absolute right-1 top-1/2 -translate-y-1/2 ${onPasswordChange ?"bg-black": "bg-zinc-500"}`} onClick={togglePasswordView} ></span>
+            <Input type={onPasswordChange ? "text" : "password" } inputName={"password"} maxLength="15" required/>
+            <span className="cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 p-2" onClick={togglePasswordView} >
+              {onPasswordChange ? <EyeOpen className="size-5"/> : <EyeClosed className="size-5"/>}
+            </span>
           </div>
 
-            <Input type="submit" value="Entrar" className="bg-blue-950 hover:bg-blue-900 text-white font-bold rounded-xl px-5 py-1"/>
+          <Input type="submit" value="Entrar" className="bg-blue-950 hover:bg-blue-900 text-white font-bold rounded-xl px-5 py-1"/>
+        
         </div>
       </form>
     </div>
