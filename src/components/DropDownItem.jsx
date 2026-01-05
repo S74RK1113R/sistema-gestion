@@ -14,7 +14,7 @@ export default function DropDownItem({children, identification}) {
                 {identification}
                 <ArrowForward className={`text-white transition-transform absolute size-7 top-1/2 -translate-y-1/2 right-0 ${isClicked && "rotate-90"}`}/>  
             </li>
-            <li className="w-11/12 mx-auto overflow-hidden grid gap-0.5">{children}</li>     
+            <ul className="w-11/12 mx-auto overflow-hidden grid gap-0.5">{children}</ul>     
         </ul>
     )
 }

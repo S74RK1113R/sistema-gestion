@@ -1,9 +1,7 @@
-export default function Aside() {
+export default function Aside({children}) {
     return(
-        <aside className="w-full">
-            <div className="w-full h-full p-5">
-                Aside Render Content
-            </div>
+        <aside className="w-full h-[92vh] p-4 overflow-y-scroll scroll">
+            {children}    
         </aside>
     )
 }
