@@ -6,39 +6,39 @@ export default function Menu() {
     return(
         <menu className="bg-blue-300 w-full h-full p-2 overflow-y-scroll scroll">
             <ul className="flex flex-col gap-1 font-bold text-zinc-50 items-center text-center">
-                <Item>Usuarios</Item>
-                <Item>Disciplinas</Item>
-                <Item>Asignatura</Item>
-                
+                <Item href={"/usuarios"}>Usuarios</Item>
+                <Item href={"/disciplinas"}>Disciplinas</Item>
+                <Item href={"/asignaturas"}>Asignatura</Item>
+
                 <DropDownItem identification={"Evaluación anterior"}>
-                    <DropItem>Nivel acreditación</DropItem>
-                    <DropItem>Claustro</DropItem> 
-                    <DropItem>Eventos</DropItem>
-                    <DropItem>Publicaciones</DropItem>
-                    <DropItem>Resultado ejercicios integradores</DropItem>
-                    <DropItem>Investigación</DropItem>
-                    <DropItem>Existencia de posgrados</DropItem>
+                    <DropItem href={"/nivel_acreditacion"}>Nivel acreditación</DropItem>
+                    <DropItem href={"/claustro"}>Claustro</DropItem> 
+                    <DropItem href={"/eventos"}>Eventos</DropItem>
+                    <DropItem href={"/publicaciones"}>Publicaciones</DropItem>
+                    <DropItem href={"/resultado_ejercicios_integradores"}>Resultado ejercicios integradores</DropItem>
+                    <DropItem href={"/investigacion"}>Investigación</DropItem>
+                    <DropItem href={"/existencia_de_posgrado"}>Existencia de posgrados</DropItem>
                 </DropDownItem>
 
-                <Item>Profesor</Item>
-                <Item>Profesor principal</Item>
-                <Item>Premios profesor</Item>
+                <Item href={"/profesor"}>Profesor</Item>
+                <Item href={"/profesor_principal"}>Profesor principal</Item>
+                <Item href={"/premios_profesor"}>Premios profesor</Item>
                 
                 <DropDownItem identification={"Estudiantes"}>
-                    <DropItem>Proyecto de investigación del claustro</DropItem>
-                    <DropItem>Estudiantes investigando</DropItem>
-                    <DropItem>Profesores incorporados</DropItem>
-                    <DropItem>Matrícula</DropItem>
-                    <DropItem>Ayudantía</DropItem>
-                    <DropItem>Ejercicios integradores</DropItem>
+                    <DropItem href={"/proyecto_de_investigacion_del_claustro"}>Proyecto de investigación del claustro</DropItem>
+                    <DropItem href={"/estudiantes_investigando"}>Estudiantes investigando</DropItem>
+                    <DropItem href={"/profesores_incorporados"}>Profesores incorporados</DropItem>
+                    <DropItem href={"/matricula"}>Matrícula</DropItem>
+                    <DropItem href={"/ayudantia"}>Ayudantía</DropItem>
+                    <DropItem href={"/ejercicios_integradores"}>Ejercicios integradores</DropItem>
                 </DropDownItem>
-                
-                <Item>Premios estudiantes</Item>
-                <Item>Publicación</Item>
-                <Item>Total graduados</Item>
-                <Item>Promoción</Item>
-                <Item>Posgrado</Item>
-                <Item>Sede universitaria</Item>
+
+                <Item href={"/premios_estudiantes"}>Premios estudiantes</Item>
+                <Item href={"/publicacion"}>Publicación</Item>
+                <Item href={"/total_graudados"}>Total graduados</Item>
+                <Item href={"/promocion"}>Promoción</Item>
+                <Item href={"/posgrado"}>Posgrado</Item>
+                <Item href={"/sede_universitaria"}>Sede universitaria</Item>
 
                 <DropDownItem identification={"Reportes"}>
                     <DropItem>Reporte 1</DropItem>

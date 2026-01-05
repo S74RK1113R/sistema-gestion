@@ -1,6 +1,6 @@
-import AdminLayout from "../layouts/AdminLayout"
+import AdminLayout from "../../layouts/AdminLayout"
 
-export default function Disciplinas() {
+export default function Profesor() {
     return(
         <AdminLayout>
           {/*Renderizacion de contenido de tablas*/}
