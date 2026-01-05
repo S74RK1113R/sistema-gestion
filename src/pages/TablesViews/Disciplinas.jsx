@@ -1,11 +1,16 @@
 import AdminLayout from "../../layouts/AdminLayout"
-import Add from "../../components/Add"
+import DisciplinaItem from "../../components/getComponents/DisciplinaItem"
 
 export default function Disciplinas() {
     return(
         <AdminLayout>
           {/*Renderizacion de contenido de tablas*/}
-          <Add />
+
+          <div className="w-full flex flex-col gap-5 items-center justify-center">
+            <DisciplinaItem></DisciplinaItem>
+            <DisciplinaItem></DisciplinaItem>
+          </div>
+          
         </AdminLayout>
     )
 }

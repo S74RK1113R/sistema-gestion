@@ -5,7 +5,11 @@ export default function Asignaturas() {
     return(
         <AdminLayout>
           {/*Renderizacion de contenido de tablas*/}
-          <Add />
+
+          
+          <Add>
+            {/*Formulario de añadir asignaturas*/}
+          </Add>
         </AdminLayout>
     )
 }
