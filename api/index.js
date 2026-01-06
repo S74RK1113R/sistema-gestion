@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import router from './src/routes/usersRoutes.js';
 import asignaturasRouter from './src/routes/asignaturasRoutes.js';
 import ayudantiasRouter from './src/routes/ayudantiasRoutes.js';
@@ -30,7 +31,9 @@ import totalGraduadosRouter from './src/routes/totalGraduadosRoutes.js';
 const app = express();
 const  port = 3002;
 
+// habilitar CORS para permitir solicitudes desde el frontend (p. ej. http://localhost:5173)
 app.use(bodyParser.json());
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 //routes
 app.use('/api/users',router)
