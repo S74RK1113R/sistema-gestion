@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:5173' }));
 
 //routes
-app.use('/api/users',router)
+app.use('/api/usuarios',router)
 app.use('/api/asignaturas', asignaturasRouter)
 app.use('/api/ayudantias', ayudantiasRouter)
 app.use('/api/claustros', claustroRouter)

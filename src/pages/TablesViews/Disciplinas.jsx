@@ -25,7 +25,6 @@ export default function Disciplinas() {
         {/*Renderizacion de contenido de tablas*/}
         <div className="w-full flex flex-col gap-5 items-center justify-center">
           
-
           {data.map(item => (
             <DisciplinaItem nombre={item.nombre} codigo={item.codigo} id={item.id} key={item.id}/>
           ))}
