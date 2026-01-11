@@ -25,9 +25,7 @@ export default function Menu() {
                 <Item href={"/premios_profesor"}>Premios profesor</Item>
                 
                 <DropDownItem identification={"Estudiantes"}>
-                    <DropItem href={"/proyecto_de_investigacion_del_claustro"}>Proyecto de investigación del claustro</DropItem>
-                    <DropItem href={"/estudiantes_investigando"}>Estudiantes investigando</DropItem>
-                    <DropItem href={"/profesores_incorporados"}>Profesores incorporados</DropItem>
+                    <DropItem href={"/incorporacion_investigacion_cientifica"}>Incorporación a la investigación científica</DropItem>
                     <DropItem href={"/matricula"}>Matrícula</DropItem>
                     <DropItem href={"/ayudantia"}>Ayudantía</DropItem>
                     <DropItem href={"/ejercicios_integradores"}>Ejercicios integradores</DropItem>

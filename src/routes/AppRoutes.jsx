@@ -40,13 +40,11 @@ export default function AppRoutes() {
             <Route path ="/publicaciones" element={<Publicaciones/>}/>
             <Route path ="/resultado_ejercicios_integradores" element={<ResultadoEjerciciosIntegradores/>}/>
             <Route path ="/investigacion" element={<Investigacion/>}/>
-            <Route path ="/estudiantes_investigando" element={<EstudiantesInvestigando/>}/>
             <Route path ="/existencia_de_posgrado" element={<ExistenciaDePosgrado/>}/>
             <Route path ="/profesor" element={<Profesor/>}/>
             <Route path ="/profesor_principal" element={<ProfesorPrincipal/>}/>
             <Route path ="/premios_profesor" element={<PremiosProfesor/>}/>
-            <Route path ="/proyecto_de_investigacion_del_claustro" element={<ProyectoDeInvestigacionDeClaustro/>}/>
-            <Route path ="/profesores_incorporados" element={<ProfesoresIncroporados/>}/>
+            <Route path ="/incorporacion_investigacion_cientifica" element={<ProyectoDeInvestigacionDeClaustro/>}/>
             <Route path ="/matricula" element={<Matricula/>}/>
             <Route path ="/ayudantia" element={<Ayudantia/>}/>
             <Route path ="/ejercicios_integradores" element={<EjerciciosIntegradores/>}/>

@@ -1,0 +1,53 @@
+export default function ProfesorItem({primer_apellido,segundo_apellido,nombres, exp_educacion_superior,exp_carrera,lugar_procedencia,categoria_docente,funcion,consultante_emerito,grado_cientifico,doctor_esp_afin,asignatura_id,asignatura_id_2,asignatura_id_3,asignatura_id_4,asignatura_id_5,asignatura_id_6,participacion_posgrado,profesor_principal_año,sede_universitaria, id }) {
+    return(
+        <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+            <h1 className="font-bold">Nombre del profesor:</h1>
+            <div>{nombres}</div>
+            <h1 className="font-bold">Primer apellido del profesor:</h1>
+            <div>{primer_apellido}</div>
+            <h1 className="font-bold">Segundo apellido del profesor:</h1>
+            <div>{segundo_apellido}</div>
+            <h1 className="font-bold">Experiencia en la carrera:</h1>
+            <div>{exp_carrera}</div>
+            <h1 className="font-bold">Experiencia en la educación superior:</h1>
+            <div>{exp_educacion_superior}</div>
+            <h1 className="font-bold">Lugar de procedencia:</h1>
+            <div>{lugar_procedencia}</div>
+            <h1 className="font-bold">Categoria docente:</h1>
+            <div>{categoria_docente}</div>
+            <h1 className="font-bold">Funcion que realiza:</h1>
+            <div>{funcion}</div>
+            <h1 className="font-bold">Consultante o emerito</h1>
+            <div>{consultante_emerito}</div>
+            <h1 className="font-bold">Grado científico</h1>
+            <div>{grado_cientifico}</div>
+            <h1 className="font-bold">Doctor o especialidad afin:</h1>
+            <div>{doctor_esp_afin}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id_2}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id_3}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id_4}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id_5}</div>
+            <h1 className="font-bold">Asignatura que imparte:</h1>
+            <div>{asignatura_id_6}</div>
+            <h1 className="font-bold">Participación en posgrado</h1>
+            <div>{participacion_posgrado}</div>
+            <h1 className="font-bold">Profesor principal de año:</h1>
+            <div>{profesor_principal_año}</div>
+            <h1 className="font-bold">Sede universitaria:</h1>
+            <div>{sede_universitaria}</div>
+
+           
+
+            <div className="flex flex-row gap-4 mt-4">
+                <button data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
+                <button data-id={id} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
+            </div>
+        </div>
+    )
+}
