@@ -1,4 +1,14 @@
-export default function DisciplinaItem({nombre,codigo, id }) {
+
+export default function DisciplinaItem({nombre,codigo, id}) {
+
+    function deleteItem (id){
+        const url = `http://localhost:3002/api/disciplinas/${id}`
+
+        fetch(url, {
+        method: "DELETE",
+        })
+    }
+
     return(
         <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
             <h1 className="font-bold">Nombre de disciplina:</h1>

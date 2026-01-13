@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { UserContext } from "./UserContextVariables"
+import { createContext, useContext } from "react"
+
+const UserContext = createContext(null)
 
 export default function UserContextProvider({children}) {
     const [isAdmin, setIsAdmin] = useState()
@@ -12,3 +14,4 @@ export default function UserContextProvider({children}) {
     )
 }
 
+export const useUser = ()=> useContext(UserContext)
