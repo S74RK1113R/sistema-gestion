@@ -1,7 +1,7 @@
-import { eventosModel } from '../models/eventosModel.js';
+import { eventosAnteriorModel } from '../models/eventosAnteriorModel.js';
 
 export function getEventos(req, res) {
-    eventosModel.getEventos((err, result) => {
+    eventosAnteriorModel.getEventosAnterior((err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -12,9 +12,11 @@ export function getEventos(req, res) {
 }
 
 export function postEventos(req, res) {
-   const { año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5 } = req.body;
+    const nacionalInternacional = req.body['nacional/internacional'] ?? req.body.nacional_internacional ?? req.body.nacionalInternacional ?? null;
+    const total = req.body.total ?? null;
+    const anioEvaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? req.body.anioEvaluacion ?? null;
 
-    eventosModel.postEventos(año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5, (err, result) => {
+    eventosAnteriorModel.postEventosAnterior(nacionalInternacional, total, anioEvaluacion, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -26,10 +28,11 @@ export function postEventos(req, res) {
 
 export function putEventos(req, res) {
     const { id } = req.params;
-    const { año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5 } = req.body;
+    const nacionalInternacional = req.body['nacional/internacional'] ?? req.body.nacional_internacional ?? req.body.nacionalInternacional ?? null;
+    const total = req.body.total ?? null;
+    const anioEvaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? req.body.anioEvaluacion ?? null;
 
-    eventosModel.putEventos(año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5, id, (err, result) => {
-        
+    eventosAnteriorModel.putEventosAnterior(id, nacionalInternacional, total, anioEvaluacion, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -46,7 +49,7 @@ export function putEventos(req, res) {
 
 export function deleteEventos(req, res) {
     const { id } = req.params;
-    eventosModel.deleteEventos(id, (err, result) => {
+    eventosAnteriorModel.deleteEventosAnterior(id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

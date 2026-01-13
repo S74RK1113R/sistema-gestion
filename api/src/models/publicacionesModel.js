@@ -6,9 +6,9 @@ class Publicaciones {
         query(sql, callback);
     }
 
-    postPublicacion(grupos1_4, total, anio_evaluacion, callback) {
-        const sql = 'INSERT INTO publicaciones (grupos1_4, `total`, `año_evaluacion`) VALUES (?, ?, ?)';
-        const values = [grupos1_4, total, anio_evaluacion];
+    postPublicacion(grupos1_4, grupos_1_2, total, anio_evaluacion, callback) {
+        const sql = 'INSERT INTO publicaciones (grupos1_4, grupos_1_2, total, año_evaluacion) VALUES (?,?,?,?)';
+        const values = [grupos1_4,grupos_1_2,total, anio_evaluacion];
 
         query(sql, values, (err, result) => {
             if (err) return callback(err, null);
@@ -16,9 +16,9 @@ class Publicaciones {
         });
     }
 
-    putPublicacion(id, grupos1_4, total, anio_evaluacion, callback) {
-        const sql = 'UPDATE publicaciones SET grupos1_4=?, `total`=?, `año_evaluacion`=? WHERE id=?';
-        const values = [grupos1_4, total, anio_evaluacion, id];
+    putPublicacion(id, grupos1_4, grupos_1_2, total, anio_evaluacion, callback) {
+        const sql = 'UPDATE publicaciones SET grupos1_4=?, grupos_1_2=?, total=?, año_evaluacion=? WHERE id=?';
+        const values = [grupos1_4, grupos_1_2, total, anio_evaluacion, id];
         query(sql, values, callback);
     }
 

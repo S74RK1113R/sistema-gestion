@@ -1,7 +1,7 @@
-import { usersModel } from '../models/usuarioModel.js';
+import { usuarioModel } from '../models/usuarioModel.js';
 
 export function getUsers(req, res) {
-    usersModel.getUsers((err, result) => {
+    usuarioModel.getUsers((err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -14,7 +14,7 @@ export function getUsers(req, res) {
 export function postUsers(req, res) {
     const { usuario, contraseña: contrasena, nombres, primer_apellido, segundo_apellido } = req.body;
 
-    usersModel.postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, (err, result) => {
+    usuarioModel.postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -27,7 +27,7 @@ export function postUsers(req, res) {
 export function putUsers(req, res) {
     const { id } = req.params;
     const { usuario, contraseña, nombres, primer_apellido, segundo_apellido } = req.body;
-    usersModel.putUsers(id, usuario, contraseña, nombres, primer_apellido, segundo_apellido, (err, result) => {
+    usuarioModel.putUsers(id, usuario, contraseña, nombres, primer_apellido, segundo_apellido, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -45,7 +45,7 @@ export function putUsers(req, res) {
 
 export function deleteUsers(req, res) {
     const { id } = req.params;
-    usersModel.deleteUsers(id, (err, result) => {
+    usuarioModel.deleteUsers(id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

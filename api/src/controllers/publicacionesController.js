@@ -12,10 +12,11 @@ export function getPublicaciones(req, res) {
 
 export function postPublicacion(req, res) {
     const grupos1_4 = req.body.grupos1_4 ?? req.body.grupos_1_4 ?? req.body.grupos ?? null;
+    const grupos_1_2 = req.body.grupos_1_2;
     const total = req.body.total ?? null;
     const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
 
-    publicacionesModel.postPublicacion(grupos1_4, total, anio_evaluacion, (err, result) => {
+    publicacionesModel.postPublicacion(grupos1_4,grupos_1_2, total, anio_evaluacion, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -27,10 +28,11 @@ export function postPublicacion(req, res) {
 export function putPublicacion(req, res) {
     const { id } = req.params;
     const grupos1_4 = req.body.grupos1_4 ?? req.body.grupos_1_4 ?? req.body.grupos ?? null;
+    const grupos_1_2 =  req.body.grupos_1_2;
     const total = req.body.total ?? null;
     const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
 
-    publicacionesModel.putPublicacion(id, grupos1_4, total, anio_evaluacion, (err, result) => {
+    publicacionesModel.putPublicacion(id, grupos1_4, grupos_1_2, total, anio_evaluacion, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

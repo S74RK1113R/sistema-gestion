@@ -1,14 +1,13 @@
 import AdminLayout from "../../layouts/AdminLayout";
 import Add from "../../components/Add";
 import { useEffect, useState } from "react";
-import ClaustroItem from "../../components/getComponents/ClaustroItem";
-
-export default function Claustro() {
+import EventosAnteriorItem from "../../components/getComponents/EventosAnteriorItem";
+export default function EventosAnterior() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [data, setData] = useState([]);
 
-  const url = "http://localhost:3002/api/claustros";
+  const url = "http://localhost:3002/api/eventos_anterior";
 
   useEffect(() => {
     fetch(url)
@@ -25,20 +24,13 @@ export default function Claustro() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
-      {data.map((item) => (
-        console.log(item),
-        <ClaustroItem
-          año_evaluacion={item.año_evaluacion}
-          drc={item.drc}
-          drc_afin={item.drc_afin}
-          drc_equivalentes={item.drc_equivalentes}
-          id={item.id}
-          mc_equivalentes={item.mc_equivalentes}
-          pt_pa={item.pt_pa}
-          total_claustro={item.total_claustro}
-          key={item.id}
-        />
-      ))}
+
+        {
+            data.map((item) => (
+              <EventosAnteriorItem nacional_internacional={item.nacional_internacional} año_evaluacion={item.año_evaluacion} id={item.id} total={item.total} 
+              key={item.id}/>
+            ))
+        }
 
       <Add />
     </AdminLayout>

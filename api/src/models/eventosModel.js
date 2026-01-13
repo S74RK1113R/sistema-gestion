@@ -1,14 +1,17 @@
 import { query } from '../config/dbConfig.js';
 
+
 class Eventos {
     getEventos(callback) {
         const sql = 'SELECT * FROM eventos';
         query(sql, callback);
     }
 
-    postEventos(nacionalInternacional, total, anioEvaluacion, callback) {
-        const sql = 'INSERT INTO eventos (`nacional/internacional`, `total`, `año_evaluacion`) VALUES (?, ?, ?)';
-        const values = [nacionalInternacional, total, anioEvaluacion];
+    postEventos(año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5 ,callback) {
+
+        const sql = 'INSERT INTO eventos (año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+        const values = [año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5];
 
         query(sql, values, (err, result) => {
             if (err) return callback(err, null);
@@ -16,9 +19,12 @@ class Eventos {
         });
     }
 
-    putEventos(id, nacionalInternacional, total, anioEvaluacion, callback) {
-        const sql = 'UPDATE eventos SET `nacional/internacional`=?, `total`=?, `año_evaluacion`=? WHERE id=?';
-        const values = [nacionalInternacional, total, anioEvaluacion, id];
+    putEventos(año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5 ,id, callback) {
+
+        const sql = 'UPDATE eventos SET año=?, titulo=?, nombre_evento=?, clasificacion=?, profesor_id=?, profesor_autor_id2=?, profesor_autor_id3=?, profesor_autor_id4=?, profesor_autor_id5=? WHERE id=?';
+
+        const values = [año, titulo, nombre_evento, clasificacion, profesor_id, profesor_autor_id2, profesor_autor_id3, profesor_autor_id4, profesor_autor_id5, id];
+        
         query(sql, values, callback);
     }
 

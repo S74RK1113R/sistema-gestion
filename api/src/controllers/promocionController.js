@@ -11,15 +11,34 @@ export function getPromociones(req, res) {
 }
 
 export function postPromociones(req, res) {
-    const anio_academico = req.body['año_academico'] ?? req.body.anio_academico ?? null;
-    const mie = req.body.mie ?? null;
-    const aprobados_limpios = req.body['aprobados limpios'] ?? req.body.aprobados_limpios ?? req.body.aprobadosLimpios ?? null;
-    const aprobados_con_1 = req.body['aprobados con 1'] ?? req.body.aprobados_con_1 ?? req.body.aprobadosCon1 ?? null;
-    const aprobados_con_2 = req.body['aprobados con 2'] ?? req.body.aprobados_con_2 ?? req.body.aprobadosCon2 ?? null;
-    const bajas = req.body.bajas ?? null;
-    const curso_id = req.body.curso_id ?? req.body.cursoId ?? null;
+    const mie_1er_año = req.body.mie_1er_año; 
+    const mie_2do_año = req.body.mie_2do_año;
+    const mie_3er_año = req.body.mie_3er_año;
+    const mie_4to_año = req.body.mie_3er_año;
+    const mie_5to_año = req.body.mie_5to_año;
+    const aprobados_limpios_1er_año = req.body.aprobados_con_1_1er_año;
+    const aprobados_limpios_2do_año = req.body.aprobados_limpios_2do_año;
+    const aprobados_limpios_3er_año = req.body.aprobados_limpios_3er_año;
+    const aprobados_limpios_4to_año = req.body.aprobados_con_1_4to_año;
+    const aprobados_limpios_5to_año = req.body.aprobados_con_1_5to_año;
+    const aprobados_con_2_1er_año = req.body.aprobados_con_2_1er_año;
+    const aprobados_con_2_2do_año = req.body.aprobados_con_2_2do_año;
+    const aprobados_con_2_3er_año = req.body.aprobados_con_2_3er_año;
+    const aprobados_con_2_4to_año = req.body.aprobados_con_2_4to_año;
+    const aprobados_con_2_5to_año = req.body.aprobados_con_2_5to_año;
+    const aprobados_con_1_1er_año = req.body.aprobados_con_1_1er_año;
+    const aprobados_con_1_2do_año = req.body.aprobados_con_1_2do_año;
+    const aprobados_con_1_3er_año = req.body.aprobados_con_1_3er_año;
+    const aprobados_con_1_4to_año = req.body.aprobados_con_1_4to_año;
+    const aprobados_con_1_5to_año = req.body.aprobados_con_1_5to_año;
+    const bajas_1er_año = req.body.bajas_1er_año;
+    const bajas_2do_año = req.body.bajas_2do_año;
+    const bajas_3er_año = req.body.bajas_3er_año;
+    const bajas_4to_año = req.body.bajas_4to_año;
+    const bajas_5to_año = req.body.bajas_5to_año;
+    const curso_id =  req.body.curso_id;
 
-    promocionModel.postPromociones(anio_academico, mie, aprobados_limpios, aprobados_con_1, aprobados_con_2, bajas, curso_id, (err, result) => {
+    promocionModel.postPromociones(mie_1er_año, mie_2do_año, mie_3er_año, mie_4to_año, mie_5to_año, aprobados_limpios_1er_año, aprobados_limpios_2do_año, aprobados_limpios_3er_año, aprobados_limpios_4to_año, aprobados_limpios_5to_año, aprobados_con_2_1er_año, aprobados_con_2_2do_año, aprobados_con_2_3er_año, aprobados_con_2_4to_año, aprobados_con_2_5to_año, aprobados_con_1_1er_año, aprobados_con_1_2do_año, aprobados_con_1_3er_año, aprobados_con_1_4to_año, aprobados_con_1_5to_año, bajas_1er_año, bajas_2do_año, bajas_3er_año, bajas_4to_año, bajas_5to_año, curso_id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -29,16 +48,40 @@ export function postPromociones(req, res) {
 }
 
 export function putPromociones(req, res) {
-    const { id } = req.params;
-    const anio_academico = req.body['año_academico'] ?? req.body.anio_academico ?? null;
-    const mie = req.body.mie ?? null;
-    const aprobados_limpios = req.body['aprobados limpios'] ?? req.body.aprobados_limpios ?? req.body.aprobadosLimpios ?? null;
-    const aprobados_con_1 = req.body['aprobados con 1'] ?? req.body.aprobados_con_1 ?? req.body.aprobadosCon1 ?? null;
-    const aprobados_con_2 = req.body['aprobados con 2'] ?? req.body.aprobados_con_2 ?? req.body.aprobadosCon2 ?? null;
-    const bajas = req.body.bajas ?? null;
-    const curso_id = req.body.curso_id ?? req.body.cursoId ?? null;
+    const {id} = req.params;
+    const mie_1er_año = req.body.mie_1er_año; 
+    const mie_2do_año = req.body.mie_2do_año;
+    const mie_3er_año = req.body.mie_3er_año;
+    const mie_4to_año = req.body.mie_4to_año;
+    const mie_5to_año = req.body.mie_5to_año;
 
-    promocionModel.putPromociones(id, anio_academico, mie, aprobados_limpios, aprobados_con_1, aprobados_con_2, bajas, curso_id, (err, result) => {
+    const aprobados_limpios_1er_año = req.body.aprobados_limpios_1er_año;
+    const aprobados_limpios_2do_año = req.body.aprobados_limpios_2do_año;
+    const aprobados_limpios_3er_año = req.body.aprobados_limpios_3er_año;
+    const aprobados_limpios_4to_año = req.body.aprobados_limpios_4to_año;
+    const aprobados_limpios_5to_año = req.body.aprobados_limpios_5to_año;
+
+    const aprobados_con_2_1er_año = req.body.aprobados_con_2_1er_año;
+    const aprobados_con_2_2do_año = req.body.aprobados_con_2_2do_año;
+    const aprobados_con_2_3er_año = req.body.aprobados_con_2_3er_año;
+    const aprobados_con_2_4to_año = req.body.aprobados_con_2_4to_año;
+    const aprobados_con_2_5to_año = req.body.aprobados_con_2_5to_año;
+
+    const aprobados_con_1_1er_año = req.body.aprobados_con_1_1er_año;
+    const aprobados_con_1_2do_año = req.body.aprobados_con_1_2do_año;
+    const aprobados_con_1_3er_año = req.body.aprobados_con_1_3er_año;
+    const aprobados_con_1_4to_año = req.body.aprobados_con_1_4to_año;
+    const aprobados_con_1_5to_año = req.body.aprobados_con_1_5to_año;
+
+    const bajas_1er_año = req.body.bajas_1er_año;
+    const bajas_2do_año = req.body.bajas_2do_año;
+    const bajas_3er_año = req.body.bajas_3er_año;
+    const bajas_4to_año = req.body.bajas_4to_año;
+    const bajas_5to_año = req.body.bajas_5to_año;
+
+    const curso_id =  req.body.curso_id;
+
+    promocionModel.putPromociones(mie_1er_año, mie_2do_año, mie_3er_año, mie_4to_año, mie_5to_año, aprobados_limpios_1er_año, aprobados_limpios_2do_año, aprobados_limpios_3er_año, aprobados_limpios_4to_año, aprobados_limpios_5to_año, aprobados_con_2_1er_año, aprobados_con_2_2do_año, aprobados_con_2_3er_año, aprobados_con_2_4to_año, aprobados_con_2_5to_año, aprobados_con_1_1er_año, aprobados_con_1_2do_año, aprobados_con_1_3er_año, aprobados_con_1_4to_año, aprobados_con_1_5to_año, bajas_1er_año, bajas_2do_año, bajas_3er_año, bajas_4to_año, bajas_5to_año, curso_id, id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -54,7 +97,8 @@ export function putPromociones(req, res) {
 }
 
 export function deletePromociones(req, res) {
-    const { id } = req.params;
+    const {id} = req.params;
+
     promocionModel.deletePromociones(id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });

@@ -1,0 +1,29 @@
+{
+    "institucional": "institucional",
+    "nacional": "nacional",
+    "internacional": "internacional",
+    "cantidad_profesores_incorporados": 10,
+    "estudiantes_investigando_1er_año": 5,
+    "estudiantes_investigando_2do_año": 3,
+    "estudiantes_investigando_3er_año": 2,
+    "estudiantes_investigando_4to_año": 1,
+    "estudiantes_investigando_5to_año": 0,
+    "año_evaluacion": 2023
+}
+
+{
+    "nacional_internacional": 50,
+    "total": 10,
+    "año_evaluacion": 2023
+}
+{
+    "año": 2025,
+    "titulo": "titulo",
+    "nombre_evento": "nombre_evento",
+    "clasificacion": "clasificacion",
+    "profesor_id": 1,
+    "profesor_autor_id2": 2,
+    "profesor_autor_id3": 3,
+    "profesor_autor_id4": 4,
+    "profesor_autor_id5": 5
+}

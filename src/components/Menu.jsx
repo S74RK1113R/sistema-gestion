@@ -13,7 +13,7 @@ export default function Menu() {
                 <DropDownItem identification={"Evaluación anterior"}>
                     <DropItem href={"/nivel_acreditacion"}>Nivel acreditación</DropItem>
                     <DropItem href={"/claustro"}>Claustro</DropItem> 
-                    <DropItem href={"/eventos"}>Eventos</DropItem>
+                    <DropItem href={"/eventos_anterior"}>Eventos</DropItem>
                     <DropItem href={"/publicaciones"}>Publicaciones</DropItem>
                     <DropItem href={"/resultado_ejercicios_integradores"}>Resultado ejercicios integradores</DropItem>
                     <DropItem href={"/investigacion"}>Investigación</DropItem>
@@ -23,6 +23,7 @@ export default function Menu() {
                 <Item href={"/profesor"}>Profesor</Item>
                 <Item href={"/profesor_principal"}>Profesor principal</Item>
                 <Item href={"/premios_profesor"}>Premios profesor</Item>
+                <Item href={"/eventos"}>Eventos</Item>
                 
                 <DropDownItem identification={"Estudiantes"}>
                     <DropItem href={"/incorporacion_investigacion_cientifica"}>Incorporación a la investigación científica</DropItem>

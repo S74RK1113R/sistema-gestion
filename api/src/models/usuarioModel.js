@@ -1,6 +1,6 @@
 import { query } from '../config/dbConfig.js';
 
-class Users {
+class Usuario{
     getUsers(callback) {
         const sql = 'SELECT * FROM usuario';
         query(sql, callback);
@@ -31,4 +31,4 @@ class Users {
 
 }
 
-export const usersModel = new Users();
+export const usuarioModel = new Usuario();

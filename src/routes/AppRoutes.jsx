@@ -5,7 +5,7 @@ import Disciplinas from "../pages/TablesViews/Disciplinas";
 import Asignaturas from "../pages/TablesViews/Asignaturas";
 import NivelAcreditacion from "../pages/TablesViews/NivelAcreditacion";
 import Claustro from "../pages/TablesViews/Claustro";
-import Eventos from "../pages/TablesViews/Eventos";
+import EventosAnterior from "../pages/TablesViews/EventosAnterior";
 import Publicaciones from "../pages/TablesViews/Publicaciones";
 import ResultadoEjerciciosIntegradores from "../pages/TablesViews/ResultadoEjerciciosIntegradores";
 import Investigacion from "../pages/TablesViews/Investigacion";
@@ -14,7 +14,6 @@ import Profesor from "../pages/TablesViews/Profesor";
 import ProfesorPrincipal from "../pages/TablesViews/ProfesorPrincipal";
 import PremiosProfesor from "../pages/TablesViews/PremiosProfesor";
 import ProyectoDeInvestigacionDeClaustro from "../pages/TablesViews/ProyectoDeInvestigacionDeClaustro";
-import ProfesoresIncroporados from "../pages/TablesViews/ProfesoresIncroporados";
 import Matricula from "../pages/TablesViews/Matricula";
 import Ayudantia from "../pages/TablesViews/Ayudantia";
 import EjerciciosIntegradores from "../pages/TablesViews/EjerciciosIntegradores";
@@ -25,7 +24,6 @@ import Promocion from "../pages/TablesViews/Promocion";
 import Prosgrado from "../pages/TablesViews/Prosgrado";
 import SedeUniversitaria from "../pages/TablesViews/SedeUniversitaria";
 import Usuarios from "../pages/TablesViews/Usuarios";
-import EstudiantesInvestigando from "../pages/TablesViews/EstudiantesInvestigando";
 
 export default function AppRoutes() {
     return(
@@ -36,7 +34,7 @@ export default function AppRoutes() {
             <Route path ="/asignaturas" element={<Asignaturas/>}/>
             <Route path ="/nivel_acreditacion" element={<NivelAcreditacion/>}/>
             <Route path ="/claustro" element={<Claustro/>}/>
-            <Route path ="/eventos" element={<Eventos/>}/>
+            <Route path ="/eventos_anterior" element={<EventosAnterior/>}/>
             <Route path ="/publicaciones" element={<Publicaciones/>}/>
             <Route path ="/resultado_ejercicios_integradores" element={<ResultadoEjerciciosIntegradores/>}/>
             <Route path ="/investigacion" element={<Investigacion/>}/>

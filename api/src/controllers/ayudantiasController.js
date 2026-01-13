@@ -12,11 +12,9 @@ export function getAyudantias(req, res) {
 }
 
 export function postAyudantias(req, res) {
-    const { educacion_superior, educacion_media } = req.body;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
-    const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
+    const { educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion } = req.body;
 
-    ayudantiasModel.postAyudantias(anio, educacion_superior, educacion_media, anio_evaluacion, (err, result) => {
+    ayudantiasModel.postAyudantias(educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -27,12 +25,12 @@ export function postAyudantias(req, res) {
 }
 
 export function putAyudantias(req, res) {
-    const { id } = req.params;
-    const { educacion_superior, educacion_media } = req.body;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
-    const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
+    const {id} = req.params
 
-    ayudantiasModel.putAyudantias(id, anio, educacion_superior, educacion_media, anio_evaluacion, (err, result) => {
+    const { educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion } = req.body;
+
+    ayudantiasModel.putAyudantias(educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion, id, (err, result) => {
+
         if (err) {
             res.status(500).json({ error: err.message });
             return;

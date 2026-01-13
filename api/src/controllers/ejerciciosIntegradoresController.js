@@ -12,16 +12,10 @@ export function getEjercicios(req, res) {
 }
 
 export function postEjercicios(req, res) {
-    const matricula = req.body.matricula ?? null;
-    const evaluados = req.body.evaluados ?? null;
-    const con_2 = req.body.con_2 ?? req.body['con-2'] ?? null;
-    const con_3 = req.body.con_3 ?? req.body['con-3'] ?? null;
-    const con_4 = req.body.con_4 ?? req.body['con-4'] ?? null;
-    const con_5 = req.body.con_5 ?? req.body['con-5'] ?? null;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
-    const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
+    const { matricula_2do_año, matricula_3er_año, matricula_4to_año, matricula_5to_año, evaluados_2do_año, evaluados_3er_año, evaluados_4to_año, evaluados_5to_año, con_2_2do_año, con_2_3er_año, con_2_4to_año, con_2_5to_año, con_3_2do_año, con_3_3er_año, con_3_4to_año, con_3_5to_año, con_4_2do_año, con_4_3er_año, con_4_4to_año, con_4_5to_año, con_5_2do_año, con_5_3er_año, con_5_4to_año, con_5_5to_año, año_evaluacion } = req.body;
 
-    ejerciciosIntegradoresModel.postEjercicios(anio, matricula, evaluados, con_2, con_3, con_4, con_5, anio_evaluacion, (err, result) => {
+    ejerciciosIntegradoresModel.postEjercicios(matricula_2do_año, matricula_3er_año, matricula_4to_año, matricula_5to_año, evaluados_2do_año, evaluados_3er_año, evaluados_4to_año, evaluados_5to_año, con_2_2do_año, con_2_3er_año, con_2_4to_año, con_2_5to_año, con_3_2do_año, con_3_3er_año, con_3_4to_año, con_3_5to_año, con_4_2do_año, con_4_3er_año, con_4_4to_año, con_4_5to_año, con_5_2do_año, con_5_3er_año, con_5_4to_año, con_5_5to_año, año_evaluacion, (err, result) => {
+
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -33,16 +27,9 @@ export function postEjercicios(req, res) {
 
 export function putEjercicios(req, res) {
     const { id } = req.params;
-    const matricula = req.body.matricula ?? null;
-    const evaluados = req.body.evaluados ?? null;
-    const con_2 = req.body.con_2 ?? req.body['con-2'] ?? null;
-    const con_3 = req.body.con_3 ?? req.body['con-3'] ?? null;
-    const con_4 = req.body.con_4 ?? req.body['con-4'] ?? null;
-    const con_5 = req.body.con_5 ?? req.body['con-5'] ?? null;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
-    const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
+    const { matricula_2do_año, matricula_3er_año, matricula_4to_año, matricula_5to_año, evaluados_2do_año, evaluados_3er_año, evaluados_4to_año, evaluados_5to_año, con_2_2do_año, con_2_3er_año, con_2_4to_año, con_2_5to_año, con_3_2do_año, con_3_3er_año, con_3_4to_año, con_3_5to_año, con_4_2do_año, con_4_3er_año, con_4_4to_año, con_4_5to_año, con_5_2do_año, con_5_3er_año, con_5_4to_año, con_5_5to_año, año_evaluacion } = req.body;
 
-    ejerciciosIntegradoresModel.putEjercicios(id, anio, matricula, evaluados, con_2, con_3, con_4, con_5, anio_evaluacion, (err, result) => {
+    ejerciciosIntegradoresModel.putEjercicios(id, matricula_2do_año, matricula_3er_año, matricula_4to_año, matricula_5to_año, evaluados_2do_año, evaluados_3er_año, evaluados_4to_año, evaluados_5to_año, con_2_2do_año, con_2_3er_año, con_2_4to_año, con_2_5to_año, con_3_2do_año, con_3_3er_año, con_3_4to_año, con_3_5to_año, con_4_2do_año, con_4_3er_año, con_4_4to_año, con_4_5to_año, con_5_2do_año, con_5_3er_año, con_5_4to_año, con_5_5to_año, año_evaluacion, (err,result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

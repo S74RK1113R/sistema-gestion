@@ -6,9 +6,11 @@ class Ayudantias {
         query(sql, callback);
     }
 
-    postAyudantias(anio, educacion_superior, educacion_media, anio_evaluacion, callback) {
-        const sql = 'INSERT INTO ayudantia (`año`, `educacion_superior`, `educacion_media`, `año_evaluacion`) VALUES (?, ?, ?, ?)';
-        const values = [anio, educacion_superior, educacion_media, anio_evaluacion];
+    postAyudantias(educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion, callback) {
+
+        const sql = 'INSERT INTO ayudantia ( `educacion_superior_1er_año`, `educacion_superior_2do_año`, `educacion_superior_3er_año`, `educacion_superior_4to_año`, `educacion_superior_5to_año`, `educacion_media_1er_año`, `educacion_media_2do_año`, `educacion_media_3er_año`, `educacion_media_4to_año`, `educacion_media_5to_año`, `año_evaluacion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+        const values = [educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion];
 
         query(sql, values, (err, result) => {
             if (err) return callback(err, null);
@@ -16,9 +18,12 @@ class Ayudantias {
         });
     }
 
-    putAyudantias(id, anio, educacion_superior, educacion_media, anio_evaluacion, callback) {
-        const sql = 'UPDATE ayudantia SET `año`=?, educacion_superior=?, educacion_media=?, `año_evaluacion`=? WHERE id=?';
-        const values = [anio, educacion_superior, educacion_media, anio_evaluacion, id];
+    putAyudantias(educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion, id, callback) {
+
+        const sql = 'UPDATE ayudantia SET `educacion_superior_1er_año`=?, `educacion_superior_2do_año`=?, `educacion_superior_3er_año`=?, `educacion_superior_4to_año`=?, `educacion_superior_5to_año`=?, `educacion_media_1er_año`=?, `educacion_media_2do_año`=?, `educacion_media_3er_año`=?, `educacion_media_4to_año`=?, `educacion_media_5to_año`=?, `año_evaluacion`=? WHERE id=?';
+
+        const values = [educacion_superior_1er_año, educacion_superior_2do_año, educacion_superior_3er_año, educacion_superior_4to_año, educacion_superior_5to_año, educacion_media_1er_año, educacion_media_2do_año, educacion_media_3er_año, educacion_media_4to_año, educacion_media_5to_año, año_evaluacion, id];
+        
         query(sql, values, callback);
     }
 
