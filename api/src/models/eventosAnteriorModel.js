@@ -7,7 +7,7 @@ class EventosAnterior {
     }
 
     postEventosAnterior(nacionalInternacional, total, anioEvaluacion, callback) {
-        const sql = 'INSERT INTO eventos_anterior (`nacional/internacional`, `total`, `año_evaluacion`) VALUES (?, ?, ?)';
+        const sql = 'INSERT INTO eventos_anterior (`nacional_internacional`, `total`, `año_evaluacion`) VALUES (?, ?, ?)';
         const values = [nacionalInternacional, total, anioEvaluacion];
 
         query(sql, values, (err, result) => {
@@ -17,7 +17,7 @@ class EventosAnterior {
     }
 
     putEventosAnterior(id, nacionalInternacional, total, anioEvaluacion, callback) {
-        const sql = 'UPDATE eventos_anterior SET `nacional/internacional`=?, `total`=?, `año_evaluacion`=? WHERE id=?';
+        const sql = 'UPDATE eventos_anterior SET `nacional_internacional`=?, `total`=?, `año_evaluacion`=? WHERE id=?';
         const values = [nacionalInternacional, total, anioEvaluacion, id];
         query(sql, values, callback);
     }

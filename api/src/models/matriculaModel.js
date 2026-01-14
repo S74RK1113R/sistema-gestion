@@ -7,7 +7,7 @@ class Matriculas {
     }
 
     postMatriculas(primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, callback) {
-        const sql = 'INSERT INTO matricula (`1er_año`, `2do_año`, `3er_año`, `4to_año`, `5to_añol`, `año_evaluacion`) VALUES (?, ?, ?, ?, ?, ?)';
+        const sql = 'INSERT INTO matricula (`p1er_año`, `s2do_año`, `t3er_año`, `c4to_año`, `q5to_año`, `año_evaluacion`) VALUES (?, ?, ?, ?, ?, ?)';
         const values = [primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion];
 
         query(sql, values, (err, result) => {
@@ -17,7 +17,7 @@ class Matriculas {
     }
 
     putMatriculas(id, primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, callback) {
-        const sql = 'UPDATE matricula SET `1er_año`=?, `2do_año`=?, `3er_año`=?, `4to_año`=?, `5to_añol`=?, `año_evaluacion`=? WHERE id=?';
+        const sql = 'UPDATE matricula SET `p1er_año`=?, `s2do_año`=?, `t3er_año`=?, `c4to_año`=?, `q5to_año`=?, `año_evaluacion`=? WHERE id=?';
         const values = [primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, id];
         query(sql, values, callback);
     }

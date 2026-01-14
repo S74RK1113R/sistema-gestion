@@ -1,6 +1,21 @@
+import { tableUse } from "../../context/TablesContext"
+
 export default function ProfesorItem({primer_apellido,segundo_apellido,nombres, exp_educacion_superior,exp_carrera,lugar_procedencia,categoria_docente,funcion,consultante_emerito,grado_cientifico,doctor_esp_afin,asignatura_id,asignatura_id_2,asignatura_id_3,asignatura_id_4,asignatura_id_5,asignatura_id_6,participacion_posgrado,profesor_principal_año,sede_universitaria, id }) {
+    const {setProfesor, setDel, del} = tableUse()
+
+    function deleteItem (id){
+        const url = `http://localhost:3002/api/profesor/${id}`
+        setDel(!del)
+        fetch(url, {
+        method: "DELETE",
+        })
+        .then((response) => response.json())
+        .then((json) => setProfesor(json.data || []))
+    }
+
+    
     return(
-        <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+        <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
             <h1 className="font-bold">Nombre del profesor:</h1>
             <div>{nombres}</div>
             <h1 className="font-bold">Primer apellido del profesor:</h1>
@@ -45,7 +60,7 @@ export default function ProfesorItem({primer_apellido,segundo_apellido,nombres, 
            
 
             <div className="flex flex-row gap-4 mt-4">
-                <button data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
+                <button onClick={()=>deleteItem(id)} data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
                 <button data-id={id} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
             </div>
         </div>

@@ -1,6 +1,21 @@
+import { tableUse } from "../../context/TablesContext"
+
 export default function DisciplinaItem({ nombre, codigo, disciplinas_id, intranet, bibliografia, año, periodo, modalidad,curriculo, id }) {
+     const {setAsignatura,del,setDel} = tableUse()
+    
+        function deleteItem (id){
+            const url = `http://localhost:3002/api/asignaturas/${id}`
+            setDel(!del)
+            
+            fetch(url, {
+            method: "DELETE",
+            })
+            .then((response) => response.json())
+            .then((json) => setAsignatura(json.data || []))
+        }
+
     return(
-        <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+        <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg mb-5">
             <h1 className="font-bold">Nombre de asignatura:</h1>
             <div>{nombre}</div>
             <h1 className="font-bold">Codigo de asignatura:</h1>
@@ -21,7 +36,7 @@ export default function DisciplinaItem({ nombre, codigo, disciplinas_id, intrane
             <div>{curriculo}</div>
 
             <div className="flex flex-row gap-4 mt-4">
-                <button data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
+                <button onClick={()=>{deleteItem(id)}} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
                 <button data-id={id} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
             </div>
         </div>

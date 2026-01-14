@@ -1,21 +1,21 @@
 import AdminLayout from "../../layouts/AdminLayout"
-import DisciplinaItem from "../../components/getComponents/DisciplinaItem"
 import Add from "../../components/Add"
 import { useState,useEffect } from "react"
 import { tableUse } from "../../context/TablesContext"
+import CursoItem from "../../components/getComponents/CursoItem"
 
-export default function Disciplinas() {
+export default function Curso() {
 
   const [loading, setLoading ]= useState(true)
   const [error, setError] = useState()
-  const {disciplina, setDisciplina,del}= tableUse()
+  const {curso, setCurso,del}= tableUse()
     
-  const url = 'http://localhost:3002/api/disciplinas'
+  const url = 'http://localhost:3002/api/cursos'
     
   useEffect(()=>{
       fetch(url)
       .then((response) => response.json())
-      .then((json) => setDisciplina(json.data || []))
+      .then((json) => setCurso(json.data || []))
       .catch((error)=>{
           setError(error)
       })
@@ -27,8 +27,8 @@ export default function Disciplinas() {
         {/*Renderizacion de contenido de tablas*/}
         <div className="w-full flex flex-col gap-5 items-center justify-center">
           
-          {disciplina.map(item => (
-            <DisciplinaItem nombre={item.nombre} codigo={item.codigo} id={item.id} key={item.id}/>
+          {curso.map(item => (
+            <CursoItem curso={item.curso} id={item.id} key={item.id}/>
           ))}
 
         </div>

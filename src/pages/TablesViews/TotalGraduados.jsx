@@ -1,11 +1,39 @@
-import AdminLayout from "../../layouts/AdminLayout"
-import Add from "../../components/Add"
-
+import AdminLayout from "../../layouts/AdminLayout";
+import Add from "../../components/Add";
+import { tableUse } from "../../context/TablesContext";
+import { useState,useEffect } from "react";
+import TotalGraduadosItem from "../../components/getComponents/TotalGraduadosItem"
 export default function TotalGraduados() {
-    return(
-        <AdminLayout>
-          {/*Renderizacion de contenido de tablas*/}
-          <Add />
-        </AdminLayout>
-    )
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState();
+  const { totalGraduados, setTotalGraduados, del } = tableUse();
+
+  const url = "http://localhost:3002/api/total_graduados";
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setTotalGraduados(json.data || []))
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [del]);
+
+  return (
+    <AdminLayout>
+      {/*Renderizacion de contenido de tablas*/}
+
+      {totalGraduados.map(item=>(
+        <TotalGraduadosItem cd={item.cd}
+        cpe={item.cpe}
+        curso_id={item.curso_id}
+        id={item.id}
+        key={item.key} />
+      ))}
+      <Add />
+    </AdminLayout>
+  );
 }

@@ -1,11 +1,41 @@
-import AdminLayout from "../../layouts/AdminLayout"
-import Add from "../../components/Add"
+import AdminLayout from "../../layouts/AdminLayout";
+import Add from "../../components/Add";
+import { tableUse } from "../../context/TablesContext";
+import { useEffect, useState } from "react";
+import PremiosEstudiantesItem from "../../components/getComponents/PremiosEstudiantesItem";
 
 export default function PremiosEstudiantes() {
-    return(
-        <AdminLayout>
-          {/*Renderizacion de contenido de tablas*/}
-          <Add />
-        </AdminLayout>
-    )
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
+  const { premiosEstudiantes, setPremiosEstudiantes, del } = tableUse();
+
+  const url = "http://localhost:3002/api/premios_estudiante";
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setPremiosEstudiantes(json.data || []))
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [del]);
+
+  return (
+    <AdminLayout>
+      {/*Renderizacion de contenido de tablas*/}
+      {premiosEstudiantes.map((item) => (
+        <PremiosEstudiantesItem
+          año={item.año}
+          cantidad={item.cantidad}
+          id={item.id}
+          nombre={item.nombre}
+          key={item.key}
+        />
+      ))}
+      <Add />
+    </AdminLayout>
+  );
 }

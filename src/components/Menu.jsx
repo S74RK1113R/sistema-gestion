@@ -33,6 +33,7 @@ export default function Menu() {
                 </DropDownItem>
 
                 <Item href={"/premios_estudiantes"}>Premios estudiantes</Item>
+                <Item href={"/curso"}>Curso</Item>
                 <Item href={"/publicacion"}>Publicación</Item>
                 <Item href={"/total_graudados"}>Total graduados</Item>
                 <Item href={"/promocion"}>Promoción</Item>

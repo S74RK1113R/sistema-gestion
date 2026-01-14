@@ -10,7 +10,7 @@ export default function TableContextProvider({ children }) {
   const [usuario, setUsuario] = useState([]);
   const [profesor, setProfesor] = useState([]);
   const [publicacion, setPublicacion] = useState([]);
-  const [eventos, setEventos] = useState(null);
+  const [eventos, setEventos] = useState([]);
   const [premiosProfesor, setPremiosProfesor] = useState([]);
   const [sedeUniversitaria, setSedeUniversitaria] = useState([]);
   const [promocion, setPromocion] = useState([]);
@@ -30,6 +30,8 @@ export default function TableContextProvider({ children }) {
   const [eventosAnterior, setEventosAnterior] = useState([]);
   const [resultadoEjercicios, setResultadoEjercicios] = useState([]);
   const [investigacion, setInvestigacion] = useState([]);
+  const [ del , setDel] = useState(false)
+  const [insert, setInsert] = useState(false)
 
   return (
     <TableContext.Provider
@@ -84,6 +86,10 @@ export default function TableContextProvider({ children }) {
         setResultadoEjercicios,
         investigacion,
         setInvestigacion,
+        del,
+        setDel,
+        insert,
+        setInsert
       }}
     >
       {children}

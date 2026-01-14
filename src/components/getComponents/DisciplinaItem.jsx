@@ -1,12 +1,18 @@
+import { tableUse } from "../../context/TablesContext"
 
 export default function DisciplinaItem({nombre,codigo, id}) {
 
+    const {setDisciplina,del,setDel} = tableUse()
+
     function deleteItem (id){
         const url = `http://localhost:3002/api/disciplinas/${id}`
-
+        setDel(!del)
+        
         fetch(url, {
         method: "DELETE",
         })
+        .then((response) => response.json())
+        .then((json) => setDisciplina(json.data || []))
     }
 
     return(
@@ -17,7 +23,7 @@ export default function DisciplinaItem({nombre,codigo, id}) {
             <div>{codigo}</div>
 
             <div className="flex flex-row gap-4 mt-4">
-                <button data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
+                <button onClick={()=>{deleteItem(id)}} data-id={id} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Borrar</button>
                 <button data-id={id} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
             </div>
         </div>
