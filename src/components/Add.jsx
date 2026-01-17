@@ -13,7 +13,7 @@ export default function Add({ children, formTitle }) {
 
   return (
     <>
-      {openForm && <div className="absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-full bg-zinc-100 max-w-11/12 max-h-11/12 rounded-xl p-2 z-50">
+      {openForm && <div className="shadow-xl shadow-black/60 absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-zinc-100 max-w-11/12 max-h-11/12 rounded-sm p-5 z-50 gap-5">
         <div
           data-title={"titleBar"}
           className="flex flex-row justify-end items-center rounded-md"
@@ -24,7 +24,7 @@ export default function Add({ children, formTitle }) {
             <AddIcon className="size-8 rotate-45" />
           </div>
         </div>
-        <section className="size-full bg-amber-200 rounded-md">
+        <section className="size-full rounded-md overflow-auto">
           {children}
         </section>
       </div>}

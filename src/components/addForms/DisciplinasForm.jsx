@@ -1,7 +1,7 @@
  import Input from "../Input";
  import Select from "../Select";
 
-export default function AsignaturasForm() {
+export default function DisciplinasForm() {
   return (
     <div>
       <form action="">
