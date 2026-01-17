@@ -34,7 +34,7 @@ export default function SedeUniversitaria() {
           key={item.key}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar sede universitaria"}/>
     </AdminLayout>
   );
 }

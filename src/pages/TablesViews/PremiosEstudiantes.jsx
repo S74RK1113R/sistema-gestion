@@ -35,7 +35,7 @@ export default function PremiosEstudiantes() {
           key={item.key}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar premios de estudiantes"}/>
     </AdminLayout>
   );
 }

@@ -36,7 +36,7 @@ export default function NivelAcreditacion() {
         />
       ))}
       
-      <Add />
+      <Add formTitle={"Insertar nivel acreditación"} />
     </AdminLayout>
   );
 }

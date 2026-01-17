@@ -43,7 +43,7 @@ export default function Publicacion() {
             key={item.id}/>
         ))
       }
-      <Add />
+      <Add formTitle={"Insertar publicacion"}/>
     </AdminLayout>
   );
 }

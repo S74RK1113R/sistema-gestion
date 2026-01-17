@@ -32,7 +32,7 @@ export default function Curso() {
           ))}
 
         </div>
-          <Add/>
+          <Add formTitle={"Insertar curso"}/>
       </AdminLayout>
   )
 }

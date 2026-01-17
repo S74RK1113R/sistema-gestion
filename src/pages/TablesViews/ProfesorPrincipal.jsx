@@ -36,7 +36,7 @@ export default function ProfesorPrincipal() {
         />
       ))}
 
-      <Add />
+      <Add formTitle={"Insertar profesor principal"}/>
     </AdminLayout>
   );
 }

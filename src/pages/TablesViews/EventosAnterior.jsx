@@ -34,7 +34,7 @@ export default function EventosAnterior() {
             ))
         }
 
-      <Add />
+      <Add formTitle={"Insertar eventos anterior"}/>
     </AdminLayout>
   );
 }

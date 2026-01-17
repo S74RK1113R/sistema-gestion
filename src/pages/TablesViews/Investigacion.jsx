@@ -38,7 +38,7 @@ export default function Investigacion() {
         />
       ))}
 
-      <Add />
+      <Add formTitle={"Insertar investigación"}/>
     </AdminLayout>
   );
 }

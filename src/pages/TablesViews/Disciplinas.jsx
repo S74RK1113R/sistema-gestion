@@ -32,7 +32,7 @@ export default function Disciplinas() {
           ))}
 
         </div>
-          <Add/>
+          <Add formTitle={"Insertar disciplinas"}/>
       </AdminLayout>
   )
 }

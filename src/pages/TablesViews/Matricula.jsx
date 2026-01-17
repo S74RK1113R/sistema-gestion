@@ -39,7 +39,7 @@ export default function Matricula() {
           key={item.key}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar matrícula"} />
     </AdminLayout>
   );
 }

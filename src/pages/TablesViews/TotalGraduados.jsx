@@ -33,7 +33,7 @@ export default function TotalGraduados() {
         id={item.id}
         key={item.key} />
       ))}
-      <Add />
+      <Add formTitle={"Insertar total de gradudados"}/>
     </AdminLayout>
   );
 }

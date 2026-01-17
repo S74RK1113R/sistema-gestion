@@ -42,7 +42,7 @@ export default function Eventos() {
           />
         ))}
       </div>
-      <Add />
+      <Add formTitle={"Insertar eventos"} />
     </AdminLayout>
   );
 }

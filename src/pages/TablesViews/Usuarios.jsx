@@ -29,7 +29,7 @@ export default function Usuarios() {
                 <UsuariosItem id={item.id} nombres={item.nombres} primer_apellido={item.primer_apellido} segundo_apellido={item.segundo_apellido} usuario={item.usuario} key={item.id}/>
             ))}
 
-          <Add />
+          <Add formTitle={"Insertar usuarios"}/>
         </AdminLayout>
     )
 }

@@ -21,7 +21,7 @@ import PremiosEstudiantes from "../pages/TablesViews/PremiosEstudiantes";
 import Publicacion from "../pages/TablesViews/Publicacion";
 import TotalGraduados from "../pages/TablesViews/TotalGraduados";
 import Promocion from "../pages/TablesViews/Promocion";
-import Prosgrado from "../pages/TablesViews/Prosgrado";
+import Posgrado from "../pages/TablesViews/Posgrado";
 import SedeUniversitaria from "../pages/TablesViews/SedeUniversitaria";
 import Usuarios from "../pages/TablesViews/Usuarios";
 import Eventos from "../pages/TablesViews/Eventos";
@@ -54,7 +54,7 @@ export default function AppRoutes() {
             <Route path ="/publicacion" element={<Publicacion/>}/>
             <Route path ="/total_graudados" element={<TotalGraduados/>}/>
             <Route path ="/promocion" element={<Promocion/>}/>
-            <Route path ="/posgrado" element={<Prosgrado/>}/>
+            <Route path ="/posgrado" element={<Posgrado/>}/>
             <Route path ="/sede_universitaria" element={<SedeUniversitaria/>}/>
             
             <Route path="*" element={<NotFoundPage/>}/>

@@ -36,7 +36,7 @@ export default function PremiosProfesor() {
           key={item.id}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar premios de profesor"}/>
     </AdminLayout>
   );
 }

@@ -45,7 +45,7 @@ export default function EjerciciosIntegradores() {
           key={item.id}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar ejercicios integradores"}/>
     </AdminLayout>
   );
 }

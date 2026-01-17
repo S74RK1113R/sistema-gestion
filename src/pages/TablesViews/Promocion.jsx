@@ -59,7 +59,7 @@ export default function Promocion() {
 
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar promoción"}/>
     </AdminLayout>
   );
 }

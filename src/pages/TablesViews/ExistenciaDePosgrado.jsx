@@ -35,7 +35,7 @@ export default function ExistenciaDePosgrado() {
           key={item.id}
         />
       ))}
-      <Add />
+      <Add formTitle={"Insertar posgrado"} />
     </AdminLayout>
   );
 }

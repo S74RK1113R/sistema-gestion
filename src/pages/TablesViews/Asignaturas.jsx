@@ -43,7 +43,7 @@ export default function Asignaturas() {
         />
       ))}
 
-      <Add>{/*Formulario de añadir asignaturas*/}</Add>
+      <Add formTitle={"Insertar asignaturas"}>{/*Formulario de añadir asignaturas*/}</Add>
     </AdminLayout>
   );
 }

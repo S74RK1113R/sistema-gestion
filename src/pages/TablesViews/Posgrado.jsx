@@ -4,7 +4,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useState,useEffect } from "react";
 import PosgradoItem from "../../components/getComponents/PosgradoItem";
 
-export default function Prosgrado() {
+export default function Posgrado() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { posgrado, setPosgrado, del } = tableUse();
@@ -31,7 +31,7 @@ export default function Prosgrado() {
             <PosgradoItem año={item.año} cantidad={item.cantidad} id={item.id} nombre={item.nombre} key={item.key} />
         ))
       }
-      <Add />
+      <Add formTitle={"Insertar posgrado"}/>
     </AdminLayout>
   );
 }

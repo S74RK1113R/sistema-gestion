@@ -44,7 +44,7 @@ export default function Ayudantia() {
           key={item.id}
         />
     ))}
-      <Add />
+      <Add formTitle={"Insertar ayudantía"}/>
     </AdminLayout>
   );
 }

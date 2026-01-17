@@ -37,7 +37,7 @@ export default function ResultadoEjerciciosIntegradores() {
         />
       ))}
 
-      <Add />
+      <Add formTitle={"Insertar resultado de ejercicios integradores"}/>
     </AdminLayout>
   );
 }

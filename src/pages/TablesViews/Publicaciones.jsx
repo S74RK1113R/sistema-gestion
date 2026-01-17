@@ -31,7 +31,7 @@ export default function Publicaciones() {
             <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} key={item.key}/>
         ))}
 
-      <Add />
+      <Add formTitle={"Insertar publicaciones"}/>
     </AdminLayout>
   );
 }

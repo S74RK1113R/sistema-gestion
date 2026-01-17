@@ -58,7 +58,7 @@ export default function IncorporacionInvestigacionCientifica() {
         />
       ))}
 
-      <Add />
+      <Add formTitle={"Insertar incorporación a la investigación científica"}/>
     </AdminLayout>
   );
 }
