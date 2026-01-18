@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import InvestigacionItem from "../../components/getComponents/InvestigacionItem";
 import { useEffect, useState } from "react";
 import { tableUse } from "../../context/TablesContext";
+import InvestigacionForm from "../../components/addForms/InvestigacionForm";
 
 export default function Investigacion() {
   const [loading, setLoading] = useState(true);
@@ -38,7 +39,9 @@ export default function Investigacion() {
         />
       ))}
 
-      <Add formTitle={"Insertar investigación"}/>
+      <Add formTitle={"Insertar investigación"}>
+        <InvestigacionForm />
+      </Add>
     </AdminLayout>
   );
 }

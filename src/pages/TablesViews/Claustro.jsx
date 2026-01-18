@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useEffect, useState } from "react";
 import ClaustroItem from "../../components/getComponents/ClaustroItem";
 import { tableUse } from "../../context/TablesContext";
+import ClaustroForm from "../../components/addForms/ClaustroForm";
 
 export default function Claustro() {
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,9 @@ export default function Claustro() {
         />
       ))}
 
-      <Add formTitle={"Insertar claustro"} />
+      <Add formTitle={"Insertar claustro"}>
+        <ClaustroForm />
+      </Add>
     </AdminLayout>
   );
 }

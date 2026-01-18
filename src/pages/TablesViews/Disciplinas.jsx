@@ -1,5 +1,6 @@
 import AdminLayout from "../../layouts/AdminLayout"
 import DisciplinaItem from "../../components/getComponents/DisciplinaItem"
+import DisciplinasForm from "../../components/addForms/DisciplinasForm"
 import Add from "../../components/Add"
 import { useState,useEffect } from "react"
 import { tableUse } from "../../context/TablesContext"
@@ -32,7 +33,9 @@ export default function Disciplinas() {
           ))}
 
         </div>
-          <Add formTitle={"Insertar disciplinas"}/>
+          <Add formTitle={"Insertar disciplinas"}>
+            <DisciplinasForm/>
+          </Add>
       </AdminLayout>
   )
 }

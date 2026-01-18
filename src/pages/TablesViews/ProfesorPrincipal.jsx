@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import ProfesorPrincipalItem from "../../components/getComponents/ProfesorPrincipalItem";
+import ProfesorPrincipalForm from "../../components/addForms/ProfesorPrincipalForm";
 
 export default function ProfesorPrincipal() {
   const [error, setError] = useState();
@@ -36,7 +37,9 @@ export default function ProfesorPrincipal() {
         />
       ))}
 
-      <Add formTitle={"Insertar profesor principal"}/>
+      <Add formTitle={"Insertar profesor principal"}>
+        <ProfesorPrincipalForm/>
+      </Add>
     </AdminLayout>
   );
 }

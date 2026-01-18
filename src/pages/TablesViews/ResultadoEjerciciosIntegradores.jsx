@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import ResultadoEjerciciosIntegradoresItem from "../../components/getComponents/ResultadoDeEjerciciosIntegradores";
 import { tableUse } from "../../context/TablesContext";
+import ResultadoEjerciciosIntegradoresForm from "../../components/addForms/ResultadoEjercicioIntegradoresForm";
 
 export default function ResultadoEjerciciosIntegradores() {
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,9 @@ export default function ResultadoEjerciciosIntegradores() {
         />
       ))}
 
-      <Add formTitle={"Insertar resultado de ejercicios integradores"}/>
+      <Add formTitle={"Insertar resultado de ejercicios integradores"}>
+        <ResultadoEjerciciosIntegradoresForm/>
+      </Add>
     </AdminLayout>
   );
 }

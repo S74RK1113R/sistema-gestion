@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useEffect, useState } from "react";
 import EventosAnteriorItem from "../../components/getComponents/EventosAnteriorItem";
 import { tableUse } from "../../context/TablesContext";
+import EventosAnteriorForm from "../../components/addForms/EventosAnteriorForm";
 
 export default function EventosAnterior() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,9 @@ export default function EventosAnterior() {
             ))
         }
 
-      <Add formTitle={"Insertar eventos anterior"}/>
+      <Add formTitle={"Insertar eventos anterior"}>
+        <EventosAnteriorForm/>
+      </Add>
     </AdminLayout>
   );
 }

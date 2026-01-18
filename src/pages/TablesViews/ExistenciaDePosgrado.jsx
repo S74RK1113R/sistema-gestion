@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useEffect, useState } from "react";
 import ExistenciaPosgradoItem from "../../components/getComponents/ExistenciaPosgrado";
 import { tableUse } from "../../context/TablesContext";
+import ExistenciaPosgradoForm from "../../components/addForms/ExistenciaPosgradoForm";
 
 export default function ExistenciaDePosgrado() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,9 @@ export default function ExistenciaDePosgrado() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar posgrado"} />
+      <Add formTitle={"Insertar posgrado"}>
+        <ExistenciaPosgradoForm/>
+      </Add>
     </AdminLayout>
   );
 }

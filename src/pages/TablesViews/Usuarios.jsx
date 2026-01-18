@@ -3,6 +3,7 @@ import UsuariosItem from "../../components/getComponents/UsuariosItem"
 import { useEffect, useState } from "react"
 import Add from "../../components/Add"
 import { tableUse } from "../../context/TablesContext"
+import UsuariosForm from "../../components/addForms/UsuariosForm"
 
 export default function Usuarios() {
     const [loading, setLoading ]= useState(true)
@@ -29,7 +30,9 @@ export default function Usuarios() {
                 <UsuariosItem id={item.id} nombres={item.nombres} primer_apellido={item.primer_apellido} segundo_apellido={item.segundo_apellido} usuario={item.usuario} key={item.id}/>
             ))}
 
-          <Add formTitle={"Insertar usuarios"}/>
+          <Add formTitle={"Insertar usuarios"}>
+            <UsuariosForm/>
+          </Add>
         </AdminLayout>
     )
 }

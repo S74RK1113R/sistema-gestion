@@ -24,7 +24,7 @@ export default function Add({ children, formTitle }) {
             <AddIcon className="size-8 rotate-45" />
           </div>
         </div>
-        <section className="size-full rounded-md overflow-auto">
+        <section className="size-full rounded-md overflow-auto scroll">
           {children}
         </section>
       </div>}

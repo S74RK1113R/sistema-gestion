@@ -3,6 +3,7 @@ import EventosItem from "../../components/getComponents/EventosItem";
 import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import  {tableUse}  from "../../context/TablesContext";
+import EventosForm from "../../components/addForms/EventosAnteriorForm";
 
 export default function Eventos() {
   const [loading, setLoading] = useState(true);
@@ -42,7 +43,9 @@ export default function Eventos() {
           />
         ))}
       </div>
-      <Add formTitle={"Insertar eventos"} />
+      <Add formTitle={"Insertar eventos"}>
+        
+      </Add>
     </AdminLayout>
   );
 }

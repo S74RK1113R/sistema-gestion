@@ -30,12 +30,12 @@ export default function AsignaturasForm() {
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="año">Año:</label>
-            <Input type="text" inputName="año"/>
+            <Input type="number" inputName="año" min="0"/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="periodo">Periodo:</label>
-            <Input type="text" inputName="periodo"/>
+            <Input type="number" inputName="periodo" min="0"/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
@@ -50,7 +50,7 @@ export default function AsignaturasForm() {
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="bibliografia">Bibliografía:</label>
-            <Select inputName="bibliografia" id="bibliografia">
+            <Select inputName="bibliografia">
               <option value="disponible" >Disponible</option>
               <option value="no disponible" >No disponible</option>
             </Select>

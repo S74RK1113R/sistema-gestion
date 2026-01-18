@@ -1,18 +1,18 @@
 import Input from "../Input";
 
-export default function DisciplinasForm() {
+export default function NivelAcreditacionForm() {
   return (
     <div>
       <form action="">
         <div className="flex flex-col size-max gap-5 items-center mx-auto">
           <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="nombre">Nombre:</label>
-            <Input type="text" inputName="nombre" />
+            <label htmlFor="nivel">Nivel:</label>
+            <Input type="text" inputName="nivel" />
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="codigo">Código:</label>
-            <Input type="text" inputName="codigo" />
+            <label htmlFor="año_evaluacion">Año evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" />
           </div>
 
           <button

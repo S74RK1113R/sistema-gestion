@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Add from "../../components/Add";
 import NivelAcreditacionItem from "../../components/getComponents/NivelAcreditacionItem";
 import { tableUse } from "../../context/TablesContext";
+import NivelAcreditacionForm from "../../components/addForms/NivelAcreditacionForm";
 
 export default function NivelAcreditacion() {
   const [loading, setLoading] = useState(true);
@@ -36,7 +37,9 @@ export default function NivelAcreditacion() {
         />
       ))}
       
-      <Add formTitle={"Insertar nivel acreditación"} />
+      <Add formTitle={"Insertar nivel acreditación"}>
+        <NivelAcreditacionForm />
+      </Add>
     </AdminLayout>
   );
 }

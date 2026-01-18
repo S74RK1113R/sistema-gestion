@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useEffect, useState } from "react";
 import PublicacionesItem from "../../components/getComponents/PublicacionesItem";
 import { tableUse } from "../../context/TablesContext";
+import PublicacionesForm from "../../components/addForms/PublicacionesForm";
 
 export default function Publicaciones() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,9 @@ export default function Publicaciones() {
             <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} key={item.key}/>
         ))}
 
-      <Add formTitle={"Insertar publicaciones"}/>
+      <Add formTitle={"Insertar publicaciones"}>
+        <PublicacionesForm/>
+      </Add>
     </AdminLayout>
   );
 }
