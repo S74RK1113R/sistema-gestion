@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { tableUse } from "../../context/TablesContext";
 import { useState,useEffect } from "react";
 import PosgradoItem from "../../components/getComponents/PosgradoItem";
+import PosgradoForm from "../../components/addForms/PosgradoForm";
 
 export default function Posgrado() {
   const [error, setError] = useState();
@@ -31,7 +32,9 @@ export default function Posgrado() {
             <PosgradoItem año={item.año} cantidad={item.cantidad} id={item.id} nombre={item.nombre} key={item.key} />
         ))
       }
-      <Add formTitle={"Insertar posgrado"}/>
+      <Add formTitle={"Insertar posgrado"}>
+        <PosgradoForm/>
+      </Add>
     </AdminLayout>
   );
 }

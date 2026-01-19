@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import AyudantiaItem from "../../components/getComponents/AyudantiaItem";
+import EjerciciosIntegradoresForm from "../../components/addForms/EjerciciosIntegradoresForm";
 
 export default function EjerciciosIntegradores() {
   const [loading, setLoading] = useState(true);
@@ -45,7 +46,9 @@ export default function EjerciciosIntegradores() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar ejercicios integradores"}/>
+      <Add formTitle={"Insertar ejercicios integradores"}>
+        <EjerciciosIntegradoresForm/>
+      </Add>
     </AdminLayout>
   );
 }

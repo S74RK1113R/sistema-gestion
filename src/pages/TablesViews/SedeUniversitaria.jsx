@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import SedeUniversitariaItem from "../../components/getComponents/SedeUniversitaria";
 import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
+import SedeUniversitariaFrom from "../../components/addForms/SedeUniversitariaForm";
 
 export default function SedeUniversitaria() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,9 @@ export default function SedeUniversitaria() {
           key={item.key}
         />
       ))}
-      <Add formTitle={"Insertar sede universitaria"}/>
+      <Add formTitle={"Insertar sede universitaria"}>
+        <SedeUniversitariaFrom/>
+      </Add>
     </AdminLayout>
   );
 }

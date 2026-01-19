@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { tableUse } from "../../context/TablesContext";
 import { useEffect, useState } from "react";
 import PremiosEstudiantesItem from "../../components/getComponents/PremiosEstudiantesItem";
+import PremiosEstudiantesForm from "../../components/addForms/PremiosEstudiantesForm";
 
 export default function PremiosEstudiantes() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,9 @@ export default function PremiosEstudiantes() {
           key={item.key}
         />
       ))}
-      <Add formTitle={"Insertar premios de estudiantes"}/>
+      <Add formTitle={"Insertar premios de estudiantes"}>
+        <PremiosEstudiantesForm/>
+      </Add>
     </AdminLayout>
   );
 }

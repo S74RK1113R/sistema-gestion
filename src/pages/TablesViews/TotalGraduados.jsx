@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { tableUse } from "../../context/TablesContext";
 import { useState,useEffect } from "react";
 import TotalGraduadosItem from "../../components/getComponents/TotalGraduadosItem"
+import TotalGraduadosForm from "../../components/addForms/TotalGraduadoForm";
 export default function TotalGraduados() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
@@ -33,7 +34,9 @@ export default function TotalGraduados() {
         id={item.id}
         key={item.key} />
       ))}
-      <Add formTitle={"Insertar total de gradudados"}/>
+      <Add formTitle={"Insertar total de gradudados"}>
+        <TotalGraduadosForm/>
+      </Add>
     </AdminLayout>
   );
 }

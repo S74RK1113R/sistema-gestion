@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import PublicacionItem from"../../components/getComponents/PublicacionItem"
+import PublicacionForm from "../../components/addForms/PublicacionForm";
 
 export default function Publicacion() {
   const [error, setError] = useState();
@@ -43,7 +44,9 @@ export default function Publicacion() {
             key={item.id}/>
         ))
       }
-      <Add formTitle={"Insertar publicacion"}/>
+      <Add formTitle={"Insertar publicacion"}>
+        <PublicacionForm/>
+      </Add>
     </AdminLayout>
   );
 }

@@ -3,6 +3,7 @@ import Add from "../../components/Add"
 import { useState,useEffect } from "react"
 import { tableUse } from "../../context/TablesContext"
 import CursoItem from "../../components/getComponents/CursoItem"
+import CursoForm from "../../components/addForms/CursoForm"
 
 export default function Curso() {
 
@@ -32,7 +33,9 @@ export default function Curso() {
           ))}
 
         </div>
-          <Add formTitle={"Insertar curso"}/>
+          <Add formTitle={"Insertar curso"}>
+            <CursoForm/>
+          </Add>
       </AdminLayout>
   )
 }

@@ -1,5 +1,4 @@
 import Input from "../Input";
-import Select from "../Select";
 
 export default function IncorporacionInvestigacionCientificaForm() {
   return (

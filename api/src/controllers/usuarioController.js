@@ -12,9 +12,9 @@ export function getUsers(req, res) {
 }
 
 export function postUsers(req, res) {
-    const { usuario, contraseña: contrasena, nombres, primer_apellido, segundo_apellido } = req.body;
+    const { usuario, contraseña: contrasena, nombres, primer_apellido, segundo_apellido, rol } = req.body;
 
-    usuarioModel.postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, (err, result) => {
+    usuarioModel.postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, rol, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -26,8 +26,8 @@ export function postUsers(req, res) {
 
 export function putUsers(req, res) {
     const { id } = req.params;
-    const { usuario, contraseña, nombres, primer_apellido, segundo_apellido } = req.body;
-    usuarioModel.putUsers(id, usuario, contraseña, nombres, primer_apellido, segundo_apellido, (err, result) => {
+    const { usuario, contraseña, nombres, primer_apellido, segundo_apellido, rol } = req.body;
+    usuarioModel.putUsers(id, usuario, contraseña, nombres, primer_apellido, segundo_apellido,rol, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

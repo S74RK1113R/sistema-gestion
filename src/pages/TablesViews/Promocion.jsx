@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import PromocionItem from "../../components/getComponents/PromocionItem";
+import PromocionForm from "../../components/addForms/PromocionForm";
 
 export default function Promocion() {
   const [error, setError] = useState();
@@ -59,7 +60,9 @@ export default function Promocion() {
 
         />
       ))}
-      <Add formTitle={"Insertar promoción"}/>
+      <Add formTitle={"Insertar promoción"}>
+        <PromocionForm/>
+      </Add>
     </AdminLayout>
   );
 }

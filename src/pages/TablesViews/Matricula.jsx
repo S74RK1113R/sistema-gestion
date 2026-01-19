@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import MatriculaItem from "../../components/getComponents/MatriculaItem";
+import MatriculaForm from "../../components/addForms/MatriculaForm";
 
 export default function Matricula() {
   const [loading, setLoading] = useState(true);
@@ -39,7 +40,9 @@ export default function Matricula() {
           key={item.key}
         />
       ))}
-      <Add formTitle={"Insertar matrícula"} />
+      <Add formTitle={"Insertar matrícula"}>
+        <MatriculaForm/>
+      </Add>
     </AdminLayout>
   );
 }

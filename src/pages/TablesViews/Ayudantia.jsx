@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import AyudantiaItem from "../../components/getComponents/AyudantiaItem";
+import AyudantiaForm from "../../components/addForms/AyudantiaForm"
 
 export default function Ayudantia() {
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,9 @@ export default function Ayudantia() {
           key={item.id}
         />
     ))}
-      <Add formTitle={"Insertar ayudantía"}/>
+      <Add formTitle={"Insertar ayudantía"}>
+        <AyudantiaForm/>
+      </Add>
     </AdminLayout>
   );
 }
