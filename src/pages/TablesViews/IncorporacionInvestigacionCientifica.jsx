@@ -3,6 +3,7 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import IncorporacionInvestigacionCientificaItem from "../../components/getComponents/IncorporacionInvestigacionCientificaItem";
+import IncorporacionInvestigacionCientificaForm from "../../components/addForms/IncorporacionInvestigacionCientificaForm";
 
 export default function IncorporacionInvestigacionCientifica() {
   const [loading, setLoading] = useState(true);
@@ -58,7 +59,9 @@ export default function IncorporacionInvestigacionCientifica() {
         />
       ))}
 
-      <Add formTitle={"Insertar incorporación a la investigación científica"}/>
+      <Add formTitle={"Insertar incorporación a la investigación científica"}>
+        <IncorporacionInvestigacionCientificaForm/>
+      </Add>
     </AdminLayout>
   );
 }
