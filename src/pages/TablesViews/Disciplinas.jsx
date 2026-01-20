@@ -9,7 +9,7 @@ export default function Disciplinas() {
 
   const [loading, setLoading ]= useState(true)
   const [error, setError] = useState()
-  const {disciplina, setDisciplina,del}= tableUse()
+  const {disciplina, setDisciplina,del,insert}= tableUse()
     
   const url = 'http://localhost:3002/api/disciplinas'
     
@@ -21,7 +21,7 @@ export default function Disciplinas() {
           setError(error)
       })
       .finally(()=>{setLoading(false)})
-  },[del])
+  },[del, insert])
 
   return(
       <AdminLayout>

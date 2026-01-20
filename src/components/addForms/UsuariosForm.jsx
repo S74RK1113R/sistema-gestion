@@ -1,39 +1,91 @@
+import { tableUse } from "../../context/TablesContext";
 import Input from "../Input";
 import Select from "../Select";
+import { useRef } from "react";
 
 export default function UsuariosForm() {
+  const { setUsuario, setInsert, insert } = tableUse();
+
+  const usuarioRef = useRef();
+  const contraseñaRef = useRef();
+  const nombresRef = useRef();
+  const primer_apellidoRef = useRef();
+  const segundo_apellidoRef = useRef();
+  const rolRef = useRef();
+
+  function erraseInput() {
+    usuarioRef.current.value;
+    contraseñaRef.current.value;
+    nombresRef.current.value;
+    primer_apellidoRef.current.value;
+    segundo_apellidoRef.current.value;
+    rolRef.current.value;
+  }
+
+  function handleSubmit() {
+    event.preventDefault();
+
+    const usuarios = {
+      usuario: usuarioRef.current.value,
+      contraseña: contraseñaRef.current.value,
+      nombres: nombresRef.current.value,
+      primer_apellido: primer_apellidoRef.current.value,
+      segundo_apellido: segundo_apellidoRef.current.value,
+      rol: rolRef.current.value,
+    };
+
+    erraseInput();
+
+    const url = "http://localhost:3002/api/usuarios";
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      // Send your data in the request body as JSON
+      body: JSON.stringify(usuarios),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json();
+        }
+        // handle error
+      })
+      .then((json) => setUsuario(json?.data || []));
+
+    setInsert(!insert);
+  }
+
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 grid-rows-4 size-max gap-5 mx-2">
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="usuario">Usuario:</label>
-            <Input type="text" inputName="usuario" />
+            <Input type="text" inputName="usuario" ref={usuarioRef} />
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="contraseña">Contraseña:</label>
-            <Input type="password" inputName="contraseña" />
+            <Input type="password" inputName="contraseña" ref={contraseñaRef}/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="nombres">Nombre/s:</label>
-            <Input type="text" inputName="nombres" />
+            <Input type="text" inputName="nombres" ref={nombresRef}/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="primer_apellido">Primer apellido:</label>
-            <Input type="text" inputName="primer_apellido" />
+            <Input type="text" inputName="primer_apellido" ref={primer_apellidoRef}/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="segundo_apellido">Segundo apellido:</label>
-            <Input type="text" inputName="segundo_apellido" />
+            <Input type="text" inputName="segundo_apellido" ref={segundo_apellidoRef}/>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="rol">Rol:</label>
-            <Select inputName="rol">
+            <Select inputName="rol" ref={rolRef}>
               <option value="admin">Administrador</option>
               <option value="directivo">Directivo</option>
               <option value="invitado">Invitado</option>

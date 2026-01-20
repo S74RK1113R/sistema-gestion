@@ -8,7 +8,7 @@ import AsignaturasForm from "../../components/addForms/AsignaturasForm";
 export default function Asignaturas() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { asignatura, setAsignatura, del } = tableUse();
+  const { asignatura, setAsignatura, del,insert} = tableUse();
 
   const url = "http://localhost:3002/api/asignaturas";
 
@@ -22,7 +22,7 @@ export default function Asignaturas() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>

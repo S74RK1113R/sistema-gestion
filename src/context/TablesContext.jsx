@@ -32,6 +32,7 @@ export default function TableContextProvider({ children }) {
   const [investigacion, setInvestigacion] = useState([]);
   const [ del , setDel] = useState(false)
   const [insert, setInsert] = useState(false)
+  const [notification,setNotification]= useState(false)
 
   return (
     <TableContext.Provider
@@ -89,7 +90,8 @@ export default function TableContextProvider({ children }) {
         del,
         setDel,
         insert,
-        setInsert
+        setInsert,
+        notification,setNotification
       }}
     >
       {children}

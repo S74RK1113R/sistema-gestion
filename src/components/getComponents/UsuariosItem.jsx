@@ -5,6 +5,7 @@ export default function UsuariosItem({
   nombres,
   primer_apellido,
   segundo_apellido,
+  rol,
   id,
 }) {
   const { setUsuario, del, setDel } = tableUse();
@@ -30,6 +31,8 @@ export default function UsuariosItem({
       <div>{primer_apellido}</div>
       <h1 className="font-bold">Segundo apellido:</h1>
       <div>{segundo_apellido}</div>
+      <h1 className="font-bold">Rol:</h1>
+      <div>{rol}</div>
 
       <div className="flex flex-row gap-4 mt-4">
         <button

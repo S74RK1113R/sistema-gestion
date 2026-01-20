@@ -1,18 +1,62 @@
+import { tableUse } from "../../context/TablesContext";
 import Input from "../Input";
+import { useRef } from "react";
 
 export default function DisciplinasForm() {
+
+  const nombreRef = useRef();
+  const codigoRef = useRef();
+  const { setDisciplina, setInsert, insert} = tableUse();
+
+  function erraseInput() {
+    nombreRef.current.value = "";
+    codigoRef.current.value = "";
+  }
+
+  function handleSubmit() {
+    event.preventDefault();
+    const disciplinas = {
+      nombre: nombreRef.current.value,
+      codigo: codigoRef.current.value,
+    };
+
+    erraseInput();
+
+    const url = "http://localhost:3002/api/disciplinas";
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      // Send your data in the request body as JSON
+      body: JSON.stringify(disciplinas),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json();
+        }
+        // handle error
+      })
+      .then((json) => setDisciplina(json?.data || []));
+
+    setInsert(!insert);
+  }
+
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="flex flex-col size-max gap-5 items-center mx-auto">
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="nombre">Nombre:</label>
-            <Input type="text" inputName="nombre" />
+            <Input type="text" inputName="nombre" ref={nombreRef} />
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="codigo">Código:</label>
-            <Input type="text" inputName="codigo" />
+            <Input
+              type="text"
+              inputName="codigo"
+              maxLength="4"
+              ref={codigoRef}
+            />
           </div>
 
           <button

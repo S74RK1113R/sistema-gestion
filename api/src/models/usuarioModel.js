@@ -5,9 +5,9 @@ class Usuario{
         const sql = 'SELECT * FROM usuario';
         query(sql, callback);
     }
-    postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, callback) {
-        const sql = 'INSERT INTO usuario (`usuario`, `contraseña`, `rol`, `nombres`, `primer_apellido`, `segundo_apellido`) VALUES (?,?, ?, ?, ?, ?)';
-        query(sql, [usuario, contrasena, nombres, primer_apellido, segundo_apellido], (err, result) => {
+    postUsers(usuario, contrasena, nombres, primer_apellido, segundo_apellido, rol, callback) {
+        const sql = 'INSERT INTO usuario (`usuario`, `contraseña`, `nombres`, `primer_apellido`, `segundo_apellido`,`rol`) VALUES (?,?,?,?,?,?)';
+        query(sql, [usuario, contrasena, nombres, primer_apellido, rol, segundo_apellido], (err, result) => {
             
             if (err) {
                 return callback(err,null);
@@ -16,9 +16,9 @@ class Usuario{
         });
     }
 
-    putUsers(id,usuario, contraseña,nombres,primer_apellido, segundo_apellido, callback) {
-        const sql = 'UPDATE usuario SET usuario=?, rol=?, contraseña=?, nombres=?, primer_apellido=?, segundo_apellido=? WHERE id=?';
-        const values = [usuario, contraseña,nombres,primer_apellido, segundo_apellido,id];
+    putUsers(id,usuario, contraseña,nombres,primer_apellido, segundo_apellido, rol, callback) {
+        const sql = 'UPDATE usuario SET usuario=?,contraseña=?, nombres=?, primer_apellido=?, segundo_apellido=?, rol=? WHERE id=?';
+        const values = [usuario, contraseña,nombres,primer_apellido,rol, segundo_apellido,id];
 
         query(sql, values, callback);
     }
