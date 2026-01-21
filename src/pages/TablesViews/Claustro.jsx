@@ -8,7 +8,7 @@ import ClaustroForm from "../../components/addForms/ClaustroForm";
 export default function Claustro() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {claustro,setClaustro,del} = tableUse()
+  const {claustro,setClaustro,del,insert} = tableUse()
 
   const url = "http://localhost:3002/api/claustros";
 
@@ -22,7 +22,7 @@ export default function Claustro() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del , insert]);
 
   return (
     <AdminLayout>

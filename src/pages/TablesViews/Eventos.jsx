@@ -8,7 +8,7 @@ import EventosForm from "../../components/addForms/EventosForm";
 export default function Eventos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { eventos, setEventos, del } = tableUse();
+  const { eventos, setEventos, del ,insert} = tableUse();
 
   const url = "http://localhost:3002/api/eventos";
 
@@ -22,7 +22,7 @@ export default function Eventos() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del , insert]);
 
   return (
     <AdminLayout>

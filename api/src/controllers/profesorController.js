@@ -28,11 +28,10 @@ export function postProfesores(req, res) {
     const asignatura_id_4 = req.body.asignatura_id_4 ?? null;
     const asignatura_id_5 = req.body.asignatura_id_5 ?? null;
     const asignatura_id_6 = req.body.asignatura_id_6 ?? null;
-    const participacion_posgrado = req.body.participacion_posgrado ?? null;
-    const profesor_principal_anyo = req.body['profesor_principal_año'] ?? req.body.profesor_principal_anio ?? req.body.profesor_principal_anyo ?? null;
+    const participacion_posgrado = req.body.participacion_posgrado ?? null;    
     const sede_universitaria_id = req.body.sede_universitaria_id ?? null;
 
-    profesoresModel.postProfesores(primer_apellido, segundo_apellido, nombres, exp_educacion_superior, exp_carrera, lugar_procedencia, categoria_docente, funcion, consultante_emerito, grado_cientifico, doctor_esp_afin, asignatura_id, asignatura_id_2, asignatura_id_3, asignatura_id_4, asignatura_id_5, asignatura_id_6, participacion_posgrado, profesor_principal_anyo, sede_universitaria_id, (err, result) => {
+    profesoresModel.postProfesores(primer_apellido, segundo_apellido, nombres, exp_educacion_superior, exp_carrera, lugar_procedencia, categoria_docente, funcion, consultante_emerito, grado_cientifico, doctor_esp_afin, asignatura_id, asignatura_id_2, asignatura_id_3, asignatura_id_4, asignatura_id_5, asignatura_id_6, participacion_posgrado, sede_universitaria_id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -61,10 +60,9 @@ export function putProfesores(req, res) {
     const asignatura_id_5 = req.body.asignatura_id_5 ?? null;
     const asignatura_id_6 = req.body.asignatura_id_6 ?? null;
     const participacion_posgrado = req.body.participacion_posgrado ?? null;
-    const profesor_principal_anyo = req.body['profesor_principal_año'] ?? req.body.profesor_principal_anio ?? req.body.profesor_principal_anyo ?? null;
     const sede_universitaria_id = req.body.sede_universitaria_id ?? null;
 
-    profesoresModel.putProfesores(id, primer_apellido, segundo_apellido, nombres, exp_educacion_superior, exp_carrera, lugar_procedencia, categoria_docente, funcion, consultante_emerito, grado_cientifico, doctor_esp_afin, asignatura_id, asignatura_id_2, asignatura_id_3, asignatura_id_4, asignatura_id_5, asignatura_id_6, participacion_posgrado, profesor_principal_anyo, sede_universitaria_id, (err, result) => {
+    profesoresModel.putProfesores(id, primer_apellido, segundo_apellido, nombres, exp_educacion_superior, exp_carrera, lugar_procedencia, categoria_docente, funcion, consultante_emerito, grado_cientifico, doctor_esp_afin, asignatura_id, asignatura_id_2, asignatura_id_3, asignatura_id_4, asignatura_id_5, asignatura_id_6, participacion_posgrado, sede_universitaria_id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;

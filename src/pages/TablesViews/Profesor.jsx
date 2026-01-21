@@ -8,7 +8,7 @@ import ProfesoresForm from "../../components/addForms/ProfesorForm";
 export default function Profesor() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { profesor, setProfesor, del } = tableUse();
+  const { profesor, setProfesor, del,insert } = tableUse();
 
   const url = "http://localhost:3002/api/profesor";
 
@@ -23,7 +23,7 @@ export default function Profesor() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>
@@ -48,7 +48,6 @@ export default function Profesor() {
           nombres={item.nombres}
           participacion_posgrado={item.participacion_posgrado}
           primer_apellido={item.primer_apellido}
-          profesor_principal_año={item.profesor_principal_año}
           sede_universitaria={item.sede_universitaria_id}
           segundo_apellido={item.segundo_apellido}
           key={item.id}

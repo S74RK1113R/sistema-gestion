@@ -8,7 +8,7 @@ import NivelAcreditacionForm from "../../components/addForms/NivelAcreditacionFo
 export default function NivelAcreditacion() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { nivelAcreditacion , setNivelAcreditacion, del} = tableUse()
+  const { nivelAcreditacion , setNivelAcreditacion, del, insert} = tableUse()
 
   const url = "http://localhost:3002/api/nivel_acreditacion";
 
@@ -22,7 +22,7 @@ export default function NivelAcreditacion() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>
