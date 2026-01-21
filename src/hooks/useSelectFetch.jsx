@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+/* Hook for the select tags*/
 
 export const useSelectFetch = (url) => {
   const [data, setData] = useState([]);
