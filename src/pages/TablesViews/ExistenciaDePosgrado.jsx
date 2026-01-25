@@ -8,7 +8,7 @@ import ExistenciaPosgradoForm from "../../components/addForms/ExistenciaPosgrado
 export default function ExistenciaDePosgrado() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {existenciaPosgrado, setExistenciaPosgrado, del} =  tableUse()
+  const {existenciaPosgrado, setExistenciaPosgrado, del, insert} =  tableUse()
 
   const url = "http://localhost:3002/api/existencia_posgrado";
 
@@ -22,7 +22,7 @@ export default function ExistenciaDePosgrado() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [ del , insert]);
   
   return (
     <AdminLayout>

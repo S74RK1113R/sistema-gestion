@@ -2,6 +2,7 @@ import { tableUse } from "../../context/TablesContext";
 
 export default function DisciplinaItem({
   grupos1_4,
+  grupos_1_2,
   total,
   año_evaluacion,
   id,
@@ -22,6 +23,8 @@ export default function DisciplinaItem({
     <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
       <h1 className="font-bold">Grupos del 1 al 4:</h1>
       <div>{grupos1_4}</div>
+      <h1 className="font-bold">Grupos del 1 al 2</h1>
+      <div>{grupos_1_2}</div>
       <h1 className="font-bold">Total:</h1>
       <div>{total}</div>
       <h1 className="font-bold">Año de la evaluación:</h1>

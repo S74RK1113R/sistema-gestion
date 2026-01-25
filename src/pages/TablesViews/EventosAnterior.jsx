@@ -8,7 +8,7 @@ import EventosAnteriorForm from "../../components/addForms/EventosAnteriorForm";
 export default function EventosAnterior() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {eventosAnterior, setEventosAnterior, del} =  tableUse()
+  const {eventosAnterior, setEventosAnterior, del , insert} =  tableUse()
 
   const url = "http://localhost:3002/api/eventos_anterior";
 
@@ -22,7 +22,7 @@ export default function EventosAnterior() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>

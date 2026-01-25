@@ -8,7 +8,7 @@ import ResultadoEjerciciosIntegradoresForm from "../../components/addForms/Resul
 export default function ResultadoEjerciciosIntegradores() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {resultadoEjercicios, setResultadoEjercicios,del} = tableUse()
+  const {resultadoEjercicios, setResultadoEjercicios,del, insert} = tableUse()
 
   const url = "http://localhost:3002/api/resultado_ejercicios_integradores";
 
@@ -22,7 +22,7 @@ export default function ResultadoEjerciciosIntegradores() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [ del , insert]);
 
   return (
     <AdminLayout>

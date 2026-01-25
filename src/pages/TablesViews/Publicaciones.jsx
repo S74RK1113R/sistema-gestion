@@ -8,7 +8,7 @@ import PublicacionesForm from "../../components/addForms/PublicacionesForm";
 export default function Publicaciones() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {publicaciones,setPublicaciones,del} = tableUse()
+  const {publicaciones,setPublicaciones,del,insert} = tableUse()
 
   const url = "http://localhost:3002/api/publicaciones";
 
@@ -22,14 +22,14 @@ export default function Publicaciones() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
 
         {publicaciones.map((item) => (
-            <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} key={item.key}/>
+            <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} grupos_1_2={item.grupos_1_2} key={item.key}/>
         ))}
 
       <Add formTitle={"Insertar publicaciones"}>

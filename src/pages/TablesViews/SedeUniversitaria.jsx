@@ -8,7 +8,7 @@ import SedeUniversitariaFrom from "../../components/addForms/SedeUniversitariaFo
 export default function SedeUniversitaria() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { sedeUniversitaria, setSedeUniversitaria, del } = tableUse();
+  const { sedeUniversitaria, setSedeUniversitaria, del,insert} = tableUse();
 
   const url = "http://localhost:3002/api/sede_universitaria";
 
@@ -22,7 +22,7 @@ export default function SedeUniversitaria() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>

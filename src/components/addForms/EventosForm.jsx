@@ -89,11 +89,13 @@ export default function EventosForm() {
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="clasificacion">Clasificación del evento:</label>
-            <Input
-              type="text"
-              inputName="clasificacion"
-              ref={clasificacionRef}
-            />
+            <Select inputName="clasificacion" ref={clasificacionRef}>
+              <option value="provincial">Provincial</option>
+              <option value="municipal">Municipal</option>
+              <option value="nacional">Nacional</option>
+              <option value="internacional">Internacional</option>
+              <option value="base">Base</option>
+            </Select>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
@@ -104,7 +106,7 @@ export default function EventosForm() {
                   <option
                     value={item.id}
                     key={item.id}
-                  >{`${item.nombre} " " ${item.primer_apellido}`}</option>
+                  >{`${item.nombres} ${item.primer_apellido}`}</option>
                 );
               })}
             </Select>
@@ -117,7 +119,7 @@ export default function EventosForm() {
                   <option
                     value={item.id}
                     key={item.id}
-                  >{`${item.nombre} " " ${item.primer_apellido}`}</option>
+                  >{`${item.nombres} ${item.primer_apellido}`}</option>
                 );
               })}
             </Select>
@@ -125,12 +127,15 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_3">Profesor 3:</label>
             <Select inputName="profesor_id_3" ref={profesor_autor_id3Ref}>
+              <option value="0" disabled selected>
+                --Sin profesor--
+              </option>
               {data.map((item) => {
                 return (
                   <option
                     value={item.id}
                     key={item.id}
-                  >{`${item.nombre} " " ${item.primer_apellido}`}</option>
+                  >{`${item.nombres} ${item.primer_apellido}`}</option>
                 );
               })}
             </Select>
@@ -138,12 +143,16 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_4">Profesor 4:</label>
             <Select inputName="profesor_id_4" ref={profesor_autor_id4Ref}>
+              <option value="0" disabled selected>
+                --Sin profesor--
+              </option>
+
               {data.map((item) => {
                 return (
                   <option
                     value={item.id}
                     key={item.id}
-                  >{`${item.nombre} " " ${item.primer_apellido}`}</option>
+                  >{`${item.nombres} ${item.primer_apellido}`}</option>
                 );
               })}
             </Select>
@@ -151,12 +160,16 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_5">Profesor 5:</label>
             <Select inputName="profesor_id_5" ref={profesor_autor_id5Ref}>
+              <option value="0" disabled selected>
+                --Sin profesor--
+              </option>
+
               {data.map((item) => {
                 return (
                   <option
                     value={item.id}
                     key={item.id}
-                  >{`${item.nombre} " " ${item.primer_apellido}`}</option>
+                  >{`${item.nombres} ${item.primer_apellido}`}</option>
                 );
               })}
             </Select>

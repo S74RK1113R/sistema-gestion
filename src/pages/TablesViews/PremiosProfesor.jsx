@@ -8,7 +8,7 @@ import PremiosProfesorForm from "../../components/addForms/PremiosProfesorForm";
 export default function PremiosProfesor() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { premiosProfesor, setPremiosProfesor, del } = tableUse();
+  const { premiosProfesor, setPremiosProfesor, del,insert } = tableUse();
 
   const url = "http://localhost:3002/api/premios_profesor";
 
@@ -22,7 +22,7 @@ export default function PremiosProfesor() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>

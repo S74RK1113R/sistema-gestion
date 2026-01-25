@@ -8,7 +8,7 @@ import InvestigacionForm from "../../components/addForms/InvestigacionForm";
 export default function Investigacion() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {investigacion , setInvestigacion,del} = tableUse()
+  const {investigacion , setInvestigacion,del,insert} = tableUse()
 
   const url = "http://localhost:3002/api/investigacion";
 
@@ -22,7 +22,7 @@ export default function Investigacion() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [ del , insert ]);
 
   return (
     <AdminLayout>

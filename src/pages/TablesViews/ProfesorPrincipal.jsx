@@ -8,7 +8,7 @@ import ProfesorPrincipalForm from "../../components/addForms/ProfesorPrincipalFo
 export default function ProfesorPrincipal() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { profesorPrincipal, setProfesorPrincipal, del } = tableUse();
+  const { profesorPrincipal, setProfesorPrincipal, del, insert} = tableUse();
 
   const url = "http://localhost:3002/api/profesor_principal";
 
@@ -22,7 +22,7 @@ export default function ProfesorPrincipal() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>
