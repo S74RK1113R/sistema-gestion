@@ -8,7 +8,7 @@ import PremiosEstudiantesForm from "../../components/addForms/PremiosEstudiantes
 export default function PremiosEstudiantes() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { premiosEstudiantes, setPremiosEstudiantes, del } = tableUse();
+  const { premiosEstudiantes, setPremiosEstudiantes, del, insert } = tableUse();
 
   const url = "http://localhost:3002/api/premios_estudiante";
 
@@ -22,7 +22,7 @@ export default function PremiosEstudiantes() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>

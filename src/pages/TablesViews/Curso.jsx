@@ -9,7 +9,7 @@ export default function Curso() {
 
   const [loading, setLoading ]= useState(true)
   const [error, setError] = useState()
-  const {curso, setCurso,del}= tableUse()
+  const {curso, setCurso,del, insert}= tableUse()
     
   const url = 'http://localhost:3002/api/cursos'
     
@@ -21,7 +21,7 @@ export default function Curso() {
           setError(error)
       })
       .finally(()=>{setLoading(false)})
-  },[del])
+  },[del,insert])
 
   return(
       <AdminLayout>

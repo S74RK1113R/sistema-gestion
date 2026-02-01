@@ -8,7 +8,7 @@ import AyudantiaForm from "../../components/addForms/AyudantiaForm"
 export default function Ayudantia() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { ayudantia, setAyudantia, del } = tableUse();
+  const { ayudantia, setAyudantia, del, insert } = tableUse();
 
   const url = "http://localhost:3002/api/ayudantias";
 
@@ -22,7 +22,7 @@ export default function Ayudantia() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>
