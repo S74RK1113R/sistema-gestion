@@ -8,7 +8,7 @@ import MatriculaForm from "../../components/addForms/MatriculaForm";
 export default function Matricula() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { matricula, setMatricula, del } = tableUse();
+  const { matricula, setMatricula, del, insert} = tableUse();
 
   const url = "http://localhost:3002/api/matricula";
 
@@ -22,7 +22,7 @@ export default function Matricula() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [ del, insert ]);
 
   return (
     <AdminLayout>
@@ -31,12 +31,12 @@ export default function Matricula() {
       {matricula.map((item) => (
         <MatriculaItem
           año_evaluacion={item.año_evaluacion}
-          c4to_año={item.c4to_año}
-          id={item.id}
           p1er_año={item.p1er_año}
-          q5to_año={item.q5to_año}
           s2do_año={item.s2do_año}
           t3er_año={item.t3er_año}
+          c4to_año={item.c4to_año}
+          q5to_año={item.q5to_año}
+          id={item.id}
           key={item.key}
         />
       ))}

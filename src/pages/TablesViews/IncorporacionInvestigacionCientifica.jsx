@@ -8,7 +8,7 @@ import IncorporacionInvestigacionCientificaForm from "../../components/addForms/
 export default function IncorporacionInvestigacionCientifica() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { incorporacionInvestigacion, setIncorporacionInvestigacion, del } =
+  const { incorporacionInvestigacion, setIncorporacionInvestigacion, del,insert} =
     tableUse();
 
   const url =
@@ -24,7 +24,7 @@ export default function IncorporacionInvestigacionCientifica() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>

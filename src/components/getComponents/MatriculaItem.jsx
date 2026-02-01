@@ -26,13 +26,13 @@ export default function MatriculaItem({
     <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
       <h1 className="font-bold">1er Año:</h1>
       <div>{p1er_año}</div>
-      <h1 className="font-bold">2er Año:</h1>
+      <h1 className="font-bold">2do Año:</h1>
       <div>{s2do_año}</div>
-      <h1 className="font-bold">3er Año:</h1>
+      <h1 className="font-bold">3ro Año:</h1>
       <div>{t3er_año}</div>
-      <h1 className="font-bold">4er Año:</h1>
+      <h1 className="font-bold">4to Año:</h1>
       <div>{c4to_año}</div>
-      <h1 className="font-bold">5er Año:</h1>
+      <h1 className="font-bold">5to Año:</h1>
       <div>{q5to_año}</div>
       <h1 className="font-bold">Año de la evaluación:</h1>
       <div>{año_evaluacion}</div>

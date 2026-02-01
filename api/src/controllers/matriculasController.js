@@ -16,7 +16,7 @@ export function postMatriculas(req, res) {
     const segundo_anio = req.body['s2do_año'] ?? req.body.segundo_año ?? req.body.segundo ?? null;
     const tercero_anio = req.body['t3er_año'] ?? req.body.tercero_año ?? req.body.tercero ?? null;
     const cuarto_anio = req.body['c4to_año'] ?? req.body.cuarto_año ?? req.body.cuarto ?? null;
-    const quinto_aniol = req.body['q5to_añol'] ?? req.body['5to_año'] ?? req.body.quinto_año ?? null;
+    const quinto_aniol = req.body['q5to_año'] ?? req.body['5to_año'] ?? req.body.quinto_año ?? null;
     const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
 
     matriculasModel.postMatriculas(primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, (err, result) => {
