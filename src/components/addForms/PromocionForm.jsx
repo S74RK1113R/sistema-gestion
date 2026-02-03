@@ -238,7 +238,6 @@ export default function PromocionForm() {
               {data.map((curso) => {
                 return (
                   <option value={curso.id} key={curso.id}>
-                    {" "}
                     {curso.curso}
                   </option>
                 );
