@@ -7,7 +7,7 @@ import TotalGraduadosForm from "../../components/addForms/TotalGraduadoForm";
 export default function TotalGraduados() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { totalGraduados, setTotalGraduados, del } = tableUse();
+  const { totalGraduados, setTotalGraduados, del, insert} = tableUse();
 
   const url = "http://localhost:3002/api/total_graduados";
 
@@ -21,7 +21,7 @@ export default function TotalGraduados() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del , insert]);
 
   return (
     <AdminLayout>

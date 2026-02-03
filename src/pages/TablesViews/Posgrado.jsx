@@ -8,7 +8,7 @@ import PosgradoForm from "../../components/addForms/PosgradoForm";
 export default function Posgrado() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { posgrado, setPosgrado, del } = tableUse();
+  const { posgrado, setPosgrado, del, insert} = tableUse();
 
   const url = "http://localhost:3002/api/posgrado";
 
@@ -22,7 +22,7 @@ export default function Posgrado() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>

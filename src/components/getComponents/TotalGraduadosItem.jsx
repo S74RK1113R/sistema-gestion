@@ -1,7 +1,9 @@
 import { tableUse } from "../../context/TablesContext";
+import { useSelectFetch } from "../../hooks/useSelectFetch";
 
 export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
   const { setTotalGraduados, del, setDel } = tableUse();
+  const {data} = useSelectFetch("http://localhost:3002/api/cursos");
   
     function deleteItem(id) {
       const url = `http://localhost:3002/api/total_graduados/${id}`;
@@ -20,7 +22,7 @@ export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
       <h1 className="font-bold">Curso por encuentro:</h1>
       <div>{cpe}</div>
       <h1 className="font-bold">Curso:</h1>
-      <div>{curso_id}</div>
+      <div>{data.find(curso => curso.id === curso_id)?.curso || "Curso no encontrado"}</div>
 
       <div className="flex flex-row gap-4 mt-4">
         <button

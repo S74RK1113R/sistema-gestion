@@ -8,7 +8,7 @@ import PromocionForm from "../../components/addForms/PromocionForm";
 export default function Promocion() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { promocion, setPromocion, del } = tableUse();
+  const { promocion, setPromocion, del,insert} = tableUse();
 
   const url = "http://localhost:3002/api/promocion";
 
@@ -22,7 +22,7 @@ export default function Promocion() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
 
   return (
     <AdminLayout>

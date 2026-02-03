@@ -1,4 +1,5 @@
 import { tableUse } from "../../context/TablesContext";
+import { useSelectFetch } from "../../hooks/useSelectFetch";
 
 export default function PublicacionItem({
   año,
@@ -15,6 +16,7 @@ export default function PublicacionItem({
   id,
 }) {
   const { setPublicacion, del, setDel } = tableUse();
+  const { data } = useSelectFetch("http://localhost:3002/api/profesor");
 
   function deleteItem(id) {
     const url = `http://localhost:3002/api/publicacion/${id}`;
@@ -41,13 +43,33 @@ export default function PublicacionItem({
       <h1 className="font-bold">Base de datos de revista:</h1>
       <div>{bd_revista}</div>
       <h1 className="font-bold">Autor principal:</h1>
-      <div>{autor_profesor_id}</div>
+      <div>
+        {data.find((profesor) => profesor.id === autor_profesor_id)?.nombres +
+          " " +
+          data.find((profesor) => profesor.id === autor_profesor_id)
+            ?.primer_apellido +
+          " " +
+          data.find((profesor) => profesor.id === autor_profesor_id)
+            ?.segundo_apellido || "No definido"}
+      </div>
       <h1 className="font-bold">Coautor:</h1>
-      <div>{coautor_id}</div>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id)
+          ? `${data.find((profesor) => profesor.id === coautor_id).nombres} ${data.find((profesor) => profesor.id === coautor_id).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id).segundo_apellido}`
+          : "No definido"}
+      </div>
       <h1 className="font-bold">Coautor 2:</h1>
-      <div>{coautor_id_2}</div>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id_2)
+          ? `${data.find((profesor) => profesor.id === coautor_id_2).nombres} ${data.find((profesor) => profesor.id === coautor_id_2).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id_2).segundo_apellido}`
+          : "No definido"}
+      </div>
       <h1 className="font-bold">Coautor 3:</h1>
-      <div>{coautor_id_3}</div>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id_3)
+          ? `${data.find((profesor) => profesor.id === coautor_id_3).nombres} ${data.find((profesor) => profesor.id === coautor_id_3).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id_3).segundo_apellido}`
+          : "No definido"}
+      </div>
       <h1 className="font-bold">Grupo:</h1>
       <div>{grupo}</div>
 

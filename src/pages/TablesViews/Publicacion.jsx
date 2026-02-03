@@ -8,7 +8,7 @@ import PublicacionForm from "../../components/addForms/PublicacionForm";
 export default function Publicacion() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { publicacion, setPublicacion, del } = tableUse();
+  const { publicacion, setPublicacion, del,insert} = tableUse();
 
   const url = "http://localhost:3002/api/publicacion";
 
@@ -22,7 +22,7 @@ export default function Publicacion() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del]);
+  }, [del,insert]);
   
   return (
     <AdminLayout>
