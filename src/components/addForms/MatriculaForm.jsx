@@ -74,12 +74,12 @@ export default function MatriculaForm() {
           </div>
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="q5to_año">5to año:</label>
-            <Input type="number" inputName="q5to_año" min="0" ref={q5toAñoRef} />
+            <Input type="number" inputName="q5to_año" min="0" defaultValue={0}  ref={q5toAñoRef} />
           </div>
 
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="año_evaluacion">Año de la evaluación:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={añoEvaluacionRef}/>
+            <Input type="number" inputName="año_evaluacion" min="0"  ref={añoEvaluacionRef}/>
           </div>
 
           <button

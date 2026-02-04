@@ -13,7 +13,7 @@ export function getResultados(req, res) {
 
 export function postResultados(req, res) {
     // Aceptar variantes de nombre: prociento/aprobados o porciento
-    const porciento_aprobados = req.body.prociento_aprobados ?? req.body.porciento_aprobados ?? req.body.porcentaje_aprobados ?? null;
+    const porciento_aprobados = req.body.porciento_aprobados ?? req.body.porciento_aprobados ?? req.body.porcentaje_aprobados ?? null;
     const porciento_con_4_5 = req.body.porciento_con_4_5 ?? req.body.porcientoCon45 ?? req.body.porciento_con_4_5 ?? null;
     const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
 
@@ -29,7 +29,7 @@ export function postResultados(req, res) {
 
 export function putResultados(req, res) {
     const { id } = req.params;
-    const porciento_aprobados = req.body.prociento_aprobados ?? req.body.porciento_aprobados ?? req.body.porcentaje_aprobados ?? null;
+    const porciento_aprobados = req.body.porciento_aprobados ?? req.body.porciento_aprobados ?? req.body.porcentaje_aprobados ?? null;
     const porciento_con_4_5 = req.body.porciento_con_4_5 ?? req.body.porcientoCon45 ?? req.body.porciento_con_4_5 ?? null;
     const anio_evaluacion = req.body['año_evaluacion'] ?? req.body.anio_evaluacion ?? null;
 

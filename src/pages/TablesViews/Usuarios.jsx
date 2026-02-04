@@ -27,7 +27,7 @@ export default function Usuarios() {
           {/*Renderizacion de contenido de tablas*/}
 
             {usuario.map(item => (
-                <UsuariosItem id={item.id} nombres={item.nombres} primer_apellido={item.primer_apellido} segundo_apellido={item.segundo_apellido} usuario={item.usuario} rol={item.rol} key={item.id}/>
+                <UsuariosItem id={item.id} nombres={item.nombres} primer_apellido={item.primer_apellido} segundo_apellido={item.segundo_apellido} usuario={item.usuario} contraseña={item.contraseña} rol={item.rol} key={item.id}/>
             ))}
 
           <Add formTitle={"Insertar usuarios"}>

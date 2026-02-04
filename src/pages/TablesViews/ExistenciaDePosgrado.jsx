@@ -1,7 +1,7 @@
 import AdminLayout from "../../layouts/AdminLayout";
 import Add from "../../components/Add";
 import { useEffect, useState } from "react";
-import ExistenciaPosgradoItem from "../../components/getComponents/ExistenciaPosgrado";
+import ExistenciaPosgradoItem from "../../components/getComponents/ExistenciaPosgradoItem";
 import { tableUse } from "../../context/TablesContext";
 import ExistenciaPosgradoForm from "../../components/addForms/ExistenciaPosgradoForm";
 

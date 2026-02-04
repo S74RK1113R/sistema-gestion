@@ -16,7 +16,7 @@ class Matriculas {
         });
     }
 
-    putMatriculas(id, primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, callback) {
+    putMatriculas(primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, id, callback) {
         const sql = 'UPDATE matricula SET `p1er_año`=?, `s2do_año`=?, `t3er_año`=?, `c4to_año`=?, `q5to_año`=?, `año_evaluacion`=? WHERE id=?';
         const values = [primer_anio, segundo_anio, tercero_anio, cuarto_anio, quinto_aniol, anio_evaluacion, id];
         query(sql, values, callback);

@@ -2,41 +2,38 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
 
-export default function InvestigacionItem({
-  proyectos_investigacion,
-  porciento_estudiantes_vinculados,
-  porciento_profesores_vinculados,
+export default function ResultadoEjercicioIntegradoresItem({
+  porciento_aprobados,
+  porciento_con_4_5,
   año_evaluacion,
   id,
 }) {
-  const { setInvestigacion, del, setDel, insert, setInsert } = tableUse();
+  const { setResultadoEjercicios, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
 
   const refs = {
-    proyectos_investigacion: useRef(),
-    porciento_estudiantes_vinculados: useRef(),
-    porciento_profesores_vinculados: useRef(),
+    porciento_aprobados: useRef(),
+    porciento_con_4_5: useRef(),
     año_evaluacion: useRef(),
   };
 
   function deleteItem(id) {
-    const url = `http://localhost:3002/api/investigacion/${id}`;
+    const url = `http://localhost:3002/api/resultado_ejercicios_integradores/${id}`;
     setDel(!del);
 
     fetch(url, {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setInvestigacion(json.data || []));
+      .then((json) => setResultadoEjercicios(json.data || []));
   }
 
   function modifyItem() {
     event.preventDefault();
-    const url = `http://localhost:3002/api/investigacion/${id}`;
+    const url = `http://localhost:3002/api/resultado_ejercicios_integradores/${id}`;
     const payload = {
-      proyectos_investigacion: refs.proyectos_investigacion.current.value,
-      porciento_estudiantes_vinculados: refs.porciento_estudiantes_vinculados.current.value,
-      porciento_profesores_vinculados: refs.porciento_profesores_vinculados.current.value,
+      porciento_aprobados: refs.porciento_aprobados.current.value,
+      porciento_con_4_5: refs.porciento_con_4_5.current.value,
       año_evaluacion: refs.año_evaluacion.current.value,
     };
 
@@ -48,19 +45,17 @@ export default function InvestigacionItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setInvestigacion(json?.data || []));
+      .then((json) => setResultadoEjercicios(json?.data || []));
 
     setInsert(!insert);
   }
 
   return (
     <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
-      <h1 className="font-bold">Proyectos de investigación:</h1>
-      <div>{proyectos_investigacion}</div>
-      <h1 className="font-bold">Porcentaje de estudiantes vinculados:</h1>
-      <div>{porciento_estudiantes_vinculados}</div>
-      <h1 className="font-bold">Porcentaje de profesores vinculados:</h1>
-      <div>{porciento_profesores_vinculados}</div>
+      <h1 className="font-bold">Porcentaje aprobados:</h1>
+      <div>{porciento_aprobados}</div>
+      <h1 className="font-bold">Porcentaje con 4-5:</h1>
+      <div>{porciento_con_4_5}</div>
       <h1 className="font-bold">Año de evaluación:</h1>
       <div>{año_evaluacion}</div>
 
@@ -80,21 +75,16 @@ export default function InvestigacionItem({
         <form onSubmit={modifyItem}>
           <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
             <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
-              <h2 className="text-xl font-bold col-span-2">Modificar Investigación</h2>
+              <h2 className="text-xl font-bold col-span-2">Modificar Resultado Ejercicios Integradores</h2>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>Proyectos de investigación:</label>
-                <Input type="text" defaultValue={proyectos_investigacion} ref={refs.proyectos_investigacion} />
+                <label>Porcentaje aprobados:</label>
+                <Input type="number" defaultValue={porciento_aprobados} ref={refs.porciento_aprobados} />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>% Estudiantes vinculados:</label>
-                <Input type="number" defaultValue={porciento_estudiantes_vinculados} ref={refs.porciento_estudiantes_vinculados} />
-              </div>
-
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>% Profesores vinculados:</label>
-                <Input type="number" defaultValue={porciento_profesores_vinculados} ref={refs.porciento_profesores_vinculados} />
+                <label>Porcentaje con 4-5:</label>
+                <Input type="number" defaultValue={porciento_con_4_5} ref={refs.porciento_con_4_5} />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
@@ -102,8 +92,8 @@ export default function InvestigacionItem({
                 <Input type="number" defaultValue={año_evaluacion} ref={refs.año_evaluacion} />
               </div>
 
-              <button type="submit" className="bg-blue-500 text-white px-4 py-2 my-5 rounded hover:bg-blue-600">Guardar Cambios</button>
-              <button type="button" className="bg-zinc-500 text-white px-4 py-2 my-5 mx-5 rounded hover:bg-red-600" onClick={() => setShowModal(false)}>Cancelar</button>
+              <button type="submit" className="bg-blue-500 text-white row-start-4 px-4 py-2 my-5 rounded hover:bg-blue-600">Guardar Cambios</button>
+              <button type="button" className="bg-zinc-500 text-white row-start-4 px-4 py-2 my-5 mx-5 rounded hover:bg-red-600" onClick={() => setShowModal(false)}>Cancelar</button>
             </div>
           </div>
         </form>

@@ -1,7 +1,7 @@
 import AdminLayout from "../../layouts/AdminLayout";
 import Add from "../../components/Add";
 import { useState, useEffect } from "react";
-import ResultadoEjerciciosIntegradoresItem from "../../components/getComponents/ResultadoDeEjerciciosIntegradores";
+import ResultadoEjerciciosIntegradoresItem from "../../components/getComponents/ResultadoDeEjerciciosIntegradoresItem";
 import { tableUse } from "../../context/TablesContext";
 import ResultadoEjerciciosIntegradoresForm from "../../components/addForms/ResultadoEjercicioIntegradoresForm";
 
@@ -32,9 +32,9 @@ export default function ResultadoEjerciciosIntegradores() {
         <ResultadoEjerciciosIntegradoresItem
           año_evaluacion={item.año_evaluacion}
           id={item.id}
-          porciento_aprobados={item.prociento_aprobados}
-          prociento_con_4_5={item.porciento_con_4_5}
-          key={item.key}
+          porciento_aprobados={item.porciento_aprobados}
+          porciento_con_4_5={item.porciento_con_4_5}
+          key={item.id}
         />
       ))}
 

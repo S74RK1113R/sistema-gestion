@@ -114,6 +114,9 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_2">Profesor 2:</label>
             <Select inputName="profesor_id_2" ref={profesor_autor_id2Ref}>
+              <option value="0" selected>
+                --Sin profesor--
+              </option>
               {data.map((item) => {
                 return (
                   <option
@@ -127,7 +130,7 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_3">Profesor 3:</label>
             <Select inputName="profesor_id_3" ref={profesor_autor_id3Ref}>
-              <option value="0" disabled selected>
+              <option value="0" selected>
                 --Sin profesor--
               </option>
               {data.map((item) => {
@@ -143,7 +146,7 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_4">Profesor 4:</label>
             <Select inputName="profesor_id_4" ref={profesor_autor_id4Ref}>
-              <option value="0" disabled selected>
+              <option value="0"  selected>
                 --Sin profesor--
               </option>
 
@@ -160,7 +163,7 @@ export default function EventosForm() {
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="profesor_id_5">Profesor 5:</label>
             <Select inputName="profesor_id_5" ref={profesor_autor_id5Ref}>
-              <option value="0" disabled selected>
+              <option value="0"  selected>
                 --Sin profesor--
               </option>
 

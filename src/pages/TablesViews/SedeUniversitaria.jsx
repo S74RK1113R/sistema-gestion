@@ -1,6 +1,6 @@
 import AdminLayout from "../../layouts/AdminLayout";
 import Add from "../../components/Add";
-import SedeUniversitariaItem from "../../components/getComponents/SedeUniversitaria";
+import SedeUniversitariaItem from "../../components/getComponents/SedeUniversitariaItem";
 import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import SedeUniversitariaFrom from "../../components/addForms/SedeUniversitariaForm";

@@ -182,6 +182,7 @@ export default function ProfesoresForm() {
               <option value="mc">Master</option>
             </Select>
           </div>
+          
           <div className="flex flex-col justify-center items-center w-full gap-2">
             <label htmlFor="doctor_esp_afin">Dr.C especialidad afin:</label>
             <Select inputName="doctor_esp_afin" ref={doctor_esp_afinRef}>

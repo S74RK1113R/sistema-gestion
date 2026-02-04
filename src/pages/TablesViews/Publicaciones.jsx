@@ -29,7 +29,7 @@ export default function Publicaciones() {
       {/*Renderizacion de contenido de tablas*/}
 
         {publicaciones.map((item) => (
-            <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} grupos_1_2={item.grupos_1_2} key={item.key}/>
+            <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} grupos_1_2={item.grupos_1_2} key={item.id}/>
         ))}
 
       <Add formTitle={"Insertar publicaciones"}>

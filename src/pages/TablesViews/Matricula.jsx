@@ -37,7 +37,7 @@ export default function Matricula() {
           c4to_año={item.c4to_año}
           q5to_año={item.q5to_año}
           id={item.id}
-          key={item.key}
+          key={item.id}
         />
       ))}
       <Add formTitle={"Insertar matrícula"}>

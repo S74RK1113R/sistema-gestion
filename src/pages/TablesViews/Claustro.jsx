@@ -28,7 +28,6 @@ export default function Claustro() {
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
       {claustro.map(item => (
-        console.log(item),
         <ClaustroItem
           año_evaluacion={item.año_evaluacion}
           drc={item.drc}

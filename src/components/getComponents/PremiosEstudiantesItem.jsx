@@ -1,6 +1,14 @@
 import { tableUse } from "../../context/TablesContext";
+import { useState, useRef } from "react";
+import Input from "../Input";
+
 export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
-  const { setPremiosEstudiantes, del, setDel } = tableUse();
+  const { setPremiosEstudiantes, del, setDel, insert, setInsert } = tableUse();
+  const [showModal, setShowModal] = useState(false);
+
+  const newNombreRef = useRef();
+  const newAñoRef = useRef();
+  const newCantidadRef = useRef();
 
   function deleteItem(id) {
     const url = `http://localhost:3002/api/premios_estudiante/${id}`;
@@ -11,6 +19,28 @@ export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
     })
       .then((response) => response.json())
       .then((json) => setPremiosEstudiantes(json.data || []));
+  }
+
+  function modifyItem() {
+    event.preventDefault();
+    const url = `http://localhost:3002/api/premios_estudiante/${id}`;
+    const payload = {
+      nombre: newNombreRef.current.value,
+      año: newAñoRef.current.value,
+      cantidad: newCantidadRef.current.value,
+    };
+
+    fetch(url, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) return res.json();
+      })
+      .then((json) => setPremiosEstudiantes(json?.data || []));
+
+    setInsert(!insert);
   }
 
   return (
@@ -31,13 +61,36 @@ export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
         >
           Borrar
         </button>
-        <button
-          data-id={id}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
+        <button onClick={() => setShowModal(true)} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
       </div>
+
+      {showModal && (
+        <form onSubmit={modifyItem}>
+          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
+            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+              <h2 className="text-xl font-bold col-span-2">Modificar Premio Estudiante</h2>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Nombre del premio:</label>
+                <Input type="text" defaultValue={nombre} ref={newNombreRef} />
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Año:</label>
+                <Input type="number" defaultValue={año} ref={newAñoRef} />
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Cantidad:</label>
+                <Input type="number" defaultValue={cantidad} ref={newCantidadRef} />
+              </div>
+
+              <button type="submit" className="bg-blue-500 text-white px-4 row-start-4 py-2 my-5 rounded hover:bg-blue-600">Guardar Cambios</button>
+              <button type="button" className="bg-zinc-500 text-white px-4 row-start-4 py-2 my-5 mx-5 rounded hover:bg-red-600" onClick={() => setShowModal(false)}>Cancelar</button>
+            </div>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

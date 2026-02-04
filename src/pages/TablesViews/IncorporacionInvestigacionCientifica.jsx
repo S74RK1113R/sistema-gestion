@@ -55,7 +55,7 @@ export default function IncorporacionInvestigacionCientifica() {
           institucional={item.institucional}
           internacional={item.internacional}
           nacional={item.nacional}
-          key={item.key}
+          key={item.id}
         />
       ))}
 
