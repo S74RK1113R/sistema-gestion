@@ -4,12 +4,13 @@ import Add from "../../components/Add";
 import NivelAcreditacionItem from "../../components/getComponents/NivelAcreditacionItem";
 import { tableUse } from "../../context/TablesContext";
 import NivelAcreditacionForm from "../../components/addForms/NivelAcreditacionForm";
+import { useUser } from "../../context/UserContext";
 
 export default function NivelAcreditacion() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { nivelAcreditacion , setNivelAcreditacion, del, insert} = tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/nivel_acreditacion";
 
   useEffect(() => {
@@ -37,9 +38,11 @@ export default function NivelAcreditacion() {
         />
       ))}
       
-      <Add formTitle={"Insertar nivel acreditación"}>
-        <NivelAcreditacionForm />
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar nivel acreditación"}>
+          <NivelAcreditacionForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

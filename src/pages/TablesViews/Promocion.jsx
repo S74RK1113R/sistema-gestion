@@ -4,12 +4,13 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import PromocionItem from "../../components/getComponents/PromocionItem";
 import PromocionForm from "../../components/addForms/PromocionForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Promocion() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { promocion, setPromocion, del,insert} = tableUse();
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/promocion";
 
   useEffect(() => {
@@ -60,9 +61,11 @@ export default function Promocion() {
 
         />
       ))}
-      <Add formTitle={"Insertar promoción"}>
-        <PromocionForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar promoción"}>
+          <PromocionForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

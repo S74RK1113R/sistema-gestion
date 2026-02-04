@@ -4,11 +4,13 @@ import SedeUniversitariaItem from "../../components/getComponents/SedeUniversita
 import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import SedeUniversitariaFrom from "../../components/addForms/SedeUniversitariaForm";
+import { useUser } from "../../context/UserContext";
 
 export default function SedeUniversitaria() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { sedeUniversitaria, setSedeUniversitaria, del,insert} = tableUse();
+  const {isAdmin,isDirective} = useUser()
 
   const url = "http://localhost:3002/api/sede_universitaria";
 
@@ -35,9 +37,11 @@ export default function SedeUniversitaria() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar sede universitaria"}>
-        <SedeUniversitariaFrom/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar sede universitaria"}>
+          <SedeUniversitariaFrom/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

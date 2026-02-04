@@ -4,12 +4,13 @@ import InvestigacionItem from "../../components/getComponents/InvestigacionItem"
 import { useEffect, useState } from "react";
 import { tableUse } from "../../context/TablesContext";
 import InvestigacionForm from "../../components/addForms/InvestigacionForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Investigacion() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {investigacion , setInvestigacion,del,insert} = tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/investigacion";
 
   useEffect(() => {
@@ -39,9 +40,11 @@ export default function Investigacion() {
         />
       ))}
 
-      <Add formTitle={"Insertar investigación"}>
-        <InvestigacionForm />
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar investigación"}>
+          <InvestigacionForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

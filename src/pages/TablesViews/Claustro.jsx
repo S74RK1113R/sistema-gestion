@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import ClaustroItem from "../../components/getComponents/ClaustroItem";
 import { tableUse } from "../../context/TablesContext";
 import ClaustroForm from "../../components/addForms/ClaustroForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Claustro() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {claustro,setClaustro,del,insert} = tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/claustros";
 
   useEffect(() => {
@@ -41,9 +42,11 @@ export default function Claustro() {
         />
       ))}
 
-      <Add formTitle={"Insertar claustro"}>
-        <ClaustroForm />
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar claustro"}>
+          <ClaustroForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

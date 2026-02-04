@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import PublicacionesItem from "../../components/getComponents/PublicacionesItem";
 import { tableUse } from "../../context/TablesContext";
 import PublicacionesForm from "../../components/addForms/PublicacionesForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Publicaciones() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {publicaciones,setPublicaciones,del,insert} = tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/publicaciones";
 
   useEffect(() => {
@@ -32,9 +33,11 @@ export default function Publicaciones() {
             <PublicacionesItem año_evaluacion={item.año_evaluacion} grupos1_4={item.grupos1_4} id={item.id} total={item.total} grupos_1_2={item.grupos_1_2} key={item.id}/>
         ))}
 
-      <Add formTitle={"Insertar publicaciones"}>
-        <PublicacionesForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar publicaciones"}>
+          <PublicacionesForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

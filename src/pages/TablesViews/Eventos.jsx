@@ -4,12 +4,13 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import  {tableUse}  from "../../context/TablesContext";
 import EventosForm from "../../components/addForms/EventosForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Eventos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { eventos, setEventos, del ,insert} = tableUse();
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/eventos";
 
   useEffect(() => {
@@ -43,9 +44,11 @@ export default function Eventos() {
           />
         ))}
       </div>
-      <Add formTitle={"Insertar eventos"}>
-        <EventosForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar eventos"}>
+          <EventosForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

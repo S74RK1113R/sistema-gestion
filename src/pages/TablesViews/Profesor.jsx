@@ -4,12 +4,13 @@ import { tableUse } from "../../context/TablesContext";
 import { useEffect, useState } from "react";
 import ProfesorItem from "../../components/getComponents/ProfesorItem";
 import ProfesoresForm from "../../components/addForms/ProfesorForm";
+import { useUser } from "../../context/UserContext";  
 
 export default function Profesor() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { profesor, setProfesor, del,insert } = tableUse();
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/profesor";
 
   useEffect(() => {
@@ -54,9 +55,11 @@ export default function Profesor() {
         />
       ))}
 
-      <Add formTitle={"Insertar profesor"}>
-        <ProfesoresForm />
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar profesor"}>
+          <ProfesoresForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

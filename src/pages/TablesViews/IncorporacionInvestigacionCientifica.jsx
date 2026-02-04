@@ -4,12 +4,18 @@ import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import IncorporacionInvestigacionCientificaItem from "../../components/getComponents/IncorporacionInvestigacionCientificaItem";
 import IncorporacionInvestigacionCientificaForm from "../../components/addForms/IncorporacionInvestigacionCientificaForm";
+import { useUser } from "../../context/UserContext";
 
 export default function IncorporacionInvestigacionCientifica() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { incorporacionInvestigacion, setIncorporacionInvestigacion, del,insert} =
-    tableUse();
+  const {
+    incorporacionInvestigacion,
+    setIncorporacionInvestigacion,
+    del,
+    insert,
+  } = tableUse();
+  const { isAdmin, isDirective } = useUser();
 
   const url =
     "http://localhost:3002/api/incorporacion_investigacion_cientifica";
@@ -59,9 +65,11 @@ export default function IncorporacionInvestigacionCientifica() {
         />
       ))}
 
-      <Add formTitle={"Insertar incorporación a la investigación científica"}>
-        <IncorporacionInvestigacionCientificaForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar incorporación a la investigación científica"}>
+          <IncorporacionInvestigacionCientificaForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

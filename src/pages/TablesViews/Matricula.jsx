@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import MatriculaItem from "../../components/getComponents/MatriculaItem";
 import MatriculaForm from "../../components/addForms/MatriculaForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Matricula() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { matricula, setMatricula, del, insert} = tableUse();
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/matricula";
 
   useEffect(() => {
@@ -40,9 +41,11 @@ export default function Matricula() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar matrícula"}>
-        <MatriculaForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar matrícula"}>
+          <MatriculaForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

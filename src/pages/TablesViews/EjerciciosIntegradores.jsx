@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import EjerciciosIntegradoresForm from "../../components/addForms/EjerciciosIntegradoresForm";
 import EjerciciosIntegradoresItem from "../../components/getComponents/EjerciciosIntegradoresItem";
+import { useUser } from "../../context/UserContext";
 
 export default function EjerciciosIntegradores() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { setEjerciciosIntegradores, ejercicioIntegradores, del, insert} = tableUse();
+  const {isAdmin,isDirective} = useUser()
 
   const url = "http://localhost:3002/api/ejercicios_integradores";
 
@@ -65,9 +67,11 @@ export default function EjerciciosIntegradores() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar ejercicios integradores"}>
-        <EjerciciosIntegradoresForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar ejercicios integradores"}>
+          <EjerciciosIntegradoresForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

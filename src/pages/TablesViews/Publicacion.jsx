@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import PublicacionItem from"../../components/getComponents/PublicacionItem"
 import PublicacionForm from "../../components/addForms/PublicacionForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Publicacion() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const { publicacion, setPublicacion, del,insert} = tableUse();
+  const {isAdmin,isDirective} = useUser()
 
   const url = "http://localhost:3002/api/publicacion";
 
@@ -44,9 +46,11 @@ export default function Publicacion() {
             key={item.id}/>
         ))
       }
-      <Add formTitle={"Insertar publicacion"}>
-        <PublicacionForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar publicacion"}>
+          <PublicacionForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

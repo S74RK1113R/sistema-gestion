@@ -9,7 +9,7 @@ export default function Menu() {
         <menu className="bg-blue-300 w-full h-full p-2 overflow-y-scroll scroll">
             <ul className="flex flex-col gap-1 font-bold text-zinc-50 items-center text-center">
                 {
-                    (isAdmin || isDirective) && <Item href={"/usuarios"}>Usuarios</Item>
+                    (isAdmin) && <Item href={"/usuarios"}>Usuarios</Item>
                 }
                         
                 <Item href={"/disciplinas"}>Disciplinas</Item>

@@ -4,12 +4,13 @@ import { tableUse } from "../../context/TablesContext";
 import { useEffect, useState } from "react";
 import PremiosEstudiantesItem from "../../components/getComponents/PremiosEstudiantesItem";
 import PremiosEstudiantesForm from "../../components/addForms/PremiosEstudiantesForm";
+import { useUser } from "../../context/UserContext";
 
 export default function PremiosEstudiantes() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { premiosEstudiantes, setPremiosEstudiantes, del, insert } = tableUse();
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/premios_estudiante";
 
   useEffect(() => {
@@ -36,9 +37,11 @@ export default function PremiosEstudiantes() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar premios de estudiantes"}>
-        <PremiosEstudiantesForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar premios de estudiantes"}>
+          <PremiosEstudiantesForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

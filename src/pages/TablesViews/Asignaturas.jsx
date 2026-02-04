@@ -4,11 +4,13 @@ import Add from "../../components/Add";
 import AsignaturasItem from "../../components/getComponents/AsignaturasItem";
 import { tableUse } from "../../context/TablesContext";
 import AsignaturasForm from "../../components/addForms/AsignaturasForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Asignaturas() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const { asignatura, setAsignatura, del,insert} = tableUse();
+  const { asignatura, setAsignatura, del, insert } = tableUse();
+  const { isAdmin, isDirective } = useUser();
 
   const url = "http://localhost:3002/api/asignaturas";
 
@@ -22,7 +24,7 @@ export default function Asignaturas() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del,insert]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>
@@ -44,10 +46,12 @@ export default function Asignaturas() {
         />
       ))}
 
-      <Add formTitle={"Insertar asignaturas"}>
-        {/*Formulario de añadir asignaturas*/}
-        <AsignaturasForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar asignaturas"}>
+          {/*Formulario de añadir asignaturas*/}
+          <AsignaturasForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

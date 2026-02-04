@@ -4,12 +4,14 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useEffect } from "react";
 import ProfesorPrincipalItem from "../../components/getComponents/ProfesorPrincipalItem";
 import ProfesorPrincipalForm from "../../components/addForms/ProfesorPrincipalForm";
+import { useUser } from "../../context/UserContext";
 
 export default function ProfesorPrincipal() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
-  const { profesorPrincipal, setProfesorPrincipal, del, insert} = tableUse();
-
+  const { profesorPrincipal, setProfesorPrincipal, del, insert } = tableUse();
+  const {isAdmin,isDirective} = useUser()
+  
   const url = "http://localhost:3002/api/profesor_principal";
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function ProfesorPrincipal() {
       .finally(() => {
         setLoading(false);
       });
-  }, [del,insert]);
+  }, [del, insert]);
 
   return (
     <AdminLayout>
@@ -37,9 +39,11 @@ export default function ProfesorPrincipal() {
         />
       ))}
 
-      <Add formTitle={"Insertar profesor principal"}>
-        <ProfesorPrincipalForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar profesor principal"}>
+          <ProfesorPrincipalForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }

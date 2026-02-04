@@ -4,13 +4,14 @@ import DisciplinasForm from "../../components/addForms/DisciplinasForm"
 import Add from "../../components/Add"
 import { useState,useEffect } from "react"
 import { tableUse } from "../../context/TablesContext"
+import { useUser } from "../../context/UserContext"
 
 export default function Disciplinas() {
 
   const [loading, setLoading ]= useState(true)
   const [error, setError] = useState()
   const {disciplina, setDisciplina,del,insert}= tableUse()
-    
+  const {isAdmin,isDirective} = useUser()
   const url = 'http://localhost:3002/api/disciplinas'
     
   useEffect(()=>{
@@ -33,9 +34,11 @@ export default function Disciplinas() {
           ))}
 
         </div>
-          <Add formTitle={"Insertar disciplinas"}>
-            <DisciplinasForm/>
-          </Add>
+            {(isAdmin || isDirective) && (
+              <Add formTitle={"Insertar disciplinas"}>
+                <DisciplinasForm/>
+              </Add>
+            )}
       </AdminLayout>
   )
 }

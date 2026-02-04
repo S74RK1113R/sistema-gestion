@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import EventosAnteriorItem from "../../components/getComponents/EventosAnteriorItem";
 import { tableUse } from "../../context/TablesContext";
 import EventosAnteriorForm from "../../components/addForms/EventosAnteriorForm";
+import { useUser } from "../../context/UserContext";
 
 export default function EventosAnterior() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {eventosAnterior, setEventosAnterior, del , insert} =  tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/eventos_anterior";
 
   useEffect(() => {
@@ -35,9 +36,11 @@ export default function EventosAnterior() {
             ))
         }
 
-      <Add formTitle={"Insertar eventos anterior"}>
-        <EventosAnteriorForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar eventos anterior"}>
+          <EventosAnteriorForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

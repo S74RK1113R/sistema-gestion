@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import ResultadoEjerciciosIntegradoresItem from "../../components/getComponents/ResultadoDeEjerciciosIntegradoresItem";
 import { tableUse } from "../../context/TablesContext";
 import ResultadoEjerciciosIntegradoresForm from "../../components/addForms/ResultadoEjercicioIntegradoresForm";
+import { useUser } from "../../context/UserContext";
 
 export default function ResultadoEjerciciosIntegradores() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {resultadoEjercicios, setResultadoEjercicios,del, insert} = tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/resultado_ejercicios_integradores";
 
   useEffect(() => {
@@ -38,9 +39,11 @@ export default function ResultadoEjerciciosIntegradores() {
         />
       ))}
 
-      <Add formTitle={"Insertar resultado de ejercicios integradores"}>
-        <ResultadoEjerciciosIntegradoresForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar resultado de ejercicios integradores"}>
+          <ResultadoEjerciciosIntegradoresForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

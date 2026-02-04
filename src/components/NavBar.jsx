@@ -47,7 +47,7 @@ export default function NavBar() {
       <div className="w-full"></div>
       <div className=" text-xl text-green-500 font-bold rounded-full px-1  py-1 mx-2">{notification}</div>
       <div className="bg-white h-11/12 rounded-full text-center flex flex-row items-center justify-center">
-        <span className="mx-3 font-bold select-none text-nowrap">{username}</span>
+        <span className="mx-3 font-bold select-none text-nowrap uppercase ">{username}</span>
 
         <div className="p-2 cursor-pointer hover:scale-120" onClick={handleLogout}>
           <Logout className="size-5" />

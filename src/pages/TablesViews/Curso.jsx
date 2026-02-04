@@ -4,13 +4,14 @@ import { useState,useEffect } from "react"
 import { tableUse } from "../../context/TablesContext"
 import CursoItem from "../../components/getComponents/CursoItem"
 import CursoForm from "../../components/addForms/CursoForm"
+import { useUser } from "../../context/UserContext"
 
 export default function Curso() {
 
   const [loading, setLoading ]= useState(true)
   const [error, setError] = useState()
   const {curso, setCurso,del, insert}= tableUse()
-    
+  const {isAdmin,isDirective} = useUser()
   const url = 'http://localhost:3002/api/cursos'
     
   useEffect(()=>{
@@ -33,9 +34,11 @@ export default function Curso() {
           ))}
 
         </div>
-          <Add formTitle={"Insertar curso"}>
-            <CursoForm/>
-          </Add>
+          {(isAdmin || isDirective) && (
+            <Add formTitle={"Insertar curso"}>
+              <CursoForm/>
+            </Add>
+          )}
       </AdminLayout>
   )
 }

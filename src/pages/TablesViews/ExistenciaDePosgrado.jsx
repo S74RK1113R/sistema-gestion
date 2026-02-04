@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import ExistenciaPosgradoItem from "../../components/getComponents/ExistenciaPosgradoItem";
 import { tableUse } from "../../context/TablesContext";
 import ExistenciaPosgradoForm from "../../components/addForms/ExistenciaPosgradoForm";
+import { useUser } from "../../context/UserContext";
 
 export default function ExistenciaDePosgrado() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const {existenciaPosgrado, setExistenciaPosgrado, del, insert} =  tableUse()
-
+  const {isAdmin,isDirective} = useUser()
   const url = "http://localhost:3002/api/existencia_posgrado";
 
   useEffect(() => {
@@ -36,9 +37,11 @@ export default function ExistenciaDePosgrado() {
           key={item.id}
         />
       ))}
-      <Add formTitle={"Insertar posgrado"}>
-        <ExistenciaPosgradoForm/>
-      </Add>
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar posgrado"}>
+          <ExistenciaPosgradoForm/>
+        </Add>
+      )}
     </AdminLayout>
   );
 }

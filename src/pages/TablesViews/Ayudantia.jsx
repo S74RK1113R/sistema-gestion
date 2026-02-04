@@ -3,12 +3,14 @@ import Add from "../../components/Add";
 import { useState, useEffect } from "react";
 import { tableUse } from "../../context/TablesContext";
 import AyudantiaItem from "../../components/getComponents/AyudantiaItem";
-import AyudantiaForm from "../../components/addForms/AyudantiaForm"
+import AyudantiaForm from "../../components/addForms/AyudantiaForm";
+import { useUser } from "../../context/UserContext";
 
 export default function Ayudantia() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const { ayudantia, setAyudantia, del, insert } = tableUse();
+  const {isAdmin,isDirective} = useUser()
 
   const url = "http://localhost:3002/api/ayudantias";
 
@@ -28,7 +30,7 @@ export default function Ayudantia() {
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
       {ayudantia.map((item) => (
-          <AyudantiaItem
+        <AyudantiaItem
           año={item.año}
           año_evaluacion={item.año_evaluacion}
           educacion_media_1er_año={item.educacion_media_1er_año}
@@ -44,10 +46,12 @@ export default function Ayudantia() {
           id={item.id}
           key={item.id}
         />
-    ))}
-      <Add formTitle={"Insertar ayudantía"}>
-        <AyudantiaForm/>
-      </Add>
+      ))}
+      {(isAdmin || isDirective) && (
+        <Add formTitle={"Insertar ayudantía"}>
+          <AyudantiaForm />
+        </Add>
+      )}
     </AdminLayout>
   );
 }
