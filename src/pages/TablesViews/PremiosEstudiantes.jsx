@@ -33,7 +33,7 @@ export default function PremiosEstudiantes() {
           cantidad={item.cantidad}
           id={item.id}
           nombre={item.nombre}
-          key={item.key}
+          key={item.id}
         />
       ))}
       <Add formTitle={"Insertar premios de estudiantes"}>

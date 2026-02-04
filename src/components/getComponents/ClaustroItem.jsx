@@ -1,6 +1,7 @@
 import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
+import { useUser } from "../../context/UserContext";
 
 export default function ClaustroItem({
   total_claustro,
@@ -14,6 +15,7 @@ export default function ClaustroItem({
 }) {
   const { setClaustro, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const refs = {
     total_claustro: useRef(),
@@ -79,7 +81,7 @@ export default function ClaustroItem({
       <h1 className="font-bold">Año de evaluación:</h1>
       <div>{año_evaluacion}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -94,7 +96,7 @@ export default function ClaustroItem({
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {showModal && (
         <form onSubmit={modifyItem}>
@@ -110,14 +112,20 @@ export default function ClaustroItem({
                   type="number"
                   inputName="total_claustro"
                   min="0"
-                  defaultValue = {total_claustro}
+                  defaultValue={total_claustro}
                   ref={refs.total_claustro}
                 />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="drc">Dr.C:</label>
-                <Input type="number" inputName="drc" min="0" defaultValue={drc} ref={refs.drc} />
+                <Input
+                  type="number"
+                  inputName="drc"
+                  min="0"
+                  defaultValue={drc}
+                  ref={refs.drc}
+                />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
@@ -152,7 +160,13 @@ export default function ClaustroItem({
               </div>
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="pt_pa">Pt/Pa:</label>
-                <Input type="number" inputName="pt_pa" min="0" defaultValue={pt_pa} ref={refs.pt_pa} />
+                <Input
+                  type="number"
+                  inputName="pt_pa"
+                  min="0"
+                  defaultValue={pt_pa}
+                  ref={refs.pt_pa}
+                />
               </div>
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="año_evaluacion">Año evaluacion:</label>

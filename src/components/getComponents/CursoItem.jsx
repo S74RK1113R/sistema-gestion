@@ -1,10 +1,12 @@
 import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
+import { useUser } from "../../context/UserContext";
 
 export default function CursoItem({ curso, id }) {
   const { setCurso, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
   const newCursoRef = useRef();
 
   function deleteItem(id) {
@@ -45,7 +47,7 @@ export default function CursoItem({ curso, id }) {
       <h1 className="font-bold">Curso:</h1>
       <div>{curso}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -60,7 +62,7 @@ export default function CursoItem({ curso, id }) {
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {showModal && (
         <form onSubmit={modifyItem}>

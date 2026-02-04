@@ -32,7 +32,7 @@ export default function TotalGraduados() {
         cpe={item.cpe}
         curso_id={item.curso_id}
         id={item.id}
-        key={item.key} />
+        key={item.id} />
       ))}
       <Add formTitle={"Insertar total de gradudados"}>
         <TotalGraduadosForm/>

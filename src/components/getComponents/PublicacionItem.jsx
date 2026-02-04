@@ -3,6 +3,7 @@ import { useSelectFetch } from "../../hooks/useSelectFetch";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function PublicacionItem({
   año,
@@ -21,6 +22,7 @@ export default function PublicacionItem({
   const { setPublicacion, del, setDel, insert, setInsert } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/profesor");
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const refs = {
     año: useRef(),
@@ -121,22 +123,25 @@ export default function PublicacionItem({
       <h1 className="font-bold">Grupo:</h1>
       <div>{grupo}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>
@@ -175,7 +180,11 @@ export default function PublicacionItem({
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="clasificacion">Clasificación:</label>
-                <Select inputName="clasificacion" ref={refs.clasificacion} defaultValue={clasificacion}>
+                <Select
+                  inputName="clasificacion"
+                  ref={refs.clasificacion}
+                  defaultValue={clasificacion}
+                >
                   <option value="articulo">Artículo</option>
                   <option value="libro">Libro</option>
                   <option value="libro digital">Libro digital</option>

@@ -32,7 +32,7 @@ export default function SedeUniversitaria() {
           clasificacion={item.clasificacion}
           id={item.id}
           nombre={item.nombre}
-          key={item.key}
+          key={item.id}
         />
       ))}
       <Add formTitle={"Insertar sede universitaria"}>

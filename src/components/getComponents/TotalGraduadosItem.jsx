@@ -3,11 +3,13 @@ import { useSelectFetch } from "../../hooks/useSelectFetch";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
   const { setTotalGraduados, del, setDel, insert, setInsert } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/cursos");
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const newCdRef = useRef();
   const newCpeRef = useRef();
@@ -53,47 +55,87 @@ export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
       <h1 className="font-bold">Curso por encuentro:</h1>
       <div>{cpe}</div>
       <h1 className="font-bold">Curso:</h1>
-      <div>{data.find((curso) => curso.id === curso_id)?.curso || "Curso no encontrado"}</div>
-
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button onClick={() => setShowModal(true)} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">
-          Modificar
-        </button>
+      <div>
+        {data.find((curso) => curso.id === curso_id)?.curso ||
+          "Curso no encontrado"}
       </div>
+
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>
           <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
             <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
-              <h2 className="text-xl font-bold col-span-2">Modificar Total Graduados</h2>
+              <h2 className="text-xl font-bold col-span-2">
+                Modificar Total Graduados
+              </h2>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="cd">Curso diurno:</label>
-                <Input type="number" inputName="cd" defaultValue={cd} ref={newCdRef} />
+                <Input
+                  type="number"
+                  inputName="cd"
+                  defaultValue={cd}
+                  ref={newCdRef}
+                />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="cpe">Curso por encuentro:</label>
-                <Input type="number" inputName="cpe" defaultValue={cpe} ref={newCpeRef} />
+                <Input
+                  type="number"
+                  inputName="cpe"
+                  defaultValue={cpe}
+                  ref={newCpeRef}
+                />
               </div>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="curso">Curso:</label>
-                <Select inputName="curso" defaultValue={curso_id} ref={newCursoIdRef}>
-                  {data?.map((item) => <option key={item.id} value={item.id}>{item.curso || item.nombre || `Curso ${item.id}`}</option>)}
+                <Select
+                  inputName="curso"
+                  defaultValue={curso_id}
+                  ref={newCursoIdRef}
+                >
+                  {data?.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.curso || item.nombre || `Curso ${item.id}`}
+                    </option>
+                  ))}
                 </Select>
               </div>
 
-              <button type="submit" className="row-start-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guardar Cambios</button>
-              <button type="button" className="row-start-4 bg-zinc-500 text-white px-4 py-2 mx-5 rounded hover:bg-red-600" onClick={() => setShowModal(false)}>Cancelar</button>
+              <button
+                type="submit"
+                className="row-start-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                type="button"
+                className="row-start-4 bg-zinc-500 text-white px-4 py-2 mx-5 rounded hover:bg-red-600"
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
             </div>
           </div>
         </form>

@@ -2,6 +2,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function ExistenciaPosgradoItem({
   existencia,
@@ -10,6 +11,7 @@ export default function ExistenciaPosgradoItem({
 }) {
   const { setExistenciaPosgrado, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const existenciaRef = useRef();
   const añoRef = useRef();
@@ -53,7 +55,7 @@ export default function ExistenciaPosgradoItem({
       <h1 className="font-bold">Año de evaluación:</h1>
       <div>{año_evaluacion}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -68,7 +70,7 @@ export default function ExistenciaPosgradoItem({
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {showModal && (
         <form onSubmit={modifyItem}>

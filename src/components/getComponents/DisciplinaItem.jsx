@@ -2,10 +2,12 @@ import { useRef } from "react";
 import { tableUse } from "../../context/TablesContext";
 import { useState } from "react";
 import Input from "../Input";
+import { useUser } from "../../context/UserContext";
 
 export default function DisciplinaItem({ nombre, codigo, id }) {
   const { setDisciplina, del, setDel, setInsert, insert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const {isAdmin,isDirective} = useUser()
 
   const newNombreRef = useRef();
   const newCodigoRef = useRef();
@@ -53,7 +55,7 @@ export default function DisciplinaItem({ nombre, codigo, id }) {
       <h1 className="font-bold">Codigo de disciplina:</h1>
       <div>{codigo}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -69,7 +71,7 @@ export default function DisciplinaItem({ nombre, codigo, id }) {
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {/*Modal de modificacion*/}
 

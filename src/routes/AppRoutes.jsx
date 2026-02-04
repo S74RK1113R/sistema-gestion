@@ -26,37 +26,39 @@ import SedeUniversitaria from "../pages/TablesViews/SedeUniversitaria";
 import Usuarios from "../pages/TablesViews/Usuarios";
 import Eventos from "../pages/TablesViews/Eventos";
 import Curso from "../pages/TablesViews/Curso";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
     return(
         <Routes>
             <Route path="/" element={<Login/>}/>
-            <Route path ="/disciplinas" element={<Disciplinas/>}/>
-            <Route path ="/usuarios" element={<Usuarios/>}/>
-            <Route path ="/asignaturas" element={<Asignaturas/>}/>
-            <Route path ="/nivel_acreditacion" element={<NivelAcreditacion/>}/>
-            <Route path ="/claustro" element={<Claustro/>}/>
-            <Route path ="/curso" element={<Curso/>}/>
-            <Route path ="/eventos_anterior" element={<EventosAnterior/>}/>
-            <Route path ="/publicaciones" element={<Publicaciones/>}/>
-            <Route path ="/eventos" element={<Eventos/>}/>
-            <Route path ="/resultado_ejercicios_integradores" element={<ResultadoEjerciciosIntegradores/>}/>
-            <Route path ="/investigacion" element={<Investigacion/>}/>
-            <Route path ="/existencia_de_posgrado" element={<ExistenciaDePosgrado/>}/>
-            <Route path ="/profesor" element={<Profesor/>}/>
-            <Route path ="/profesor_principal" element={<ProfesorPrincipal/>}/>
-            <Route path ="/premios_profesor" element={<PremiosProfesor/>}/>
-            <Route path ="/incorporacion_investigacion_cientifica" element={<IncorporacionInvestigacionCientifica/>}/>
-            <Route path ="/matricula" element={<Matricula/>}/>
-            <Route path ="/ayudantia" element={<Ayudantia/>}/>
-            <Route path ="/ejercicios_integradores" element={<EjerciciosIntegradores/>}/>
-            <Route path ="/premios_estudiantes" element={<PremiosEstudiantes/>}/>
-            <Route path ="/publicacion" element={<Publicacion/>}/>
-            <Route path ="/total_graudados" element={<TotalGraduados/>}/>
-            <Route path ="/promocion" element={<Promocion/>}/>
-            <Route path ="/posgrado" element={<Posgrado/>}/>
-            <Route path ="/sede_universitaria" element={<SedeUniversitaria/>}/>
-            
+
+            <Route path="/disciplinas" element={<ProtectedRoute><Disciplinas/></ProtectedRoute>}/>
+            <Route path="/usuarios" element={<ProtectedRoute><Usuarios/></ProtectedRoute>}/>
+            <Route path="/asignaturas" element={<ProtectedRoute><Asignaturas/></ProtectedRoute>}/>
+            <Route path="/nivel_acreditacion" element={<ProtectedRoute><NivelAcreditacion/></ProtectedRoute>}/>
+            <Route path="/claustro" element={<ProtectedRoute><Claustro/></ProtectedRoute>}/>
+            <Route path="/curso" element={<ProtectedRoute><Curso/></ProtectedRoute>}/>
+            <Route path="/eventos_anterior" element={<ProtectedRoute><EventosAnterior/></ProtectedRoute>}/>
+            <Route path="/publicaciones" element={<ProtectedRoute><Publicaciones/></ProtectedRoute>}/>
+            <Route path="/eventos" element={<ProtectedRoute><Eventos/></ProtectedRoute>}/>
+            <Route path="/resultado_ejercicios_integradores" element={<ProtectedRoute><ResultadoEjerciciosIntegradores/></ProtectedRoute>}/>
+            <Route path="/investigacion" element={<ProtectedRoute><Investigacion/></ProtectedRoute>}/>
+            <Route path="/existencia_de_posgrado" element={<ProtectedRoute><ExistenciaDePosgrado/></ProtectedRoute>}/>
+            <Route path="/profesor" element={<ProtectedRoute><Profesor/></ProtectedRoute>}/>
+            <Route path="/profesor_principal" element={<ProtectedRoute><ProfesorPrincipal/></ProtectedRoute>}/>
+            <Route path="/premios_profesor" element={<ProtectedRoute><PremiosProfesor/></ProtectedRoute>}/>
+            <Route path="/incorporacion_investigacion_cientifica" element={<ProtectedRoute><IncorporacionInvestigacionCientifica/></ProtectedRoute>}/>
+            <Route path="/matricula" element={<ProtectedRoute><Matricula/></ProtectedRoute>}/>
+            <Route path="/ayudantia" element={<ProtectedRoute><Ayudantia/></ProtectedRoute>}/>
+            <Route path="/ejercicios_integradores" element={<ProtectedRoute><EjerciciosIntegradores/></ProtectedRoute>}/>
+            <Route path="/premios_estudiantes" element={<ProtectedRoute><PremiosEstudiantes/></ProtectedRoute>}/>
+            <Route path="/publicacion" element={<ProtectedRoute><Publicacion/></ProtectedRoute>}/>
+            <Route path="/total_graudados" element={<ProtectedRoute><TotalGraduados/></ProtectedRoute>}/>
+            <Route path="/promocion" element={<ProtectedRoute><Promocion/></ProtectedRoute>}/>
+            <Route path="/posgrado" element={<ProtectedRoute><Posgrado/></ProtectedRoute>}/>
+            <Route path="/sede_universitaria" element={<ProtectedRoute><SedeUniversitaria/></ProtectedRoute>}/>
+
             <Route path="*" element={<NotFoundPage/>}/>
         </Routes>
     )

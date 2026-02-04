@@ -34,6 +34,17 @@ const  port = 3002;
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://localhost:5173' }));
 
+// Middleware para evitar acceso directo desde el navegador (navegación/entrada en la barra)
+// Bloquea peticiones GET que provienen de una navegación normal del navegador
+app.use((req, res, next) => {
+    const mode = req.headers['sec-fetch-mode'];
+    const accept = req.headers.accept || '';
+    if (req.method === 'GET' && (mode === 'navigate' || accept.includes('text/html'))) {
+        return res.status(403).json({ error: 'Acceso prohibido desde navegador' });
+    }
+    next();
+});
+
 //routes
 app.use('/api/usuarios',usuarioRouter)
 app.use('/api/asignaturas', asignaturasRouter)

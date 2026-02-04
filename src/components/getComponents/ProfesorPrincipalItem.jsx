@@ -2,6 +2,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useRef, useState } from "react";
 import Select from "../Select";
 import { useSelectFetch } from "../../hooks/useSelectFetch";
+import { useUser } from "../../context/UserContext";
 
 export default function ProfesorPrincipalItem({
   disciplina_id,
@@ -10,6 +11,7 @@ export default function ProfesorPrincipalItem({
 }) {
   const { setProfesorPrincipal, setDel, del, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const { data: disciplinasData } = useSelectFetch(
     "http://localhost:3002/api/disciplinas",
@@ -63,22 +65,25 @@ export default function ProfesorPrincipalItem({
       <h1 className="font-bold">Profesor:</h1>
       <div>{profesor_id}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {/*Modal Zone */}
       {showModal && (
@@ -91,7 +96,11 @@ export default function ProfesorPrincipalItem({
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="disciplina">Disciplina:</label>
-                <Select inputName="disciplina" defaultValue={disciplina_id} ref={newDisciplinaIdRef}>
+                <Select
+                  inputName="disciplina"
+                  defaultValue={disciplina_id}
+                  ref={newDisciplinaIdRef}
+                >
                   {disciplinasData?.map((item) => {
                     return <option value={item.id}>{item.nombre}</option>;
                   })}
@@ -100,7 +109,11 @@ export default function ProfesorPrincipalItem({
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="profesor">Profesor:</label>
-                <Select inputName="profesor" ref={newProfesorIdRef} defaultValue={profesor_id}>
+                <Select
+                  inputName="profesor"
+                  ref={newProfesorIdRef}
+                  defaultValue={profesor_id}
+                >
                   {profesoresData?.map((item) => {
                     return (
                       <option

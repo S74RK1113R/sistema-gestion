@@ -2,6 +2,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function UsuariosItem({
   usuario,
@@ -15,6 +16,7 @@ export default function UsuariosItem({
   const { setUsuario, del, setDel, insert, setInsert } = tableUse();
 
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
   const newUsuarioRef = useRef();
   const newNombresRef = useRef();
   const newPrimerApellidoRef = useRef();
@@ -75,7 +77,7 @@ export default function UsuariosItem({
       <h1 className="font-bold">Rol:</h1>
       <div>{rol}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -84,21 +86,24 @@ export default function UsuariosItem({
         >
           Borrar
         </button>
+
         <button
           onClick={() => setShowModal(true)}
           className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {/*Modal Zone */}
       {showModal && (
         <form onSubmit={modifyItem}>
           <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
             <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
-              <h2 className="text-xl font-bold mb-4 col-span-2">Modificar Usuario</h2>
-              
+              <h2 className="text-xl font-bold mb-4 col-span-2">
+                Modificar Usuario
+              </h2>
+
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="usuario">Usuario:</label>
                 <Input

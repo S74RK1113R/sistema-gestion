@@ -1,10 +1,12 @@
 import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
+import { useUser } from "../../context/UserContext";
 
 export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
   const { setPremiosEstudiantes, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const newNombreRef = useRef();
   const newAñoRef = useRef();
@@ -52,23 +54,33 @@ export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
       <h1 className="font-bold">Cantidad de premios:</h1>
       <div>{cantidad}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button onClick={() => setShowModal(true)} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg ">Modificar</button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>
           <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
             <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
-              <h2 className="text-xl font-bold col-span-2">Modificar Premio Estudiante</h2>
+              <h2 className="text-xl font-bold col-span-2">
+                Modificar Premio Estudiante
+              </h2>
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label>Nombre del premio:</label>
@@ -82,11 +94,26 @@ export default function PremiosEstudiantesItem({ nombre, año, cantidad, id }) {
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label>Cantidad:</label>
-                <Input type="number" defaultValue={cantidad} ref={newCantidadRef} />
+                <Input
+                  type="number"
+                  defaultValue={cantidad}
+                  ref={newCantidadRef}
+                />
               </div>
 
-              <button type="submit" className="bg-blue-500 text-white px-4 row-start-4 py-2 my-5 rounded hover:bg-blue-600">Guardar Cambios</button>
-              <button type="button" className="bg-zinc-500 text-white px-4 row-start-4 py-2 my-5 mx-5 rounded hover:bg-red-600" onClick={() => setShowModal(false)}>Cancelar</button>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 row-start-4 py-2 my-5 rounded hover:bg-blue-600"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                type="button"
+                className="bg-zinc-500 text-white px-4 row-start-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
             </div>
           </div>
         </form>

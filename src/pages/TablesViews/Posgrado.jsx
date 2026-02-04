@@ -29,7 +29,7 @@ export default function Posgrado() {
       {/*Renderizacion de contenido de tablas*/}
       {
         posgrado.map(item=>(
-            <PosgradoItem año={item.año} cantidad={item.cantidad} id={item.id} nombre={item.nombre} key={item.key} />
+            <PosgradoItem año={item.año} cantidad={item.cantidad} id={item.id} nombre={item.nombre} key={item.id} />
         ))
       }
       <Add formTitle={"Insertar posgrado"}>

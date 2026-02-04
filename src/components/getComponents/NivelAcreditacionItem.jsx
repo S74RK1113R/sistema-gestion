@@ -2,10 +2,12 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function NivelAcreditacionItem({ nivel, año_evaluacion, id }) {
   const { setNivelAcreditacion, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const nivelRef = useRef();
   const añoRef = useRef();
@@ -49,22 +51,25 @@ export default function NivelAcreditacionItem({ nivel, año_evaluacion, id }) {
       <h1 className="font-bold">Año de evaluación:</h1>
       <div>{año_evaluacion}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>

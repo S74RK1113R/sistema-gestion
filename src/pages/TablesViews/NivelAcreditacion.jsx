@@ -33,7 +33,7 @@ export default function NivelAcreditacion() {
           id={item.id}
           año_evaluacion={item.año_evaluacion}
           nivel={item.nivel}
-          key={item.key}
+          key={item.id}
         />
       ))}
       

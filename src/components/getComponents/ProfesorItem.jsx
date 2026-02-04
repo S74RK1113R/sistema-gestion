@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Input from "../Input";
 import Select from "../Select";
 import { useSelectFetch } from "../../hooks/useSelectFetch";
+import { useUser } from "../../context/UserContext";
 
 export default function ProfesorItem({
   primer_apellido,
@@ -29,6 +30,7 @@ export default function ProfesorItem({
   const { setProfesor, setDel, del } = tableUse();
   const { insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const newPrimerApellidoRef = useRef();
   const newSegundoApellidoRef = useRef();
@@ -178,21 +180,24 @@ export default function ProfesorItem({
       <h1 className="font-bold">Sede universitaria:</h1>
       <div>{sede_universitaria}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => deleteItem(id)}
-          data-id={id}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => deleteItem(id)}
+            data-id={id}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>
@@ -453,7 +458,7 @@ export default function ProfesorItem({
                 <Select
                   inputName="sede_universitaria_id"
                   ref={newSedeUniversitariaRef}
-                  defaultValue={sede_universitaria}  
+                  defaultValue={sede_universitaria}
                 >
                   {sedeUniversitariaData.map((item) => {
                     return (

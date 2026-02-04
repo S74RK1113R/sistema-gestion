@@ -1,6 +1,7 @@
 import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
+import { useUser } from "../../context/UserContext";
 
 export default function EjerciciosIntegradoresItem({
   id,
@@ -33,6 +34,7 @@ export default function EjerciciosIntegradoresItem({
   const { setEjerciciosIntegradores, del, setDel, insert, setInsert } =
     tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const refs = {
     matricula_2do_año: useRef(),
@@ -176,7 +178,7 @@ export default function EjerciciosIntegradoresItem({
       <h1 className="font-bold">Año de la evaluación:</h1>
       <div>{año_evaluacion}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -185,13 +187,14 @@ export default function EjerciciosIntegradoresItem({
         >
           Borrar
         </button>
+
         <button
           onClick={() => setShowModal(true)}
           className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {showModal && (
         <form onSubmit={modifyItem}>

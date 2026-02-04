@@ -2,10 +2,12 @@ import { tableUse } from "../../context/TablesContext";
 import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
+import { useUser } from "../../context/UserContext";
 
 export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
   const { setSedeUniversitaria, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const { isAdmin, isDirective } = useUser();
 
   const newNombreRef = useRef();
   const newClasificacionRef = useRef();
@@ -49,22 +51,25 @@ export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
       <h1 className="font-bold">Clasificación</h1>
       <div>{clasificacion}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
-        <button
-          onClick={() => {
-            deleteItem(id);
-          }}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-        >
-          Borrar
-        </button>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
-        >
-          Modificar
-        </button>
-      </div>
+      {(isAdmin || isDirective) && (
+        <div className="flex flex-row gap-4 mt-4">
+          <button
+            onClick={() => {
+              deleteItem(id);
+            }}
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+          >
+            Borrar
+          </button>
+
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+          >
+            Modificar
+          </button>
+        </div>
+      )}
 
       {showModal && (
         <form onSubmit={modifyItem}>
@@ -81,7 +86,11 @@ export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
 
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="clasificacion">Clasificación:</label>
-                <Select inputName="clasificacion" ref={newClasificacionRef} defaultValue={clasificacion}>
+                <Select
+                  inputName="clasificacion"
+                  ref={newClasificacionRef}
+                  defaultValue={clasificacion}
+                >
                   <option value="sede central">Sede central</option>
                   <option value="sede municipal o subsede">
                     Sede municipal o subsede

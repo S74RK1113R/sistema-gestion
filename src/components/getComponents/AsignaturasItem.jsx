@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import Input from "../Input";
 import Select from "../Select";
 import { useSelectFetch } from "../../hooks/useSelectFetch";
+import { useUser } from "../../context/UserContext";
 
 export default function AsignaturasItem({
   nombre,
@@ -28,6 +29,7 @@ export default function AsignaturasItem({
   const newModalidadRef = useRef();
   const newCurriculoRef = useRef();
   const { data } = useSelectFetch("http://localhost:3002/api/disciplinas");
+  const {isAdmin,isDirective} = useUser()
 
   function deleteItem(id) {
     const url = `http://localhost:3002/api/asignaturas/${id}`;
@@ -93,7 +95,7 @@ export default function AsignaturasItem({
       <h1 className="font-bold">Currículo:</h1>
       <div>{curriculo}</div>
 
-      <div className="flex flex-row gap-4 mt-4">
+      {(isAdmin || isDirective) &&<div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
             deleteItem(id);
@@ -108,7 +110,7 @@ export default function AsignaturasItem({
         >
           Modificar
         </button>
-      </div>
+      </div>}
 
       {/*Modal Zone */}
       {showModal && (
