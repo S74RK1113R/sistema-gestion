@@ -171,6 +171,7 @@ export default function ProfesoresForm() {
               inputName="consultante_emerito"
               ref={consultante_emeritoRef}
             >
+              <option value="no definido" selected>--No definido--</option>
               <option value="consultante">Consultante</option>
               <option value="emerito">Emerito</option>
             </Select>

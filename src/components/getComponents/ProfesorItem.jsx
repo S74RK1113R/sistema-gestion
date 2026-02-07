@@ -29,7 +29,7 @@ export default function ProfesorItem({
 }) {
   const { setProfesor, setDel, del } = tableUse();
   const { insert, setInsert } = tableUse();
-  const [showDeleteModal,setShowDeleteModal]=useState()
+  const [showDeleteModal, setShowDeleteModal] = useState();
   const [showModal, setShowModal] = useState(false);
   const { isAdmin, isDirective } = useUser();
 
@@ -308,6 +308,9 @@ export default function ProfesorItem({
                   ref={newConsultanteEmeritoRef}
                   defaultValue={consultante_emerito}
                 >
+                  <option value="no definido">
+                    --No definido--
+                  </option>
                   <option value="consultante">Consultante</option>
                   <option value="emerito">Emerito</option>
                 </Select>
@@ -489,7 +492,7 @@ export default function ProfesorItem({
         </form>
       )}
 
-       {showDeleteModal && (
+      {showDeleteModal && (
         <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
           <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
           <div className="flex gap-5">
