@@ -15,6 +15,7 @@ export default function ClaustroItem({
 }) {
   const { setClaustro, del, setDel, insert, setInsert } = tableUse();
   const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal,setShowDeleteModal]= useState()
   const { isAdmin, isDirective } = useUser();
 
   const refs = {
@@ -84,7 +85,7 @@ export default function ClaustroItem({
       {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
         <button
           onClick={() => {
-            deleteItem(id);
+            setShowDeleteModal(true);
           }}
           className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
         >
@@ -195,6 +196,28 @@ export default function ClaustroItem({
             </div>
           </div>
         </form>
+      )}
+
+      {showDeleteModal && (
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
+          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
+          <div className="flex gap-5">
+            <button
+              onClick={() => {
+                deleteItem(id);
+              }}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            >
+              Borrar
+            </button>
+            <button
+              onClick={() => setShowDeleteModal(false)}
+              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
