@@ -40,7 +40,7 @@ export default function NavBar() {
   }, [insert, del]);
 
   return (
-    <nav className="bg-blue-950 w-screen h-[8vh] p-1 flex flex-row items-center justify-center">
+    <nav className="bg-blue-950 w-screen h-[8vh] p-1 flex flex-row items-center justify-center print:hidden">
       <div className="text-white text-2xl mx-5 text-nowrap">
         Sistema de Gestión para la Acreditación
       </div>
