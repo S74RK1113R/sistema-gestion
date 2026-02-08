@@ -27,6 +27,9 @@ export default function Matricula() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Estudiantes/ Matrícula
+      </div>
       {/*Renderizacion de contenido de tablas*/}
 
       {matricula.map((item) => (

@@ -28,7 +28,9 @@ export default function NivelAcreditacion() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
-
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Nivel de acreditación
+      </div>
       {nivelAcreditacion.map((item) => (
         <NivelAcreditacionItem
           id={item.id}

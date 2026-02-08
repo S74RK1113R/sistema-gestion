@@ -27,6 +27,9 @@ export default function Promocion() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Promoción
+      </div>
       {/*Renderizacion de contenido de tablas*/}
       {promocion.map((item) => (
         <PromocionItem

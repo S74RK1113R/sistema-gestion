@@ -27,6 +27,9 @@ export default function Investigacion() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Investigación
+      </div>
       {/*Renderizacion de contenido de tablas*/}
         
       {investigacion.map((item) => (

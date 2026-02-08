@@ -27,6 +27,9 @@ export default function PremiosEstudiantes() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Premios estudiantes
+      </div>
       {/*Renderizacion de contenido de tablas*/}
       {premiosEstudiantes.map((item) => (
         <PremiosEstudiantesItem

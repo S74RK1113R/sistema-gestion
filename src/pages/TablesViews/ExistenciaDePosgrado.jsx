@@ -27,6 +27,9 @@ export default function ExistenciaDePosgrado() {
   
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Existencia de posgrado
+      </div>
       {/*Renderizacion de contenido de tablas*/}
 
       {existenciaPosgrado.map((item) => (

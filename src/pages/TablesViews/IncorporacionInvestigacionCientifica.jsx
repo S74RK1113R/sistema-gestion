@@ -35,7 +35,9 @@ export default function IncorporacionInvestigacionCientifica() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
-
+      <div className="my-5 text-start text-xl font-bold">
+        Estudiantes/ Incorporacion a la investigación científica
+      </div>
       {incorporacionInvestigacion.map((item) => (
         <IncorporacionInvestigacionCientificaItem
           año_evaluacion={item.año_evaluacion}

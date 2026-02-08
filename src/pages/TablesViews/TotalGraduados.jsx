@@ -28,7 +28,9 @@ export default function TotalGraduados() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
-
+<div className="my-5 text-start text-xl font-bold">
+        Total de graduados
+      </div>
       {totalGraduados.map((item) => (
         <TotalGraduadosItem
           cd={item.cd}

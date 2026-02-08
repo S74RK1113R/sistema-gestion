@@ -89,6 +89,7 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <div className="bg-linear-to-b from-blue-500 to-blue-300 size-7/12 md:size-4/12 mx-auto my-20 p-10 flex flex-col justify-center justify-items-center gap-5 rounded-xl items-center shadow-md shadow-zinc-500">
           {/* userZone */}
+          <h1 className="text-center text-2xl">Bienvenidos al Sistema de gestión de acreditación</h1>
           <label htmlFor="user" className="font-bold">
             Usuario
           </label>

@@ -27,6 +27,9 @@ export default function Claustro() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Claustro
+      </div>
       {/*Renderizacion de contenido de tablas*/}
       {claustro.map(item => (
         <ClaustroItem

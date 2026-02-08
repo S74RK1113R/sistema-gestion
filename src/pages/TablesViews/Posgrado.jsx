@@ -27,7 +27,10 @@ export default function Posgrado() {
 
   return (
     <AdminLayout>
-      {/*Renderizacion de contenido de tablas*/}
+      
+      <div className="my-5 text-start text-xl font-bold">
+        Posgrado
+      </div>{/*Renderizacion de contenido de tablas*/}
       {
         posgrado.map(item=>(
             <PosgradoItem año={item.año} cantidad={item.cantidad} id={item.id} nombre={item.nombre} key={item.id} />

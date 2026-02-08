@@ -29,7 +29,9 @@ export default function ProfesorPrincipal() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
-
+      <div className="my-5 text-start text-xl font-bold">
+        Profesor principal
+      </div>
       {profesorPrincipal.map((item) => (
         <ProfesorPrincipalItem
           disciplina_id={item.disciplina_id}

@@ -29,6 +29,9 @@ export default function Asignaturas() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
+      <div className="my-5 text-start text-xl font-bold">
+        Asignaturas
+      </div>
 
       {asignatura.map((item) => (
         <AsignaturasItem

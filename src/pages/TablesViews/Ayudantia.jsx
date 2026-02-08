@@ -28,6 +28,9 @@ export default function Ayudantia() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Estudiantes/ Ayudantía
+      </div>
       {/*Renderizacion de contenido de tablas*/}
       {ayudantia.map((item) => (
         <AyudantiaItem

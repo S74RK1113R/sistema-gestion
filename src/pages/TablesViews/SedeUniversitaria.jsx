@@ -29,6 +29,9 @@ export default function SedeUniversitaria() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
+      <div className="my-5 text-start text-xl font-bold">
+        Sede universitaria
+      </div>
       {sedeUniversitaria.map((item) => (
         <SedeUniversitariaItem
           clasificacion={item.clasificacion}

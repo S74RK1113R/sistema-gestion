@@ -27,6 +27,9 @@ export default function Eventos() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Eventos
+      </div>
       {/*Renderizacion de contenido de tablas*/}
       <div className="w-full flex flex-col gap-5 items-center justify-center">
         {eventos.map(item => (

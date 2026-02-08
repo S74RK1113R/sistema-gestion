@@ -27,6 +27,7 @@ import Usuarios from "../pages/TablesViews/Usuarios";
 import Eventos from "../pages/TablesViews/Eventos";
 import Curso from "../pages/TablesViews/Curso";
 import ProtectedRoute from "./ProtectedRoute";
+import ReporteEjerciciosIntegradores from "../pages/reportsView/reporteEjerciciosIntegradores";
 
 export default function AppRoutes() {
     return(
@@ -58,6 +59,7 @@ export default function AppRoutes() {
             <Route path="/promocion" element={<ProtectedRoute><Promocion/></ProtectedRoute>}/>
             <Route path="/posgrado" element={<ProtectedRoute><Posgrado/></ProtectedRoute>}/>
             <Route path="/sede_universitaria" element={<ProtectedRoute><SedeUniversitaria/></ProtectedRoute>}/>
+            <Route path="/reporteEjerciciosIntegradores" element={<ProtectedRoute><ReporteEjerciciosIntegradores/></ProtectedRoute>}/>
 
             <Route path="*" element={<NotFoundPage/>}/>
         </Routes>

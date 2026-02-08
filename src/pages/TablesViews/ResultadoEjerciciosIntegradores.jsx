@@ -27,6 +27,9 @@ export default function ResultadoEjerciciosIntegradores() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Resultado ejercicios integradores
+      </div>
       {/*Renderizacion de contenido de tablas*/}
 
       {resultadoEjercicios.map((item) => (

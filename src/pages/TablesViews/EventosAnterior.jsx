@@ -9,8 +9,8 @@ import { useUser } from "../../context/UserContext";
 export default function EventosAnterior() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const {eventosAnterior, setEventosAnterior, del , insert} =  tableUse()
-  const {isAdmin,isDirective} = useUser()
+  const { eventosAnterior, setEventosAnterior, del, insert } = tableUse();
+  const { isAdmin, isDirective } = useUser();
   const url = "http://localhost:3002/api/eventos_anterior";
 
   useEffect(() => {
@@ -27,18 +27,24 @@ export default function EventosAnterior() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluación anterior/ Eventos
+      </div>
       {/*Renderizacion de contenido de tablas*/}
 
-        {
-          eventosAnterior.map((item) => (
-              <EventosAnteriorItem nacional_internacional={item.nacional_internacional} año_evaluacion={item.año_evaluacion} id={item.id} total={item.total} 
-              key={item.id}/>
-            ))
-        }
+      {eventosAnterior.map((item) => (
+        <EventosAnteriorItem
+          nacional_internacional={item.nacional_internacional}
+          año_evaluacion={item.año_evaluacion}
+          id={item.id}
+          total={item.total}
+          key={item.id}
+        />
+      ))}
 
       {(isAdmin || isDirective) && (
         <Add formTitle={"Insertar eventos anterior"}>
-          <EventosAnteriorForm/>
+          <EventosAnteriorForm />
         </Add>
       )}
     </AdminLayout>

@@ -27,6 +27,9 @@ export default function Publicaciones() {
 
   return (
     <AdminLayout>
+      <div className="my-5 text-start text-xl font-bold">
+        Evaluacion anterior/ Publicaciones
+      </div>
       {/*Renderizacion de contenido de tablas*/}
 
         {publicaciones.map((item) => (

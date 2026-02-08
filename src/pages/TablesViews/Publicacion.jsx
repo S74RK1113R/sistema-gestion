@@ -29,6 +29,9 @@ export default function Publicacion() {
   return (
     <AdminLayout>
       {/*Renderizacion de contenido de tablas*/}
+      <div className="my-5 text-start text-xl font-bold">
+        Publicación
+      </div>
       {
         publicacion.map(item=>(
             <PublicacionItem autor_profesor_id={item.autor_profesor_id}
