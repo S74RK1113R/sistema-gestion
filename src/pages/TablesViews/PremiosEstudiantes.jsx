@@ -35,6 +35,9 @@ export default function PremiosEstudiantes() {
         <PremiosEstudiantesItem
           año={item.año}
           cantidad={item.cantidad}
+          nombres={item.nombres}
+          primer_apellido={item.primer_apellido}
+          segundo_apellido={item.segundo_apellido}
           id={item.id}
           nombre={item.nombre}
           key={item.id}

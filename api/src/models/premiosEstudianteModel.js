@@ -6,9 +6,9 @@ class PremiosEstudiante {
         query(sql, callback);
     }
 
-    postPremios(nombre, anio, cantidad, callback) {
-        const sql = 'INSERT INTO premios_estudiante (nombre, `año`, cantidad) VALUES (?, ?, ?)';
-        const values = [nombre, anio, cantidad];
+    postPremios(nombre, año, nombres, primer_apellido, segundo_apellido, callback) {
+        const sql = 'INSERT INTO premios_estudiante (nombre, `año`, nombres , primer_apellido , segundo_apellido) VALUES (?, ?, ?, ?, ?)';
+        const values = [nombre, año, nombres, primer_apellido, segundo_apellido];
 
         query(sql, values, (err, result) => {
             if (err) return callback(err, null);
@@ -16,9 +16,9 @@ class PremiosEstudiante {
         });
     }
 
-    putPremios(id, nombre, anio, cantidad, callback) {
-        const sql = 'UPDATE premios_estudiante SET nombre=?, `año`=?, cantidad=? WHERE id=?';
-        const values = [nombre, anio, cantidad, id];
+    putPremios(nombre, año, nombres, primer_apellido, segundo_apellido, id, callback) {
+        const sql = 'UPDATE premios_estudiante SET nombre=?, `año`=?, nombres=?, primer_apellido=?, segundo_apellido=? WHERE id=?';
+        const values = [nombre, año, nombres, primer_apellido, segundo_apellido, id ];
         query(sql, values, callback);
     }
 

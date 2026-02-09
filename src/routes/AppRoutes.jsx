@@ -28,6 +28,14 @@ import Eventos from "../pages/TablesViews/Eventos";
 import Curso from "../pages/TablesViews/Curso";
 import ProtectedRoute from "./ProtectedRoute";
 import ReporteEjerciciosIntegradores from "../pages/reportsView/reporteEjerciciosIntegradores";
+import ReportePromocion from "../pages/reportsView/ReportePromocion";
+import ReporteResumenPremios from "../pages/reportsView/ReporteResumenPremios";
+import ReporteActividadPosgrado from "../pages/reportsView/ReporteActividadPosgrado";
+import ReportePresentacionEventos from "../pages/reportsView/ReportePresentacionEventos";
+import ReportePublicacion from "../pages/reportsView/ReportePublicacion";
+import ReporteDatosMatricula from "../pages/reportsView/ReporteDatosMatricula";
+import ReporteClaustro from "../pages/reportsView/ReporteClaustro";
+import ReporteGradoCientifico from "../pages/reportsView/ReporteGradoCientifico";
 
 export default function AppRoutes() {
     return(
@@ -60,6 +68,14 @@ export default function AppRoutes() {
             <Route path="/posgrado" element={<ProtectedRoute><Posgrado/></ProtectedRoute>}/>
             <Route path="/sede_universitaria" element={<ProtectedRoute><SedeUniversitaria/></ProtectedRoute>}/>
             <Route path="/reporteEjerciciosIntegradores" element={<ProtectedRoute><ReporteEjerciciosIntegradores/></ProtectedRoute>}/>
+            <Route path="/reportePromocion" element={<ProtectedRoute><ReportePromocion/></ProtectedRoute>}/>
+            <Route path="/reporteResumenPremios" element={<ProtectedRoute><ReporteResumenPremios/></ProtectedRoute>}/>
+            <Route path="/reporteActividadPosgrado" element={<ProtectedRoute><ReporteActividadPosgrado/></ProtectedRoute>}/>
+            <Route path="/reportePresentacionEventos" element={<ProtectedRoute><ReportePresentacionEventos/></ProtectedRoute>}/>
+            <Route path="/reportePublicaciones" element={<ProtectedRoute><ReportePublicacion/></ProtectedRoute>}/>
+            <Route path="/reporteDatosMatricula" element={<ProtectedRoute><ReporteDatosMatricula/></ProtectedRoute>}/>
+            <Route path="/reporteClaustro" element={<ProtectedRoute><ReporteClaustro/></ProtectedRoute>}/>
+            <Route path="/reporteGradoCientifico" element={<ProtectedRoute><ReporteGradoCientifico/></ProtectedRoute>}/>
 
             <Route path="*" element={<NotFoundPage/>}/>
         </Routes>

@@ -121,7 +121,7 @@ export default function EjerciciosIntegradoresItem({
   }
 
   return (
-    <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+    <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg my-5">
       <h1 className="font-bold">Matrícula 2do año:</h1>
       <div>{matricula_2do_año}</div>
       <h1 className="font-bold">Matrícula 3er año:</h1>

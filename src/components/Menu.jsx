@@ -52,14 +52,14 @@ export default function Menu() {
         <Item href={"/sede_universitaria"}>Sede universitaria</Item>
 
         <DropDownItem identification={"Reportes"}>
-          <DropItem>Reporte de claustro</DropItem>
-          <DropItem>Reporte de grado Científico</DropItem>
-          <DropItem>Reporte de datos de matrícula</DropItem>
-          <DropItem>Reporte de publicaciones</DropItem>
-          <DropItem>Reporte de presentacion de eventos</DropItem>
-          <DropItem>Reporte de actividad de posgrado</DropItem>
-          <DropItem>Reporte de resumen de premios</DropItem>
-          <DropItem>Reporte de promocion</DropItem>
+          <DropItem href={"/reporteClaustro"}>Reporte de claustro</DropItem>
+          <DropItem href={"/reporteGradoCientifico"}>Reporte de grado Científico</DropItem>
+          <DropItem href={"/reporteDatosMatricula"}>Reporte de datos de matrícula</DropItem>
+          <DropItem href={"/reportePublicaciones"}>Reporte de publicaciones</DropItem>
+          <DropItem href={"/reportePresentacionEventos"}>Reporte de presentacion de eventos</DropItem>
+          <DropItem href={"/reporteActividadPosgrado"}>Reporte de actividad de posgrado</DropItem>
+          <DropItem href={"/reporteResumenPremios"}>Reporte de resumen de premios</DropItem>
+          <DropItem href={"/reportePromocion"}>Reporte de promocion</DropItem>
           <DropItem href={"/reporteEjerciciosIntegradores"}>Reporte de ejercicios integradores</DropItem>
         </DropDownItem>
       </ul>

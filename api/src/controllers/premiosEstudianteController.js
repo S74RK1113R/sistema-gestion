@@ -11,10 +11,9 @@ export function getPremiosEstudiante(req, res) {
 }
 
 export function postPremiosEstudiante(req, res) {
-    const { nombre, cantidad } = req.body;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
+    const {nombre, año, nombres, primer_apellido, segundo_apellido} = req.body;
 
-    premiosEstudianteModel.postPremios(nombre, anio, cantidad, (err, result) => {
+    premiosEstudianteModel.postPremios(nombre, año, nombres, primer_apellido, segundo_apellido,(err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
@@ -25,10 +24,9 @@ export function postPremiosEstudiante(req, res) {
 
 export function putPremiosEstudiante(req, res) {
     const { id } = req.params;
-    const { nombre, cantidad } = req.body;
-    const anio = req.body['año'] ?? req.body.anio ?? null;
+    const {nombre, año, nombres, primer_apellido, segundo_apellido} = req.body;
 
-    premiosEstudianteModel.putPremios(id, nombre, anio, cantidad, (err, result) => {
+    premiosEstudianteModel.putPremios( nombre, año, nombres, primer_apellido, segundo_apellido, id, (err, result) => {
         if (err) {
             res.status(500).json({ error: err.message });
             return;
