@@ -5,7 +5,7 @@ import Input from "../Input";
 import { useUser } from "../../context/UserContext";
 
 export default function DisciplinaItem({ nombre, codigo, id }) {
-  const { setDisciplina, del, setDel, setInsert, insert } = tableUse();
+  const { setDisciplina, del, setDel, setInsert, insert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
   const {isAdmin,isDirective} = useUser()
@@ -21,7 +21,12 @@ export default function DisciplinaItem({ nombre, codigo, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setDisciplina(json.data || []));
+      .then((json) => {
+        setDisciplina(json.data || []);
+        setMessageSucces("Disciplina eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -44,7 +49,13 @@ export default function DisciplinaItem({ nombre, codigo, id }) {
         }
         // handle error
       })
-      .then((json) => setDisciplina(json?.data || []));
+      .then((json) => {
+        setDisciplina(json?.data || []);
+        setMessageSucces("Disciplina actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

@@ -9,7 +9,7 @@ export default function ExistenciaPosgradoItem({
   año_evaluacion,
   id,
 }) {
-  const { setExistenciaPosgrado, del, setDel, insert, setInsert } = tableUse();
+  const { setExistenciaPosgrado, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const { isAdmin, isDirective } = useUser();
   const [showDeleteModal,setShowDeleteModal]= useState()
@@ -25,7 +25,12 @@ export default function ExistenciaPosgradoItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setExistenciaPosgrado(json.data || []));
+      .then((json) => {
+        setExistenciaPosgrado(json.data || []);
+        setMessageSucces("Existencia de posgrado eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -44,7 +49,13 @@ export default function ExistenciaPosgradoItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setExistenciaPosgrado(json?.data || []));
+      .then((json) => {
+        setExistenciaPosgrado(json?.data || []);
+        setMessageSucces("Existencia de posgrado actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

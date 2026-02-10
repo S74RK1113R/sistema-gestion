@@ -17,7 +17,7 @@ export default function AyudantiaItem({
   educacion_media_5to_año,
   año_evaluacion,
 }) {
-  const { setAyudantia, del, setDel, insert, setInsert } = tableUse();
+  const { setAyudantia, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState()
   const {isAdmin,isDirective} = useUser()
@@ -45,7 +45,12 @@ export default function AyudantiaItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setAyudantia(json.data || []));
+      .then((json) => {
+        setAyudantia(json.data || []);
+        setMessageSucces("Ayudantía eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -73,9 +78,13 @@ export default function AyudantiaItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setAyudantia(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setAyudantia(json?.data || []);
+        setMessageSucces("Ayudantía actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

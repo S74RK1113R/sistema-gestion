@@ -27,8 +27,7 @@ export default function ProfesorItem({
   sede_universitaria,
   id,
 }) {
-  const { setProfesor, setDel, del } = tableUse();
-  const { insert, setInsert } = tableUse();
+  const { setProfesor, setDel, del, setNotification, setMessageSucces, setNotificationType,setInsert,insert } = tableUse();
   const [showDeleteModal, setShowDeleteModal] = useState();
   const [showModal, setShowModal] = useState(false);
   const { isAdmin, isDirective } = useUser();
@@ -67,7 +66,12 @@ export default function ProfesorItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setProfesor(json.data || []));
+      .then((json) => {
+        setProfesor(json.data || []);
+        setMessageSucces("Profesor eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -105,9 +109,13 @@ export default function ProfesorItem({
           return res.json();
         }
       })
-      .then((json) => setProfesor(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setProfesor(json?.data || []);
+        setMessageSucces("Profesor actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

@@ -12,7 +12,7 @@ export default function MatriculaItem({
   año_evaluacion,
   id,
 }) {
-  const { setMatricula, del, setDel, insert, setInsert } = tableUse();
+  const { setMatricula, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
   const { isAdmin, isDirective } = useUser();
@@ -34,7 +34,12 @@ export default function MatriculaItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setMatricula(json.data || []));
+      .then((json) => {
+        setMatricula(json.data || []);
+        setMessageSucces("Matrícula eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -57,9 +62,13 @@ export default function MatriculaItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setMatricula(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setMatricula(json?.data || []);
+        setMessageSucces("Matrícula actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

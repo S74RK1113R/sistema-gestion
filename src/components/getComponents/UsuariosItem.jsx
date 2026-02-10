@@ -13,7 +13,7 @@ export default function UsuariosItem({
   rol,
   id,
 }) {
-  const { setUsuario, del, setDel, insert, setInsert } = tableUse();
+  const { setUsuario, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
 
   const [showModal, setShowModal] = useState(false);
   const { isAdmin, isDirective } = useUser();
@@ -33,7 +33,12 @@ export default function UsuariosItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setUsuario(json.data || []));
+      .then((json) => {
+        setUsuario(json.data || []);
+        setMessageSucces("Usuario eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -60,9 +65,13 @@ export default function UsuariosItem({
         }
         // handle error
       })
-      .then((json) => setUsuario(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setUsuario(json?.data || []);
+        setMessageSucces("Usuario actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
   }
 
   return (

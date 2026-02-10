@@ -31,7 +31,7 @@ export default function EjerciciosIntegradoresItem({
   con_5_5to_año,
   año_evaluacion,
 }) {
-  const { setEjerciciosIntegradores, del, setDel, insert, setInsert } =
+  const { setEjerciciosIntegradores, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } =
     tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
@@ -73,7 +73,12 @@ export default function EjerciciosIntegradoresItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setEjerciciosIntegradores(json.data || []));
+      .then((json) => {
+        setEjerciciosIntegradores(json.data || []);
+        setMessageSucces("Ejercicio integrador eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -115,7 +120,13 @@ export default function EjerciciosIntegradoresItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setEjerciciosIntegradores(json?.data || []));
+      .then((json) => {
+        setEjerciciosIntegradores(json?.data || []);
+        setMessageSucces("Ejercicios integradores actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

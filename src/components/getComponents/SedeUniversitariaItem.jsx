@@ -5,7 +5,7 @@ import Select from "../Select";
 import { useUser } from "../../context/UserContext";
 
 export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
-  const { setSedeUniversitaria, del, setDel, insert, setInsert } = tableUse();
+  const { setSedeUniversitaria, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState();
   const { isAdmin, isDirective } = useUser();
@@ -21,7 +21,12 @@ export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setSedeUniversitaria(json.data || []));
+      .then((json) => {
+        setSedeUniversitaria(json.data || []);
+        setMessageSucces("Sede universitaria eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -40,7 +45,13 @@ export default function SedeUniversitariaItem({ nombre, clasificacion, id }) {
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setSedeUniversitaria(json?.data || []));
+      .then((json) => {
+        setSedeUniversitaria(json?.data || []);
+        setMessageSucces("Sede universitaria actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
 
     setInsert(!insert);
   }

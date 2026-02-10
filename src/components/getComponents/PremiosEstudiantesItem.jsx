@@ -4,7 +4,7 @@ import Input from "../Input";
 import { useUser } from "../../context/UserContext";
 
 export default function PremiosEstudiantesItem({ nombre, año,nombres,primer_apellido,segundo_apellido, id }) {
-  const { setPremiosEstudiantes, del, setDel, insert, setInsert } = tableUse();
+  const { setPremiosEstudiantes, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -23,7 +23,12 @@ export default function PremiosEstudiantesItem({ nombre, año,nombres,primer_ape
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPremiosEstudiantes(json.data || []));
+      .then((json) => {
+        setPremiosEstudiantes(json.data || []);
+        setMessageSucces("Premio de estudiante eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -45,7 +50,13 @@ export default function PremiosEstudiantesItem({ nombre, año,nombres,primer_ape
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setPremiosEstudiantes(json?.data || []));
+      .then((json) => {
+        setPremiosEstudiantes(json?.data || []);
+        setMessageSucces("Premio de estudiante actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

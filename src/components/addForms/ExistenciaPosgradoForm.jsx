@@ -6,7 +6,7 @@ import { tableUse } from "../../context/TablesContext";
 export default function ExistenciaPosgradoForm() {
   const existencia_posgradoRef = useRef();
   const año_evaluacionRef = useRef();
-  const { setExistenciaPosgrado, setInsert, insert } = tableUse();
+  const { setExistenciaPosgrado, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     existencia_posgradoRef.current.value = "";
@@ -35,7 +35,12 @@ export default function ExistenciaPosgradoForm() {
         }
         // handle error
       })
-      .then((json) => setExistenciaPosgrado(json?.data || []));
+      .then((json) => {
+        setExistenciaPosgrado(json?.data || []);
+        setMessageSucces("Existencia de posgrado insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

@@ -34,7 +34,7 @@ export default function PromocionItem({
   bajas_5to_año,
   curso_id,
 }) {
-  const { setPromocion, setDel, del, insert, setInsert } = tableUse();
+  const { setPromocion, setDel, del, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/cursos");
   const [showDeleteModal,setShowDeleteModal]=useState()
   const [showModal, setShowModal] = useState(false);
@@ -76,7 +76,12 @@ export default function PromocionItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPromocion(json.data || []));
+      .then((json) => {
+        setPromocion(json.data || []);
+        setMessageSucces("Promoción eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -124,13 +129,15 @@ export default function PromocionItem({
         setPromocion((prev) =>
           prev.map((item) => (item.id === id ? { ...item, ...payload } : item)),
         );
+        setMessageSucces("Promoción actualizada");
+        setNotificationType('insert');
+        setNotification(true);
         setShowModal(false);
+        setInsert(!insert);
       })
       .catch((error) => {
         console.error("Error al modificar:", error);
       });
-
-    setInsert(!insert);
   }
 
   return (

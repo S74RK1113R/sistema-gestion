@@ -14,7 +14,7 @@ export default function IncorporacionInvestigacionCientificaForm() {
   const estudiantesInvestigando5toRef = useRef();
   const añoEvalucacionRef = useRef();
 
-  const { setIncorporacionInvestigacion, setInsert, insert } = tableUse();
+  const { setIncorporacionInvestigacion, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     institucionalRef.current.value = "" ;
@@ -60,7 +60,12 @@ export default function IncorporacionInvestigacionCientificaForm() {
         }
         // handle error
       })
-      .then((json) => setIncorporacionInvestigacion(json?.data || []));
+      .then((json) => {
+        setIncorporacionInvestigacion(json?.data || []);
+        setMessageSucces("Incorporación en investigación científica insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

@@ -10,7 +10,7 @@ export default function InvestigacionItem({
   año_evaluacion,
   id,
 }) {
-  const { setInvestigacion, del, setDel, insert, setInsert } = tableUse();
+  const { setInvestigacion, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -30,7 +30,13 @@ export default function InvestigacionItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setInvestigacion(json.data || []));
+      .then((json) => {
+        setInvestigacion(json.data || []);
+        setMessageSucces("Investigación eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   function modifyItem() {
@@ -53,9 +59,12 @@ export default function InvestigacionItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setInvestigacion(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setInvestigacion(json?.data || []);
+        setMessageSucces("Investigación actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
   }
 
   return (

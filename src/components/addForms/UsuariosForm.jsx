@@ -4,7 +4,7 @@ import Select from "../Select";
 import { useRef } from "react";
 
 export default function UsuariosForm() {
-  const { setUsuario, setInsert, insert } = tableUse();
+  const { setUsuario, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const usuarioRef = useRef();
   const contraseñaRef = useRef();
@@ -49,7 +49,12 @@ export default function UsuariosForm() {
         }
         // handle error
       })
-      .then((json) => setUsuario(json?.data || []));
+      .then((json) => {
+        setUsuario(json?.data || []);
+        setMessageSucces("Usuario insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

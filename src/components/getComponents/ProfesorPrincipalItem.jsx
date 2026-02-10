@@ -9,7 +9,7 @@ export default function ProfesorPrincipalItem({
   profesor_id,
   id,
 }) {
-  const { setProfesorPrincipal, setDel, del, insert, setInsert } = tableUse();
+  const { setProfesorPrincipal, setDel, del, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -44,9 +44,13 @@ export default function ProfesorPrincipalItem({
         }
         // handle error
       })
-      .then((json) => setProfesorPrincipal(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setProfesorPrincipal(json?.data || []);
+        setMessageSucces("Profesor principal actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
   }
 
   function deleteItem(id) {
@@ -56,7 +60,12 @@ export default function ProfesorPrincipalItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setProfesorPrincipal(json.data || []));
+      .then((json) => {
+        setProfesorPrincipal(json.data || []);
+        setMessageSucces("Profesor principal eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   return (

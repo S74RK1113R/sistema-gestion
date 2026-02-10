@@ -8,7 +8,7 @@ export default function InvestigacionForm() {
   const porciento_profesores_vinculadosRef = useRef();
   const año_evaluacionRef = useRef();
 
-  const { setInvestigacion, setInsert, insert } = tableUse();
+  const { setInvestigacion, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     proyectos_investigacionRef.current.value = "";
@@ -42,7 +42,12 @@ export default function InvestigacionForm() {
         }
         // handle error
       })
-      .then((json) => setInvestigacion(json?.data || []));
+      .then((json) => {
+        setInvestigacion(json?.data || []);
+        setMessageSucces("Investigación insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

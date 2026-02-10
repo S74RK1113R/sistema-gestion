@@ -5,7 +5,7 @@ import { useRef } from "react";
 export default function CursoForm() {
   const cursoRef = useRef();
  
-  const { setCurso, setInsert, insert } = tableUse();
+  const { setCurso, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     cursoRef.current.value = "";
@@ -32,7 +32,12 @@ export default function CursoForm() {
         }
         // handle error
       })
-      .then((json) => setCurso(json?.data || []));
+      .then((json) => {
+        setCurso(json?.data || []);
+        setMessageSucces("Curso insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

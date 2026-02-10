@@ -9,7 +9,7 @@ export default function ResultadoEjercicioIntegradoresItem({
   año_evaluacion,
   id,
 }) {
-  const { setResultadoEjercicios, del, setDel, insert, setInsert } = tableUse();
+  const { setResultadoEjercicios, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -28,7 +28,12 @@ export default function ResultadoEjercicioIntegradoresItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setResultadoEjercicios(json.data || []));
+      .then((json) => {
+        setResultadoEjercicios(json.data || []);
+        setMessageSucces("Resultado de ejercicio integrador eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -48,7 +53,13 @@ export default function ResultadoEjercicioIntegradoresItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setResultadoEjercicios(json?.data || []));
+      .then((json) => {
+        setResultadoEjercicios(json?.data || []);
+        setMessageSucces("Resultado de ejercicio integrador actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
 
     setInsert(!insert);
   }

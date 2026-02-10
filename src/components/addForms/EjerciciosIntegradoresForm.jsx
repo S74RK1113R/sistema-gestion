@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { tableUse } from "../../context/TablesContext";
 
 export default function EjerciciosIntegradoresForm() {
-  const { setEjerciciosIntegradores, setInsert, insert } = tableUse();
+  const { setEjerciciosIntegradores, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const matricula_2doRef = useRef();
   const matricula_3roRef = useRef();
@@ -122,7 +122,12 @@ export default function EjerciciosIntegradoresForm() {
         }
         // handle error
       })
-      .then((json) => setEjerciciosIntegradores(json?.data || []));
+      .then((json) => {
+        setEjerciciosIntegradores(json?.data || []);
+        setMessageSucces("Ejercicio integrador insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

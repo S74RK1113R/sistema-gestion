@@ -4,7 +4,7 @@ import Input from "../Input";
 import { useUser } from "../../context/UserContext";
 
 export default function CursoItem({ curso, id }) {
-  const { setCurso, del, setDel, insert, setInsert } = tableUse();
+  const { setCurso, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
   const { isAdmin, isDirective } = useUser();
@@ -18,7 +18,12 @@ export default function CursoItem({ curso, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setCurso(json.data || []));
+      .then((json) => {
+        setCurso(json.data || []);
+        setMessageSucces("Curso eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -38,7 +43,13 @@ export default function CursoItem({ curso, id }) {
           return res.json();
         }
       })
-      .then((json) => setCurso(json?.data || []));
+      .then((json) => {
+        setCurso(json?.data || []);
+        setMessageSucces("Curso actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

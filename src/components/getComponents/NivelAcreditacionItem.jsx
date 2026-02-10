@@ -5,7 +5,7 @@ import Select from "../Select";
 import { useUser } from "../../context/UserContext";
 
 export default function NivelAcreditacionItem({ nivel, año_evaluacion, id }) {
-  const { setNivelAcreditacion, del, setDel, insert, setInsert } = tableUse();
+  const { setNivelAcreditacion, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
   const { isAdmin, isDirective } = useUser();
@@ -21,7 +21,12 @@ export default function NivelAcreditacionItem({ nivel, año_evaluacion, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setNivelAcreditacion(json.data || []));
+      .then((json) => {
+        setNivelAcreditacion(json.data || []);
+        setMessageSucces("Nivel de acreditación eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -40,7 +45,13 @@ export default function NivelAcreditacionItem({ nivel, año_evaluacion, id }) {
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setNivelAcreditacion(json?.data || []));
+      .then((json) => {
+        setNivelAcreditacion(json?.data || []);
+        setMessageSucces("Nivel de acreditación actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

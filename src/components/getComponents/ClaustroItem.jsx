@@ -13,7 +13,7 @@ export default function ClaustroItem({
   año_evaluacion,
   id,
 }) {
-  const { setClaustro, del, setDel, insert, setInsert } = tableUse();
+  const { setClaustro, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]= useState()
   const { isAdmin, isDirective } = useUser();
@@ -36,7 +36,12 @@ export default function ClaustroItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setClaustro(json.data || []));
+      .then((json) => {
+        setClaustro(json.data || []);
+        setMessageSucces("Claustro eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -60,9 +65,13 @@ export default function ClaustroItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setClaustro(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setClaustro(json?.data || []);
+        setMessageSucces("Claustro actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

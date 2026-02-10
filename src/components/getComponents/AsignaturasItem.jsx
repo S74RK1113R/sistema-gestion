@@ -17,7 +17,7 @@ export default function AsignaturasItem({
   curriculo,
   id,
 }) {
-  const { setAsignatura, del, setDel, insert, setInsert } = tableUse();
+  const { setAsignatura, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState();
 
@@ -41,7 +41,12 @@ export default function AsignaturasItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setAsignatura(json.data || []));
+      .then((json) => {
+        setAsignatura(json.data || []);
+        setMessageSucces("Asignatura eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -71,9 +76,13 @@ export default function AsignaturasItem({
         }
         // handle error
       })
-      .then((json) => setAsignatura(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setAsignatura(json?.data || []);
+        setMessageSucces("Asignatura actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
   }
 
   return (

@@ -18,7 +18,7 @@ export default function PublicacionForm() {
   const grupoRef = useRef();
   const { data } = useSelectFetch("http://localhost:3002/api/profesor");
 
-  const { setPublicacion, setInsert, insert } = tableUse();
+  const { setPublicacion, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     tituloRef.current.value = "";
@@ -60,7 +60,12 @@ export default function PublicacionForm() {
         }
         // handle error
       })
-      .then((json) => setPublicacion(json?.data || []));
+      .then((json) => {
+        setPublicacion(json?.data || []);
+        setMessageSucces("Publicación insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

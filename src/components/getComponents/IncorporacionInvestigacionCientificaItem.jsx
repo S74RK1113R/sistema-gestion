@@ -16,7 +16,7 @@ export default function IncorporacionInvestigacionCientificaItem({
   año_evaluacion,
   id,
 }) {
-  const { setIncorporacionInvestigacion, del, setDel, insert, setInsert } =
+  const { setIncorporacionInvestigacion, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } =
     tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]= useState()
@@ -43,7 +43,12 @@ export default function IncorporacionInvestigacionCientificaItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setIncorporacionInvestigacion(json.data || []));
+      .then((json) => {
+        setIncorporacionInvestigacion(json.data || []);
+        setMessageSucces("Incorporación en investigación científica eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -76,7 +81,13 @@ export default function IncorporacionInvestigacionCientificaItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setIncorporacionInvestigacion(json?.data || []));
+      .then((json) => {
+        setIncorporacionInvestigacion(json?.data || []);
+        setMessageSucces("Incorporación en investigación científica actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

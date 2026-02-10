@@ -10,7 +10,7 @@ export default function PremiosProfesorForm() {
   const añoRef = useRef();
   const profesorIdRef = useRef();
 
-  const { setPremiosProfesor, setInsert, insert } = tableUse();
+  const { setPremiosProfesor, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     nombreRef.current.value = "";
@@ -40,7 +40,12 @@ export default function PremiosProfesorForm() {
         }
         // handle error
       })
-      .then((json) => setPremiosProfesor(json?.data || []));
+      .then((json) => {
+        setPremiosProfesor(json?.data || []);
+        setMessageSucces("Premio de profesor insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

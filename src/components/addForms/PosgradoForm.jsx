@@ -7,7 +7,7 @@ export default function PosgradoForm() {
   const añoRef = useRef();
   const cantidadRef = useRef();
 
-  const { setPosgrado, setInsert, insert } = tableUse();
+  const { setPosgrado, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     nombreRef.current.value = "";
@@ -38,7 +38,12 @@ export default function PosgradoForm() {
         }
         // handle error
       })
-      .then((json) => setPosgrado(json?.data || []));
+      .then((json) => {
+        setPosgrado(json?.data || []);
+        setMessageSucces("Posgrado insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

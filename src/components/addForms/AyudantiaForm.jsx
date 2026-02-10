@@ -3,7 +3,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useRef } from "react";
 
 export default function AyudantiaForm() {
-  const { setAyudantia, setInsert, insert } = tableUse();
+  const { setAyudantia, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const educacionSuperior1erAñoRef = useRef();
   const educacionSuperior2doAñoRef = useRef();
@@ -67,7 +67,12 @@ export default function AyudantiaForm() {
         }
         // handle error
       })
-      .then((json) => setAyudantia(json?.data || []));
+      .then((json) => {
+        setAyudantia(json?.data || []);
+        setMessageSucces("Ayudantía insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

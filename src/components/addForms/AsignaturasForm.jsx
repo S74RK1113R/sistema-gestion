@@ -5,7 +5,7 @@ import { tableUse } from "../../context/TablesContext";
 import { useSelectFetch } from "../../hooks/useSelectFetch";
 
 export default function AsignaturasForm() {
-  const { setAsignaturas, setInsert, insert } = tableUse();
+  const { setAsignaturas, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/disciplinas");
 
   const nombreRef = useRef();
@@ -59,7 +59,12 @@ export default function AsignaturasForm() {
         }
         // handle error
       })
-      .then((json) => setAsignaturas(json?.data || []));
+      .then((json) => {
+        setAsignaturas(json?.data || []);
+        setMessageSucces("Asignatura insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

@@ -19,7 +19,7 @@ export default function PublicacionItem({
   grupo,
   id,
 }) {
-  const { setPublicacion, del, setDel, insert, setInsert } = tableUse();
+  const { setPublicacion, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/profesor");
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState();
@@ -47,7 +47,12 @@ export default function PublicacionItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPublicacion(json.data || []));
+      .then((json) => {
+        setPublicacion(json.data || []);
+        setMessageSucces("Publicación eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -75,9 +80,13 @@ export default function PublicacionItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setPublicacion(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setPublicacion(json?.data || []);
+        setMessageSucces("Publicación actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
   }
   return (
     <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">

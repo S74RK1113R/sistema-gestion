@@ -10,7 +10,7 @@ export default function DisciplinaItem({
   año_evaluacion,
   id,
 }) {
-  const { setPublicaciones, del, setDel, insert, setInsert } = tableUse();
+  const { setPublicaciones, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -30,7 +30,13 @@ export default function DisciplinaItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPublicaciones(json.data || []));
+      .then((json) => {
+        setPublicaciones(json.data || []);
+        setMessageSucces("Publicación eliminada");
+        setNotificationType('delete');
+        setNotification(true);
+        setInsert(!insert);
+      });
   }
 
   function modifyItem() {
@@ -51,7 +57,12 @@ export default function DisciplinaItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setPublicaciones(json?.data || []));
+      .then((json) => {
+        setPublicaciones(json?.data || []);
+        setMessageSucces("Publicación actualizada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

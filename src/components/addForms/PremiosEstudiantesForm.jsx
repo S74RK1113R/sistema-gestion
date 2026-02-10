@@ -9,7 +9,7 @@ export default function PremiosEstudiantesForm() {
   const primerApellidoRef = useRef()
   const segundoApellidoRef = useRef() 
 
-  const { setPremiosEstudiantes, setInsert, insert } = tableUse();
+  const { setPremiosEstudiantes, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     nombreRef.current.value = "";
@@ -44,7 +44,12 @@ export default function PremiosEstudiantesForm() {
         }
         // handle error
       })
-      .then((json) => setPremiosEstudiantes(json?.data || []));
+      .then((json) => {
+        setPremiosEstudiantes(json?.data || []);
+        setMessageSucces("Premio de estudiante insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

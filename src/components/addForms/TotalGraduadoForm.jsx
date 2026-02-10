@@ -10,7 +10,7 @@ export default function TotalGraduadosForm() {
   const cursoRef = useRef();
   
   const {data} = useSelectFetch("http://localhost:3002/api/cursos");
-  const { setTotalGraduados, setInsert, insert } = tableUse();
+  const { setTotalGraduados, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     cursoDiurnoRef.current.value = "";
@@ -40,7 +40,12 @@ export default function TotalGraduadosForm() {
         }
         // handle error
       })
-      .then((json) => setTotalGraduados(json?.data || []));
+      .then((json) => {
+        setTotalGraduados(json?.data || []);
+        setMessageSucces("Total de graduados insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

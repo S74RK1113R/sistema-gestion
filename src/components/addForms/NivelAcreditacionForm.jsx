@@ -4,7 +4,7 @@ import Input from "../Input";
 import Select from "../Select";
 
 export default function NivelAcreditacionForm() {
-  const { setNivelAcreditacion, setInsert, insert } = tableUse();
+  const { setNivelAcreditacion, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const nivelRef = useRef();
   const añoRef = useRef();
@@ -36,7 +36,12 @@ export default function NivelAcreditacionForm() {
         }
         // handle error
       })
-      .then((json) => setNivelAcreditacion(json?.data || []));
+      .then((json) => {
+        setNivelAcreditacion(json?.data || []);
+        setMessageSucces("Nivel de acreditación insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

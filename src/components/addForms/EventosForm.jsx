@@ -5,7 +5,7 @@ import Select from "../Select";
 import { useRef } from "react";
 
 export default function EventosForm() {
-  const { setEventos, setInsert, insert } = tableUse();
+  const { setEventos, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/profesor");
 
   const añoRef = useRef();
@@ -59,7 +59,12 @@ export default function EventosForm() {
         }
         // handle error
       })
-      .then((json) => setEventos(json?.data || []));
+      .then((json) => {
+        setEventos(json?.data || []);
+        setMessageSucces("Evento insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

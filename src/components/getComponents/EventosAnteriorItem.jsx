@@ -9,7 +9,7 @@ export default function EventosAnteriorItem({
   año_evaluacion,
   id,
 }) {
-  const { setEventosAnterior, del, setDel, insert, setInsert } = tableUse();
+  const { setEventosAnterior, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState()
   const { isAdmin, isDirective } = useUser();
@@ -28,7 +28,12 @@ export default function EventosAnteriorItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setEventosAnterior(json.data || []));
+      .then((json) => {
+        setEventosAnterior(json.data || []);
+        setMessageSucces("Evento anterior eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -48,7 +53,13 @@ export default function EventosAnteriorItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setEventosAnterior(json?.data || []));
+      .then((json) => {
+        setEventosAnterior(json?.data || []);
+        setMessageSucces("Evento anterior actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

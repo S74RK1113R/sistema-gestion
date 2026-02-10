@@ -33,6 +33,8 @@ export default function TableContextProvider({ children }) {
   const [ del , setDel] = useState(false)
   const [insert, setInsert] = useState(false)
   const [notification,setNotification]= useState(false)
+  const [messageSucces,setMessageSucces] = useState('')
+  const [notificationType, setNotificationType] = useState(null) // 'insert', 'delete', o null
 
   return (
     <TableContext.Provider
@@ -91,7 +93,9 @@ export default function TableContextProvider({ children }) {
         setDel,
         insert,
         setInsert,
-        notification,setNotification
+        notification,setNotification,
+        messageSucces,setMessageSucces,
+        notificationType,setNotificationType
       }}
     >
       {children}

@@ -8,7 +8,7 @@ export default function PublicacionesForm() {
   const totalRef = useRef();
   const año_evaluacionRef = useRef();
 
-  const { setPublicaciones, setInsert, insert } = tableUse();
+  const { setPublicaciones, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     grupos1_4Ref.current.value = "";
@@ -41,7 +41,12 @@ export default function PublicacionesForm() {
         }
         // handle error
       })
-      .then((json) => setPublicaciones(json?.data || []));
+      .then((json) => {
+        setPublicaciones(json?.data || []);
+        setMessageSucces("Publicación insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

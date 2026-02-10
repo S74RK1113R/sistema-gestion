@@ -11,7 +11,7 @@ export default function PremiosProfesorItem({
   año,
   id,
 }) {
-  const { setPremiosProfesor, del, setDel, insert, setInsert } = tableUse();
+  const { setPremiosProfesor, del, setDel, insert, setInsert, setNotification, setMessageSucces } = tableUse();
   const { data: profesores } = useSelectFetch(
     "http://localhost:3002/api/profesor",
   );
@@ -31,7 +31,12 @@ export default function PremiosProfesorItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPremiosProfesor(json.data || []));
+      .then((json) => {
+        setPremiosProfesor(json.data || []);
+        setMessageSucces("Premio de profesor eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -51,7 +56,13 @@ export default function PremiosProfesorItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setPremiosProfesor(json?.data || []));
+      .then((json) => {
+        setPremiosProfesor(json?.data || []);
+        setMessageSucces("Premio de profesor actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
 
     setInsert(!insert);
   }

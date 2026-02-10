@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useSelectFetch } from "../../hooks/useSelectFetch";
 
 export default function PromocionForm() {
-  const { setPromocion, setInsert, insert } = tableUse();
+  const { setPromocion, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/cursos");
 
   const mie_1er_añoRef = useRef();
@@ -119,7 +119,12 @@ export default function PromocionForm() {
         }
         // handle error
       })
-      .then((json) => setPromocion(json?.data || []));
+      .then((json) => {
+        setPromocion(json?.data || []);
+        setMessageSucces("Promoción insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

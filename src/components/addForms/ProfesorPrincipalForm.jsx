@@ -9,7 +9,7 @@ export default function ProfesorPrincipalForm() {
 
   const disciplina_idRef = useRef();
   const profesor_idRef = useRef();
-  const { setProfesorPrincipal, setInsert, insert } = tableUse();
+  const { setProfesorPrincipal, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function handleSubmit() {
     event.preventDefault();
@@ -31,7 +31,12 @@ export default function ProfesorPrincipalForm() {
         }
         // handle error
       })
-      .then((json) => setProfesorPrincipal(json?.data || []));
+      .then((json) => {
+        setProfesorPrincipal(json?.data || []);
+        setMessageSucces("Profesor principal insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

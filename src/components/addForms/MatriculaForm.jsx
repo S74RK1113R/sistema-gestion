@@ -10,7 +10,7 @@ export default function MatriculaForm() {
   const q5toAñoRef = useRef();
   const añoEvaluacionRef = useRef();
 
-  const { setMatricula, setInsert, insert } = tableUse();
+  const { setMatricula, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     p1erAñoRef.current.value = "";
@@ -47,7 +47,12 @@ export default function MatriculaForm() {
         }
         // handle error
       })
-      .then((json) => setMatricula(json?.data || []));
+      .then((json) => {
+        setMatricula(json?.data || []);
+        setMessageSucces("Matrícula insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

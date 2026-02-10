@@ -5,7 +5,7 @@ import Input from "../Input";
 import Select from "../Select";
 
 export default function ProfesoresForm() {
-  const { setProfesor, setInsert, insert } = tableUse();
+  const { setProfesor, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/asignaturas");
   const { data: data2 } = useSelectFetch(
     "http://localhost:3002/api/sede_universitaria",
@@ -81,7 +81,12 @@ export default function ProfesoresForm() {
         }
         // handle error
       })
-      .then((json) => setProfesor(json?.data || []));
+      .then((json) => {
+        setProfesor(json?.data || []);
+        setMessageSucces("Profesor insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

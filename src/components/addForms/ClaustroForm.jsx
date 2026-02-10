@@ -4,7 +4,7 @@ import Input from "../Input";
 import Select from "../Select";
 
 export default function ClaustroForm() {
-  const { setAsignaturas, setInsert, insert } = tableUse();
+  const { setAsignaturas, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const total_claustroRef = useRef();
   const drcRef = useRef();
@@ -51,7 +51,12 @@ export default function ClaustroForm() {
         }
         // handle error
       })
-      .then((json) => setAsignaturas(json?.data || []));
+      .then((json) => {
+        setAsignaturas(json?.data || []);
+        setMessageSucces("Claustro insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

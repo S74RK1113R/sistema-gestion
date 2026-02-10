@@ -6,7 +6,7 @@ import { tableUse } from "../../context/TablesContext";
 export default function SedeUniversitariaFrom() {
   const nombreRef = useRef();
   const clasificacionRef = useRef();
-  const { setSedeUniversitaria, setInsert, insert } = tableUse();
+  const { setSedeUniversitaria, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     nombreRef.current.value = "";
@@ -35,7 +35,12 @@ export default function SedeUniversitariaFrom() {
         }
         // handle error
       })
-      .then((json) => setSedeUniversitaria(json?.data || []));
+      .then((json) => {
+        setSedeUniversitaria(json?.data || []);
+        setMessageSucces("Sede universitaria insertada");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

@@ -17,7 +17,7 @@ export default function EventosItem({
   profesor_autor_id5,
   id,
 }) {
-  const { setEventos, del, setDel, insert, setInsert } = tableUse();
+  const { setEventos, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const { data: profesoresData } = useSelectFetch(
     "http://localhost:3002/api/profesor",
   );
@@ -45,7 +45,12 @@ export default function EventosItem({
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setEventos(json.data || []));
+      .then((json) => {
+        setEventos(json.data || []);
+        setMessageSucces("Evento eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -71,9 +76,13 @@ export default function EventosItem({
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setEventos(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setEventos(json?.data || []);
+        setMessageSucces("Evento actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

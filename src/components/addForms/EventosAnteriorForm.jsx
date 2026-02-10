@@ -7,7 +7,7 @@ export default function EventosAnteriorForm() {
   const totalRef = useRef();
   const añoEvaluacionRef = useRef();
 
-  const { setEventosAnterior, setInsert, insert } = tableUse();
+  const { setEventosAnterior, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     nacionalInternacionalRef.current.value = "";
@@ -38,7 +38,12 @@ export default function EventosAnteriorForm() {
         }
         // handle error
       })
-      .then((json) => setEventosAnterior(json?.data || []));
+      .then((json) => {
+        setEventosAnterior(json?.data || []);
+        setMessageSucces("Evento anterior insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

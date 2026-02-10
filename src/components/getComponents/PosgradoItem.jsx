@@ -4,7 +4,7 @@ import Input from "../Input";
 import { useUser } from "../../context/UserContext";
 
 export default function PosgradoItem({ nombre, año, cantidad, id }) {
-  const { setPosgrado, del, setDel, insert, setInsert } = tableUse();
+  const { setPosgrado, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
   const { isAdmin, isDirective } = useUser();
@@ -21,7 +21,12 @@ export default function PosgradoItem({ nombre, año, cantidad, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setPosgrado(json.data || []));
+      .then((json) => {
+        setPosgrado(json.data || []);
+        setMessageSucces("Posgrado eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -43,9 +48,13 @@ export default function PosgradoItem({ nombre, año, cantidad, id }) {
           return res.json();
         }
       })
-      .then((json) => setPosgrado(json?.data || []));
-
-    setInsert(!insert);
+      .then((json) => {
+        setPosgrado(json?.data || []);
+        setMessageSucces("Posgrado actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert)
+      });
   }
 
   return (

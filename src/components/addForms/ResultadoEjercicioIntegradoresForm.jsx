@@ -7,7 +7,7 @@ export default function ResultadoEjerciciosIntegradoresForm() {
   const porciento_con_4_5Ref = useRef();
   const año_evaluacionRef = useRef();
 
-  const { setResultadoEjercicios, setInsert, insert } = tableUse();
+  const { setResultadoEjercicios, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   function erraseInput() {
     porciento_aprobadosRef.current.value = "";
@@ -38,7 +38,12 @@ export default function ResultadoEjerciciosIntegradoresForm() {
         }
         // handle error
       })
-      .then((json) => setResultadoEjercicios(json?.data || []));
+      .then((json) => {
+        setResultadoEjercicios(json?.data || []);
+        setMessageSucces("Resultado de ejercicio integrador insertado");
+        setNotificationType('insert');
+        setNotification(true);
+      });
 
     setInsert(!insert);
   }

@@ -6,7 +6,7 @@ import Select from "../Select";
 import { useUser } from "../../context/UserContext";
 
 export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
-  const { setTotalGraduados, del, setDel, insert, setInsert } = tableUse();
+  const { setTotalGraduados, del, setDel, insert, setInsert, setNotification, setMessageSucces, setNotificationType } = tableUse();
   const { data } = useSelectFetch("http://localhost:3002/api/cursos");
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal]=useState()
@@ -24,7 +24,12 @@ export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then((json) => setTotalGraduados(json.data || []));
+      .then((json) => {
+        setTotalGraduados(json.data || []);
+        setMessageSucces("Total de graduados eliminado");
+        setNotificationType('delete');
+        setNotification(true);
+      });
   }
 
   function modifyItem() {
@@ -44,9 +49,14 @@ export default function TotalGraduadosItem({ cd, cpe, curso_id, id }) {
       .then((res) => {
         if (!res.ok) return res.json();
       })
-      .then((json) => setTotalGraduados(json?.data || []));
+      .then((json) => {
+        setTotalGraduados(json?.data || []);
+        setMessageSucces("Total de graduados actualizado");
+        setNotificationType('insert');
+        setNotification(true);
+        setInsert(!insert);
+      });
 
-    setInsert(!insert);
   }
 
   return (

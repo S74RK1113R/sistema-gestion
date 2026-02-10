@@ -6,7 +6,7 @@ export default function DisciplinasForm() {
 
   const nombreRef = useRef();
   const codigoRef = useRef();
-  const { setDisciplina, setInsert, insert} = tableUse();
+  const { setDisciplina, setInsert, insert, setMessageSucces, setNotification, setNotificationType} = tableUse();
 
   function erraseInput() {
     nombreRef.current.value = "";
@@ -35,7 +35,12 @@ export default function DisciplinasForm() {
         }
         // handle error
       })
-      .then((json) => setDisciplina(json?.data || []));
+      .then((json) => {
+        setMessageSucces("Disciplina insertada")
+        setNotificationType('insert');
+        setNotification(true);
+        setDisciplina(json?.data || [])
+      });
 
     setInsert(!insert);
   }
