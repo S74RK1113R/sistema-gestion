@@ -1,6 +1,10 @@
 @import "tailwindcss";
-td,tr,th{
-    @apply text-center border border-black
+
+
+td,
+tr,
+th {
+  @apply text-center border border-black;
 }
 .scroll::-webkit-scrollbar {
   width: 5px;
@@ -13,6 +17,6 @@ td,tr,th{
   background-color: #111111;
   border-radius: 5px;
 }
-.scroll::-webkit-scrollbar-track{
-    background-color: #fff;
+.scroll::-webkit-scrollbar-track {
+  background-color: #fff;
 }
