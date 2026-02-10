@@ -5,11 +5,7 @@ import Aside from "../components/Aside"
 export default function AdminLayout({children}) {
 
     return(
-<<<<<<< HEAD
-        <div className=" relative w-screen h-screen">
-=======
-        <div className="relative w-screen h-screen bg-gray-50">
->>>>>>> parent of 53520ce (refact)
+        <div className="w-screen h-screen">
             <NavBar/>
 
             <div className="grid grid-cols-[300px_1fr] w-screen h-[92vh]">
