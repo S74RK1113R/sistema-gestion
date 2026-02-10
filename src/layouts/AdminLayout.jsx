@@ -6,7 +6,11 @@ export default function AdminLayout({children}) {
 
     return(
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="relative w-screen h-screen bg-gray-50">
+=======
+        <div className=" relative w-screen h-screen">
+>>>>>>> 9e549bb (refact)
 =======
         <div className=" relative w-screen h-screen">
 >>>>>>> 9e549bb (refact)
