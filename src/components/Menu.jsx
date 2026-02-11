@@ -6,8 +6,8 @@ import { useUser } from "../context/UserContext";
 export default function Menu() {
   const { isAdmin, isDirective } = useUser();
   return (
-    <menu className="bg-blue-300 w-full h-full p-2 overflow-y-scroll scroll print:hidden">
-      <ul className="flex flex-col gap-1 font-bold text-zinc-50 items-center text-center">
+    <menu className="bg-gradient-to-b from-slate-50 to-slate-100 w-full h-full p-3 overflow-y-scroll scroll print:hidden border-r border-slate-300 shadow-sm">
+      <ul className="flex flex-col gap-2 font-medium text-slate-800 items-stretch">
         {isAdmin && <Item href={"/usuarios"}>Usuarios</Item>}
 
         <Item href={"/disciplinas"}>Disciplinas</Item>

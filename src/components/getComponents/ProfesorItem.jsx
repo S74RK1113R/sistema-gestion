@@ -119,55 +119,57 @@ export default function ProfesorItem({
   }
 
   return (
-    <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
-      <h1 className="font-bold">Nombre del profesor:</h1>
-      <div>{nombres}</div>
-      <h1 className="font-bold">Primer apellido del profesor:</h1>
-      <div>{primer_apellido}</div>
-      <h1 className="font-bold">Segundo apellido del profesor:</h1>
-      <div>{segundo_apellido}</div>
-      <h1 className="font-bold">Experiencia en la carrera:</h1>
-      <div>{exp_carrera}</div>
-      <h1 className="font-bold">Experiencia en la educación superior:</h1>
-      <div>{exp_educacion_superior}</div>
-      <h1 className="font-bold">Lugar de procedencia:</h1>
-      <div>{lugar_procedencia}</div>
-      <h1 className="font-bold">Categoria docente:</h1>
-      <div>{categoria_docente}</div>
-      <h1 className="font-bold">Funcion que realiza:</h1>
-      <div>{funcion}</div>
-      <h1 className="font-bold">Consultante o emerito</h1>
-      <div>{consultante_emerito}</div>
-      <h1 className="font-bold">Grado científico</h1>
-      <div>{grado_cientifico}</div>
-      <h1 className="font-bold">Doctor o especialidad afin:</h1>
-      <div>{doctor_esp_afin}</div>
-      <h1 className="font-bold">Asignatura que imparte 1:</h1>
-      <div>{asignatura_id}</div>
-      {asignatura_id_2 == 0 ? (
-        " "
-      ) : (
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="font-bold">Asignatura que imparte 2:</h1>
-          <div>{asignatura_id_2}</div>
+    <div className="mb-6 border border-gray-300 w-full max-w-4xl mx-auto flex flex-col items-stretch justify-start shadow-md hover:shadow-lg transition-shadow bg-white p-6 rounded-lg">
+      <div className="grid grid-cols-4 gap-6">
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Nombre</p>
+          <p className="text-sm font-medium text-slate-800">{nombres}</p>
         </div>
-      )}
-      {asignatura_id_3 == 0 ? (
-        " "
-      ) : (
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="font-bold">Asignatura que imparte 3:</h1>
-          <div>{asignatura_id_3}</div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Primer Apellido</p>
+          <p className="text-sm font-medium text-slate-800">{primer_apellido}</p>
         </div>
-      )}
-      {asignatura_id_4 == 0 ? (
-        " "
-      ) : (
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="font-bold">Asignatura que imparte 4:</h1>
-          <div>{asignatura_id_4}</div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Segundo Apellido</p>
+          <p className="text-sm font-medium text-slate-800">{segundo_apellido}</p>
         </div>
-      )}
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Exp. Carrera</p>
+          <p className="text-sm font-medium text-slate-800">{exp_carrera}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Exp. Educación Superior</p>
+          <p className="text-sm font-medium text-slate-800">{exp_educacion_superior}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Lugar Procedencia</p>
+          <p className="text-sm font-medium text-slate-800">{lugar_procedencia}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Categoría Docente</p>
+          <p className="text-sm font-medium text-slate-800">{categoria_docente}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Función</p>
+          <p className="text-sm font-medium text-slate-800">{funcion}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Consultante/Emérito</p>
+          <p className="text-sm font-medium text-slate-800">{consultante_emerito}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Grado Científico</p>
+          <p className="text-sm font-medium text-slate-800">{grado_cientifico}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Dr.C Especialidad Afín</p>
+          <p className="text-sm font-medium text-slate-800">{doctor_esp_afin}</p>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Participación Posgrado</p>
+          <p className="text-sm font-medium text-slate-800">{participacion_posgrado}</p>
+        </div>
+      </div>
       {asignatura_id_5 == 0 ? (
         " "
       ) : (
@@ -184,24 +186,20 @@ export default function ProfesorItem({
           <div>{asignatura_id_6}</div>
         </div>
       )}
-      <h1 className="font-bold">Participación en posgrado</h1>
-      <div>{participacion_posgrado}</div>
-      <h1 className="font-bold">Sede universitaria:</h1>
-      <div>{sede_universitaria}</div>
 
       {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-row gap-3 mt-6 pt-6 border-t border-gray-200">
           <button
             onClick={() => setShowDeleteModal(true)}
             data-id={id}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            className="flex-1 bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm"
           >
-            Borrar
+            Eliminar
           </button>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+            className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-colors shadow-sm"
           >
             Modificar
           </button>
