@@ -45,30 +45,31 @@ export default function SedeUniversitariaFrom() {
     setInsert(!insert);
   }
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombre" className="text-sm font-semibold text-gray-700">Nombre:</label>
-            <Input type="text" inputName="nombre" ref={nombreRef} placeholder="Nombre de la sede"/>
+        <div className="flex flex-col size-max gap-5 items-center mx-auto">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombre">Nombre:</label>
+            <Input type="text" inputName="nombre" ref={nombreRef}/>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="clasificacion" className="text-sm font-semibold text-gray-700">Clasificación:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="clasificacion">Clasificación:</label>
             <Select inputName="clasificacion" ref={clasificacionRef}>
-              <option value="">Seleccionar...</option>
-              <option value="sede central">Sede Central</option>
-              <option value="sede municipal o subsede">Sede Municipal o Subsede</option>
-              <option value="cum">CUM</option>
+              <option value="sede central">Sede central</option>
+              <option value="sede municipal o subsede">
+                Sede municipal o subsede
+              </option>
+              <option value="cum">Cum</option>
               <option value="filial">Filial</option>
             </Select>
           </div>
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
           >
-            Crear Sede
+            Insertar
           </button>
         </div>
       </form>

@@ -110,133 +110,121 @@ export default function ClaustroItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-            <div className="bg-white p-8 rounded-lg shadow-2xl grid grid-cols-2 gap-5 max-w-lg w-full mx-4 max-h-96 overflow-y-auto">
+          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
+            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
               <h2 className="text-xl font-bold col-span-2">
                 Modificar Claustro
               </h2>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="total_claustro" className="text-sm font-semibold text-gray-700">Total de claustro:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="total_claustro">Total de claustro:</label>
                 <Input
                   type="number"
                   inputName="total_claustro"
                   min="0"
                   defaultValue={total_claustro}
                   ref={refs.total_claustro}
-                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="drc" className="text-sm font-semibold text-gray-700">Dr.C:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="drc">Dr.C:</label>
                 <Input
                   type="number"
                   inputName="drc"
                   min="0"
                   defaultValue={drc}
                   ref={refs.drc}
-                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="drc_equivalentes" className="text-sm font-semibold text-gray-700">Dr.C/equivalentes:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="drc_equivalentes">Dr.C/equivalentes:</label>
                 <Input
                   type="number"
                   inputName="drc_equivalentes"
                   min="0"
                   defaultValue={drc_equivalentes}
                   ref={refs.drc_equivalentes}
-                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="drc_afin" className="text-sm font-semibold text-gray-700">Dr.C/afin:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="drc_afin">Dr.C/afin:</label>
                 <Input
                   type="number"
                   inputName="drc_afin"
                   min="0"
                   defaultValue={drc_afin}
                   ref={refs.drc_afin}
-                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="mc_equivalentes" className="text-sm font-semibold text-gray-700">Mc/equivalentes:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="mc_equivalentes">Mc/equivalentes:</label>
                 <Input
                   type="number"
                   inputName="mc_equivalentes"
                   min="0"
                   defaultValue={mc_equivalentes}
                   ref={refs.mc_equivalentes}
-                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="pt_pa" className="text-sm font-semibold text-gray-700">Pt/Pa:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="pt_pa">Pt/Pa:</label>
                 <Input
                   type="number"
                   inputName="pt_pa"
                   min="0"
                   defaultValue={pt_pa}
                   ref={refs.pt_pa}
-                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año evaluacion:</label>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="año_evaluacion">Año evaluacion:</label>
                 <Input
                   type="number"
                   inputName="año_evaluacion"
                   min="0"
                   defaultValue={año_evaluacion}
                   ref={refs.año_evaluacion}
-                  placeholder="2024"
                 />
               </div>
 
-              <div className="col-span-2 flex gap-3 mt-4">
-                <button
-                  type="submit"
-                  className="flex-1 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
-                >
-                  Guardar
-                </button>
-                <button
-                  type="button"
-                  className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
-                  onClick={() => setShowModal(false)}
-                >
-                  Cancelar
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white row-start-6 px-4 py-2 my-5 rounded hover:bg-blue-600"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                type="button"
+                className="bg-zinc-500 text-white row-start-6 px-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
             </div>
           </div>
         </form>
       )}
 
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-          <div className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full mx-4">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Confirmar eliminación</h2>
-            <p className="text-gray-600 mb-6">¿Está seguro que desea eliminar este claustro?</p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => {
-                  deleteItem(id);
-                }}
-                className="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
-              >
-                Eliminar
-              </button>
-              <button
-                onClick={() => setShowDeleteModal(false)}
-                className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
-              >
-                Cancelar
-              </button>
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
+          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
+          <div className="flex gap-5">
+            <button
+              onClick={() => {
+                deleteItem(id);
+              }}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            >
+              Borrar
+            </button>
+            <button
+              onClick={() => setShowDeleteModal(false)}
+              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
+            >
+              Cancelar
+            </button>
           </div>
         </div>
       )}

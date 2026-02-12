@@ -78,82 +78,81 @@ export default function AyudantiaForm() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-4 gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_superior_1er_año" className="text-sm font-semibold text-gray-700">
-              Educación Superior 1er Año:
+        <div className="grid grid-cols-4 grid-rows-4 size-max gap-5 mx-2 items-center justify-center">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_superior_1er_año">
+              Educación superior 1er año:
             </label>
-            <Input type="number" inputName="educacion_superior_1er_año" min="0" ref={educacionSuperior1erAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_superior_1er_año" min="0" ref={educacionSuperior1erAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_superior_2do_año" className="text-sm font-semibold text-gray-700">
-              Educación Superior 2do Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_superior_2do_año">
+              Educación superior 2do año:
             </label>
-            <Input type="number" inputName="educacion_superior_2do_año" min="0" ref={educacionSuperior2doAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_superior_2do_año" min="0" ref={educacionSuperior2doAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_superior_3er_año" className="text-sm font-semibold text-gray-700">
-              Educación Superior 3er Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_superior_3er_año">
+              Educación superior 3er año:
             </label>
-            <Input type="number" inputName="educacion_superior_3er_año" min="0" ref={educacionSuperior3erAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_superior_3er_año" min="0" ref={educacionSuperior3erAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_superior_4to_año" className="text-sm font-semibold text-gray-700">
-              Educación Superior 4to Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_superior_4to_año">
+              Educación superior 4to año:
             </label>
-            <Input type="number" inputName="educacion_superior_4to_año" min="0" ref={educacionSuperior4toAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_superior_4to_año" min="0" ref={educacionSuperior4toAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_superior_5to_año" className="text-sm font-semibold text-gray-700">
-              Educación Superior 5to Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_superior_5to_año">
+              Educación superior 5to año:
             </label>
-            <Input type="number" inputName="educacion_superior_5to_año" min="0" ref={educacionSuperior5toAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_superior_5to_año" min="0" ref={educacionSuperior5toAñoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_media_1er_año" className="text-sm font-semibold text-gray-700">
-              Educación Media 1er Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_media_1er_año">
+              Educación media 1er año:
             </label>
-            <Input type="number" inputName="educacion_media_1er_año" min="0" ref={educacionMedia1erAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_media_1er_año" min="0" ref={educacionMedia1erAñoRef} />
           </div>
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_media_2do_año" className="text-sm font-semibold text-gray-700">
-              Educación Media 2do Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_media_2do_año">
+              Educación media 2do año:
             </label>
-            <Input type="number" inputName="educacion_media_2do_año" min="0" ref={educacionMedia2doAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_media_2do_año" min="0" ref={educacionMedia2doAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_media_3er_año" className="text-sm font-semibold text-gray-700">
-              Educación Media 3er Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_media_3er_año">
+              Educación media 3ro año:
             </label>
-            <Input type="number" inputName="educacion_media_3er_año" min="0" ref={educacionMedia3erAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_media_3er_año" min="0" ref={educacionMedia3erAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_media_4to_año" className="text-sm font-semibold text-gray-700">
-              Educación Media 4to Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_media_4to_año">
+              Educación media 4to año:
             </label>
-            <Input type="number" inputName="educacion_media_4to_año" min="0" ref={educacionMedia4toAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_media_4to_año" min="0" ref={educacionMedia4toAñoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="educacion_media_5to_año" className="text-sm font-semibold text-gray-700">
-              Educación Media 5to Año:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="educacion_media_5to_año">
+              Educación media 5to año:
             </label>
-            <Input type="number" inputName="educacion_media_5to_año" min="0" ref={educacionMedia5toAñoRef} placeholder="Cantidad" />
+            <Input type="number" inputName="educacion_media_5to_año" min="0" ref={educacionMedia5toAñoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2 col-span-4">
-            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año de Evaluación:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={añoEvaluacionRef} placeholder="Año" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año_evaluacion">Año de la evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={añoEvaluacionRef} />
           </div>
 
           <button
             type="submit"
-            className="col-span-4 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-span-4 w-50 mx-auto"
           >
-            Crear Ayudantía
+            Insertar
           </button>
         </div>
       </form>

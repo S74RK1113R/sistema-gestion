@@ -65,36 +65,28 @@ export default function EventosAnteriorItem({
   }
 
   return (
-    <div className="border border-gray-300 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-6">
-      <div className="grid grid-cols-3 gap-4">
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Nacional/Int.</p>
-          <p className="text-sm font-medium text-gray-900">{nacional_internacional}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Total</p>
-          <p className="text-sm font-medium text-gray-900">{total}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Año Evaluación</p>
-          <p className="text-sm font-medium text-gray-900">{año_evaluacion}</p>
-        </div>
-      </div>
+    <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+      <h1 className="font-bold">Nacional/Internacional:</h1>
+      <div>{nacional_internacional}</div>
+      <h1 className="font-bold">Total:</h1>
+      <div>{total}</div>
+      <h1 className="font-bold">Año de evaluación:</h1>
+      <div>{año_evaluacion}</div>
 
       {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-3 mt-6 justify-end">
+        <div className="flex flex-row gap-4 mt-4">
           <button
             onClick={() => {
               setShowDeleteModal(true);
             }}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
           >
-            Eliminar
+            Borrar
           </button>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
           >
             Modificar
           </button>
@@ -103,80 +95,71 @@ export default function EventosAnteriorItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-            <div className="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full mx-4">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
-                Modificar Evento
+          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
+            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+              <h2 className="text-xl font-bold col-span-2">
+                Modificar Evento Anterior
               </h2>
 
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Nacional/Internacional:</label>
-                  <Input
-                    type="text"
-                    defaultValue={nacional_internacional}
-                    ref={refs.nacional_internacional}
-                    placeholder="Ingrese valor"
-                  />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Total:</label>
-                  <Input type="number" defaultValue={total} ref={refs.total} placeholder="Ingrese total" />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Año de evaluación:</label>
-                  <Input
-                    type="number"
-                    defaultValue={año_evaluacion}
-                    ref={refs.año_evaluacion}
-                    placeholder="Ingrese año"
-                  />
-                </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Nacional/Internacional:</label>
+                <Input
+                  type="text"
+                  defaultValue={nacional_internacional}
+                  ref={refs.nacional_internacional}
+                />
               </div>
 
-              <div className="flex gap-3 justify-end mt-6">
-                <button
-                  type="button"
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                  onClick={() => setShowModal(false)}
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Guardar
-                </button>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Total:</label>
+                <Input type="number" defaultValue={total} ref={refs.total} />
               </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Año de evaluación:</label>
+                <Input
+                  type="number"
+                  defaultValue={año_evaluacion}
+                  ref={refs.año_evaluacion}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="bg-blue-500 row-start-4 text-white px-4 py-2 my-5 rounded hover:bg-blue-600"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                type="button"
+                className="bg-zinc-500 row-start-4 text-white px-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
             </div>
           </div>
         </form>
       )}
 
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-          <div className="bg-white rounded-lg shadow-2xl p-6 max-w-sm mx-4">
-            <h2 className="text-lg font-bold text-gray-900 mb-4">Confirmar eliminación</h2>
-            <p className="text-gray-600 mb-6">¿Está seguro que desea eliminar este evento?</p>
-            <div className="flex gap-3 justify-end">
-              <button
-                onClick={() => setShowDeleteModal(false)}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Cancelar
-              </button>
-              <button
-                onClick={() => {
-                  deleteItem(id);
-                }}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Eliminar
-              </button>
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
+          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
+          <div className="flex gap-5">
+            <button
+              onClick={() => {
+                deleteItem(id);
+              }}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            >
+              Borrar
+            </button>
+            <button
+              onClick={() => setShowDeleteModal(false)}
+              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
+            >
+              Cancelar
+            </button>
           </div>
         </div>
       )}

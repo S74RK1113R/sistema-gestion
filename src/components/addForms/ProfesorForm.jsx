@@ -92,72 +92,66 @@ export default function ProfesoresForm() {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-3 gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombres" className="text-sm font-semibold text-gray-700">Nombre/s:</label>
-            <Input type="text" inputName="nombres" ref={nombresRef} placeholder="Nombres" />
+        <div className="grid grid-cols-5 grid-rows-3 size-max gap-5 mx-2">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombres">Nombre/s:</label>
+            <Input type="text" inputName="nombres" ref={nombresRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="primer_apellido" className="text-sm font-semibold text-gray-700">Primer Apellido:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="primer_apellido">Primer apellido:</label>
             <Input
               type="text"
               inputName="primer_apellido"
               ref={primer_apellidoRef}
-              placeholder="Primer apellido"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="segundo_apellido" className="text-sm font-semibold text-gray-700">Segundo Apellido:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="segundo_apellido">Segundo apellido:</label>
             <Input
               type="text"
               inputName="segundo_apellido"
               ref={segundo_apellidoRef}
-              placeholder="Segundo apellido"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="exp_educacion_superior" className="text-sm font-semibold text-gray-700">
-              Exp. Educación Superior:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="exp_educacion_superior">
+              Experiencia educación superior:
             </label>
             <Input
               type="number"
               inputName="exp_educacion_superior"
               min="0"
               ref={exp_educacion_superiorRef}
-              placeholder="Años"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="exp_carrera" className="text-sm font-semibold text-gray-700">Exp. en la Carrera:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="exp_carrera">Experiencia en la carrera:</label>
             <Input
               type="number"
               inputName="exp_carrera"
               min="0"
               ref={exp_carreraRef}
-              placeholder="Años"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="lugar_procedencia" className="text-sm font-semibold text-gray-700">Lugar Procedencia:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="lugar_procedencia">Lugar procedencia:</label>
             <Input
               type="text"
               inputName="lugar_procedencia"
               ref={lugar_procedenciaRef}
-              placeholder="Ubicación"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="categoria_docente" className="text-sm font-semibold text-gray-700">Categoría Docente:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="categoria_docente">Categoría docente:</label>
             <Select inputName="categoria_docente" ref={categoria_docenteRef}>
-              <option value="">Seleccionar...</option>
               <option value="pt">PT</option>
               <option value="pa">PA</option>
               <option value="a">A</option>
@@ -167,50 +161,45 @@ export default function ProfesoresForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="funcion" className="text-sm font-semibold text-gray-700">Función:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="funcion">Función:</label>
             <Select inputName="funcion" ref={funcionRef}>
-              <option value="">Seleccionar...</option>
               <option value="profesor">Profesor</option>
               <option value="tecnico">Técnico</option>
               <option value="tutor">Tutor</option>
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="consultante_emerito" className="text-sm font-semibold text-gray-700">Consultante/Emérito:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="consultante_emerito">Consultante/emerito:</label>
             <Select
               inputName="consultante_emerito"
               ref={consultante_emeritoRef}
             >
-              <option value="no definido">--No definido--</option>
+              <option value="no definido" selected>--No definido--</option>
               <option value="consultante">Consultante</option>
-              <option value="emerito">Emérito</option>
+              <option value="emerito">Emerito</option>
             </Select>
           </div>
-          
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="grado_cientifico" className="text-sm font-semibold text-gray-700">Grado Científico:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="grado_cientifico">Grado científico:</label>
             <Select inputName="grado_cientifico" ref={grado_cientificoRef}>
-              <option value="">Seleccionar...</option>
               <option value="dc">Doctor</option>
-              <option value="mc">Máster</option>
+              <option value="mc">Master</option>
             </Select>
           </div>
           
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="doctor_esp_afin" className="text-sm font-semibold text-gray-700">Dr.C Especialidad Afín:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="doctor_esp_afin">Dr.C especialidad afin:</label>
             <Select inputName="doctor_esp_afin" ref={doctor_esp_afinRef}>
-              <option value="">Seleccionar...</option>
-              <option value="si">Sí</option>
+              <option value="si">Si</option>
               <option value="no">No</option>
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id" className="text-sm font-semibold text-gray-700">Asignatura 1:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id">Asignatura 1:</label>
             <Select inputName="asignatura_id" ref={asignatura_idRef}>
-              <option value="">Seleccionar...</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -221,10 +210,10 @@ export default function ProfesoresForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id_2" className="text-sm font-semibold text-gray-700">Asignatura 2:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id_2">Asignatura 2:</label>
             <Select inputName="asignatura_id_2" ref={asignatura_id_2Ref}>
-              <option value="">Sin asignatura</option>
+              <option value={0} >Sin asignatura</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -234,11 +223,10 @@ export default function ProfesoresForm() {
               })}
             </Select>
           </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id_3" className="text-sm font-semibold text-gray-700">Asignatura 3:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id_3">Asignatura 3:</label>
             <Select inputName="asignatura_id_3" ref={asignatura_id_3Ref}>
-              <option value="">Sin asignatura</option>
+              <option value={0} >Sin asignatura</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -248,11 +236,10 @@ export default function ProfesoresForm() {
               })}
             </Select>
           </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id_4" className="text-sm font-semibold text-gray-700">Asignatura 4:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id_4">Asignatura 4:</label>
             <Select inputName="asignatura_id_4" ref={asignatura_id_4Ref}>
-              <option value="">Sin asignatura</option>
+              <option value={0} >Sin asignatura</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -262,11 +249,10 @@ export default function ProfesoresForm() {
               })}
             </Select>
           </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id_5" className="text-sm font-semibold text-gray-700">Asignatura 5:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id_5">Asignatura 5:</label>
             <Select inputName="asignatura_id_5" ref={asignatura_id_5Ref}>
-              <option value="">Sin asignatura</option>
+              <option value={0} >Sin asignatura</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -276,11 +262,10 @@ export default function ProfesoresForm() {
               })}
             </Select>
           </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="asignatura_id_6" className="text-sm font-semibold text-gray-700">Asignatura 6:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="asignatura_id_6">Asignatura 6:</label>
             <Select inputName="asignatura_id_6" ref={asignatura_id_6Ref}>
-              <option value="">Sin asignatura</option>
+              <option value={0} >Sin asignatura</option>
               {data.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -290,28 +275,25 @@ export default function ProfesoresForm() {
               })}
             </Select>
           </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="participacion_posgrado" className="text-sm font-semibold text-gray-700">
-              Participación en Posgrado:
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="participacion_posgrado">
+              Participación en posgrado:
             </label>
             <Select
               inputName="participacion_posgrado"
               ref={participacion_posgradoRef}
             >
-              <option value="">Seleccionar...</option>
-              <option value="si">Sí</option>
+              <option value="si">Si</option>
               <option value="no">No</option>
             </Select>
           </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="sede_universitaria_id">Sede universitaria:</label>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="sede_universitaria_id" className="text-sm font-semibold text-gray-700">Sede Universitaria:</label>
             <Select
               inputName="sede_universitaria_id"
               ref={sede_universitaria_idRef}
             >
-              <option value="">Seleccionar...</option>
               {data2.map((item) => {
                 return (
                   <option value={item.id} key={item.id}>
@@ -324,9 +306,9 @@ export default function ProfesoresForm() {
 
           <button
             type="submit"
-            className="col-span-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-span-5 w-25 mx-auto"
           >
-            Crear Profesor
+            Insertar
           </button>
         </div>
       </form>

@@ -133,119 +133,119 @@ export default function EjerciciosIntegradoresForm() {
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-4 gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="matricula_2do" className="text-sm font-semibold text-gray-700">Matrícula 2do año:</label>
-            <Input type="number" inputName="matricula_2do" min="0" ref={matricula_2doRef} placeholder="0" />
+        <div className="grid grid-cols-6 grid-rows-6 size-max gap-2 mx-2 items-center justify-center">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="matricula_2do">Matrícula 2do año:</label>
+            <Input type="number" inputName="matricula_2do" min="0" ref={matricula_2doRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="matricula_3ro" className="text-sm font-semibold text-gray-700">Matrícula 3er año:</label>
-            <Input type="number" inputName="matricula_3ro" min="0" ref={matricula_3roRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="matricula_3ro">Matrícula 3ro año:</label>
+            <Input type="number" inputName="matricula_3ro" min="0" ref={matricula_3roRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="matricula_4to" className="text-sm font-semibold text-gray-700">Matrícula 4to año:</label>
-            <Input type="number" inputName="matricula_4to" min="0" ref={matricula_4toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="matricula_4to">Matrícula 4to año:</label>
+            <Input type="number" inputName="matricula_4to" min="0" ref={matricula_4toRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="matricula_5to" className="text-sm font-semibold text-gray-700">Matrícula 5to año:</label>
-            <Input type="number" inputName="matricula_5to" min="0" ref={matricula_5toRef} placeholder="0" />
-          </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="evaluados_2do" className="text-sm font-semibold text-gray-700">Evaluados 2do año:</label>
-            <Input type="number" inputName="evaluados_2do" min="0" ref={evaluados_2doRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="evaluados_3ro" className="text-sm font-semibold text-gray-700">Evaluados 3er año:</label>
-            <Input type="number" inputName="evaluados_3ro" min="0" ref={evaluados_3roRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="evaluados_4to" className="text-sm font-semibold text-gray-700">Evaluados 4to año:</label>
-            <Input type="number" inputName="evaluados_4to" min="0" ref={evaluados_4toRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="evaluados_5to" className="text-sm font-semibold text-gray-700">Evaluados 5to año:</label>
-            <Input type="number" inputName="evaluados_5to" min="0" ref={evaluados_5toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="matricula_5to">Matrícula 5to año:</label>
+            <Input type="number" inputName="matricula_5to" min="0" ref={matricula_5toRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con2_2do" className="text-sm font-semibold text-gray-700">Nota 2 - 2do año:</label>
-            <Input type="number" inputName="nota_con2_2do" min="0" ref={nota_con2_2doRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="evaluados_2do">Evaluados 2do año:</label>
+            <Input type="number" inputName="evaluados_2do" min="0" ref={evaluados_2doRef}/>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con2_3ro" className="text-sm font-semibold text-gray-700">Nota 2 - 3er año:</label>
-            <Input type="number" inputName="nota_con2_3ro" min="0" ref={nota_con2_3roRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="evaluados_3ro">Evaluados 3ro año:</label>
+            <Input type="number" inputName="evaluados_3ro" min="0" ref={evaluados_3roRef}/>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con2_4to" className="text-sm font-semibold text-gray-700">Nota 2 - 4to año:</label>
-            <Input type="number" inputName="nota_con2_4to" min="0" ref={nota_con2_4toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="evaluados_4to">Evaluados 4to año:</label>
+            <Input type="number" inputName="evaluados_4to" min="0" ref={evaluados_4toRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con2_5to" className="text-sm font-semibold text-gray-700">Nota 2 - 5to año:</label>
-            <Input type="number" inputName="nota_con2_5to" min="0" ref={nota_con2_5toRef} placeholder="0" />
-          </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con3_2do" className="text-sm font-semibold text-gray-700">Nota 3 - 2do año:</label>
-            <Input type="number" inputName="nota_con3_2do" min="0" ref={nota_con3_2doRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con3_3ro" className="text-sm font-semibold text-gray-700">Nota 3 - 3er año:</label>
-            <Input type="number" inputName="nota_con3_3ro" min="0" ref={nota_con3_3roRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con3_4to" className="text-sm font-semibold text-gray-700">Nota 3 - 4to año:</label>
-            <Input type="number" inputName="nota_con3_4to" min="0" ref={nota_con3_4toRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con3_5to" className="text-sm font-semibold text-gray-700">Nota 3 - 5to año:</label>
-            <Input type="number" inputName="nota_con3_5to" min="0" ref={nota_con3_5toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="evaluados_5to">Evaluados 5to año:</label>
+            <Input type="number" inputName="evaluados_5to" min="0" ref={evaluados_5toRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con4_2do" className="text-sm font-semibold text-gray-700">Nota 4 - 2do año:</label>
-            <Input type="number" inputName="nota_con4_2do" min="0" ref={nota_con4_2doRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con2_2do">Nota de 2 2do año:</label>
+            <Input type="number" inputName="nota_con2_2do" min="0" ref={nota_con2_2doRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con4_3ro" className="text-sm font-semibold text-gray-700">Nota 4 - 3er año:</label>
-            <Input type="number" inputName="nota_con4_3ro" min="0" ref={nota_con4_3roRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con2_3ro">Nota de 2 3ro año:</label>
+            <Input type="number" inputName="nota_con2_3ro" min="0" ref={nota_con2_3roRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con4_4to" className="text-sm font-semibold text-gray-700">Nota 4 - 4to año:</label>
-            <Input type="number" inputName="nota_con4_4to" min="0" ref={nota_con4_4toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con2_4to">Nota de 2 4to año:</label>
+            <Input type="number" inputName="nota_con2_4to" min="0" ref={nota_con2_4toRef}/>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con4_5to" className="text-sm font-semibold text-gray-700">Nota 4 - 5to año:</label>
-            <Input type="number" inputName="nota_con4_5to" min="0" ref={nota_con4_5toRef} placeholder="0" />
-          </div>
-
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con5_2do" className="text-sm font-semibold text-gray-700">Nota 5 - 2do año:</label>
-            <Input type="number" inputName="nota_con5_2do" min="0" ref={nota_con5_2doRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con5_3ro" className="text-sm font-semibold text-gray-700">Nota 5 - 3er año:</label>
-            <Input type="number" inputName="nota_con5_3ro" min="0" ref={nota_con5_3roRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con5_4to" className="text-sm font-semibold text-gray-700">Nota 5 - 4to año:</label>
-            <Input type="number" inputName="nota_con5_4to" min="0" ref={nota_con5_4toRef} placeholder="0" />
-          </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nota_con5_5to" className="text-sm font-semibold text-gray-700">Nota 5 - 5to año:</label>
-            <Input type="number" inputName="nota_con5_5to" min="0" ref={nota_con5_5toRef} placeholder="0" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con2_5to">Nota de 2 5to año:</label>
+            <Input type="number" inputName="nota_con2_5to" min="0" ref={nota_con2_5toRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2 col-span-4">
-            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año de evaluación:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={añoEvaluacionRef} placeholder="Ingrese año" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con3_2do">Nota de 3 2do año:</label>
+            <Input type="number" inputName="nota_con3_2do" min="0" ref={nota_con3_2doRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con3_3ro">Nota de 3 3ro año:</label>
+            <Input type="number" inputName="nota_con3_3ro" min="0" ref={nota_con3_3roRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con3_4to">Nota de 3 4to año:</label>
+            <Input type="number" inputName="nota_con3_4to" min="0" ref={nota_con3_4toRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con3_5to">Nota de 3 5to año:</label>
+            <Input type="number" inputName="nota_con3_5to" min="0" ref={nota_con3_5toRef} />
+          </div>
+
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con4_2do">Nota de 4 2do año:</label>
+            <Input type="number" inputName="nota_con4_2do" min="0" ref={nota_con4_2doRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con4_3ro">Nota de 4 3ro año:</label>
+            <Input type="number" inputName="nota_con4_3ro" min="0" ref={nota_con4_3roRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con4_4to">Nota de 4 4to año:</label>
+            <Input type="number" inputName="nota_con4_4to" min="0" ref={nota_con4_4toRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con4_5to">Nota de 4 5to año:</label>
+            <Input type="number" inputName="nota_con4_5to" min="0" ref={nota_con4_5toRef} />
+          </div>
+
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con5_2do">Nota de 5 2do año:</label>
+            <Input type="number" inputName="nota_con5_2do" min="0" ref={nota_con5_2doRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con5_3ro">Nota de 5 3ro año:</label>
+            <Input type="number" inputName="nota_con5_3ro" min="0" ref={nota_con5_3roRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con5_4to">Nota de 5 4to año:</label>
+            <Input type="number" inputName="nota_con5_4to" min="0" ref={nota_con5_4toRef} />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nota_con5_5to">Nota de 5 5to año:</label>
+            <Input type="number" inputName="nota_con5_5to" min="0" ref={nota_con5_5toRef} />
+          </div>
+
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año_evaluacion">Año de la evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={añoEvaluacionRef} />
           </div>
 
           <button
             type="submit"
-            className="col-span-4 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 row-start-6 col-span-6 w-50 mx-auto"
           >
             Insertar
           </button>

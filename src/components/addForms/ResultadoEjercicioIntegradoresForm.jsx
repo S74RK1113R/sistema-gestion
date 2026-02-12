@@ -48,26 +48,26 @@ export default function ResultadoEjerciciosIntegradoresForm() {
     setInsert(!insert);
   }
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="porciento_aprobados" className="text-sm font-semibold text-gray-700">Porciento aprobados:</label>
-            <Input type="number" inputName="porciento_aprobados" min="0" ref={porciento_aprobadosRef} placeholder="Ingrese %"/>
+        <div className="grid grid-cols-1 grid-rows-3 size-max gap-5 mx-auto">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="porciento_aprobados">Porciento aprobados:</label>
+            <Input type="number" inputName="porciento_aprobados" min="0" ref={porciento_aprobadosRef}/>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="porciento_con_4_5" className="text-sm font-semibold text-gray-700">Porciento con 4-5:</label>
-            <Input type="number" inputName="porciento_con_4_5" min="0" ref={porciento_con_4_5Ref} placeholder="Ingrese %" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="porciento_con_4_5">Porciento con 4-5:</label>
+            <Input type="number" inputName="porciento_con_4_5" min="0" ref={porciento_con_4_5Ref} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año de evaluación:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef} placeholder="Ingrese año" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año_evaluacion">Año de la evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef}/>
           </div>
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 mx-auto"
           >
             Insertar
           </button>

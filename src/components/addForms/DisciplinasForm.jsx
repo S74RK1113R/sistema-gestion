@@ -46,30 +46,29 @@ export default function DisciplinasForm() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombre" className="text-sm font-semibold text-gray-700">Nombre:</label>
-            <Input type="text" inputName="nombre" ref={nombreRef} placeholder="Nombre de la disciplina" />
+        <div className="flex flex-col size-max gap-5 items-center mx-auto">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombre">Nombre:</label>
+            <Input type="text" inputName="nombre" ref={nombreRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="codigo" className="text-sm font-semibold text-gray-700">Código:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="codigo">Código:</label>
             <Input
               type="text"
               inputName="codigo"
               maxLength="4"
               ref={codigoRef}
-              placeholder="Código (máx 4 caracteres)"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
           >
-            Crear Disciplina
+            Insertar
           </button>
         </div>
       </form>

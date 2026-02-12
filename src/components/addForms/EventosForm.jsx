@@ -70,33 +70,31 @@ export default function EventosForm() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-3 gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="año" className="text-sm font-semibold text-gray-700">Año:</label>
-            <Input type="number" inputName="año" min="0" ref={añoRef} placeholder="Ingrese año" />
+        <div className="grid grid-cols-3 grid-rows-3 size-max gap-5 mx-2">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año">Año:</label>
+            <Input type="number" inputName="año" min="0" ref={añoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombre_evento" className="text-sm font-semibold text-gray-700">Nombre del evento:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombre_evento">Nombre del evento:</label>
             <Input
               type="text"
               inputName="nombre_evento"
               ref={nombre_eventoRef}
-              placeholder="Ingrese nombre"
             />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="titulo" className="text-sm font-semibold text-gray-700">Título del evento:</label>
-            <Input type="text" inputName="titulo" ref={tituloRef} placeholder="Ingrese título" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="titulo">Título del evento:</label>
+            <Input type="text" inputName="titulo" ref={tituloRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="clasificacion" className="text-sm font-semibold text-gray-700">Clasificación:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="clasificacion">Clasificación del evento:</label>
             <Select inputName="clasificacion" ref={clasificacionRef}>
-              <option value="">Seleccione clasificación</option>
               <option value="provincial">Provincial</option>
               <option value="municipal">Municipal</option>
               <option value="nacional">Nacional</option>
@@ -105,10 +103,9 @@ export default function EventosForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id" className="text-sm font-semibold text-gray-700">Profesor 1:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id">Profesor 1:</label>
             <Select inputName="profesor_id" ref={profesor_idRef}>
-              <option value="">Seleccione profesor</option>
               {data.map((item) => {
                 return (
                   <option
@@ -119,10 +116,12 @@ export default function EventosForm() {
               })}
             </Select>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id_2" className="text-sm font-semibold text-gray-700">Profesor 2:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id_2">Profesor 2:</label>
             <Select inputName="profesor_id_2" ref={profesor_autor_id2Ref}>
-              <option value="0">--Sin profesor--</option>
+              <option value="0" selected>
+                --Sin profesor--
+              </option>
               {data.map((item) => {
                 return (
                   <option
@@ -133,10 +132,12 @@ export default function EventosForm() {
               })}
             </Select>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id_3" className="text-sm font-semibold text-gray-700">Profesor 3:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id_3">Profesor 3:</label>
             <Select inputName="profesor_id_3" ref={profesor_autor_id3Ref}>
-              <option value="0">--Sin profesor--</option>
+              <option value="0" selected>
+                --Sin profesor--
+              </option>
               {data.map((item) => {
                 return (
                   <option
@@ -147,10 +148,12 @@ export default function EventosForm() {
               })}
             </Select>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id_4" className="text-sm font-semibold text-gray-700">Profesor 4:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id_4">Profesor 4:</label>
             <Select inputName="profesor_id_4" ref={profesor_autor_id4Ref}>
-              <option value="0">--Sin profesor--</option>
+              <option value="0"  selected>
+                --Sin profesor--
+              </option>
 
               {data.map((item) => {
                 return (
@@ -162,10 +165,12 @@ export default function EventosForm() {
               })}
             </Select>
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id_5" className="text-sm font-semibold text-gray-700">Profesor 5:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id_5">Profesor 5:</label>
             <Select inputName="profesor_id_5" ref={profesor_autor_id5Ref}>
-              <option value="0">--Sin profesor--</option>
+              <option value="0"  selected>
+                --Sin profesor--
+              </option>
 
               {data.map((item) => {
                 return (
@@ -180,7 +185,7 @@ export default function EventosForm() {
 
           <button
             type="submit"
-            className="col-span-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-end-3"
           >
             Insertar
           </button>

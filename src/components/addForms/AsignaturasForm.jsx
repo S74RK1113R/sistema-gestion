@@ -70,23 +70,22 @@ export default function AsignaturasForm() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-3 gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombre" className="text-sm font-semibold text-gray-700">Nombre:</label>
-            <Input type="text" inputName="nombre" ref={nombreRef} placeholder="Nombre de la asignatura" />
+        <div className="grid grid-cols-3 grid-rows-3 size-max gap-5 mx-2">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombre">Nombre:</label>
+            <Input type="text" inputName="nombre" ref={nombreRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="codigo" className="text-sm font-semibold text-gray-700">Código:</label>
-            <Input type="text" inputName="codigo" ref={codigoRef} placeholder="Código único" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="codigo">Código:</label>
+            <Input type="text" inputName="codigo" ref={codigoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="intranet" className="text-sm font-semibold text-gray-700">Intranet:</label>
-            <Select inputName="intranet" ref={intranetRef}>
-              <option value="">Seleccionar...</option>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="intranet">Intranet:</label>
+            <Select inputName="modalidad" ref={intranetRef}>
               <option value="no procede">No procede</option>
               <option value="plat. interactiva">Plat. interactiva</option>
               <option value="no">No</option>
@@ -94,39 +93,38 @@ export default function AsignaturasForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="disciplina" className="text-sm font-semibold text-gray-700">Disciplina:</label>
-            <Select inputName="disciplina" ref={disciplinaIdRef}>
-              <option value="">Seleccionar...</option>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="disciplina">Disciplina:</label>
+            <Select inputName={"disciplina"} ref={disciplinaIdRef}>
+
               {data.map((item) => {
                 return <option value={item.id} key={item.id}>{item.nombre}</option>;
               })}
+
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="año" className="text-sm font-semibold text-gray-700">Año:</label>
-            <Input type="number" inputName="año" min="0" ref={añoRef} placeholder="Año" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año">Año:</label>
+            <Input type="number" inputName="año" min="0" ref={añoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="periodo" className="text-sm font-semibold text-gray-700">Período:</label>
-            <Input type="number" inputName="periodo" min="0" ref={periodoRef} placeholder="Período" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="periodo">Periodo:</label>
+            <Input type="number" inputName="periodo" min="0" ref={periodoRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="modalidad" className="text-sm font-semibold text-gray-700">Modalidad:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="modalidad">Modalidad:</label>
             <Select inputName="modalidad" ref={modalidadRef}>
-              <option value="">Seleccionar...</option>
-              <option value="cd">Curso Diurno</option>
-              <option value="cpe">Curso Encuentro</option>
+              <option value="cd">Curso diurno</option>
+              <option value="cpe">Curso encuentro</option>
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="curriculo" className="text-sm font-semibold text-gray-700">Currículo:</label>
-            <Select inputName="curriculo" ref={curriculoRef}>
-              <option value="">Seleccionar...</option>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="curriculo">Currículo:</label>
+            <Select inputName="modalidad" ref={curriculoRef}>
               <option value="base">Base</option>
               <option value="propio">Propio</option>
               <option value="optat/elect">Optat./Elect.</option>
@@ -134,10 +132,10 @@ export default function AsignaturasForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="bibliografia" className="text-sm font-semibold text-gray-700">Bibliografía:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="bibliografia">Bibliografía:</label>
+
             <Select inputName="bibliografia" ref={bibliografiaRef}>
-              <option value="">Seleccionar...</option>
               <option value="disponible">Disponible</option>
               <option value="no disponible">No disponible</option>
             </Select>
@@ -145,9 +143,9 @@ export default function AsignaturasForm() {
 
           <button
             type="submit"
-            className="col-span-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-end-3"
           >
-            Crear Asignatura
+            Insertar
           </button>
         </div>
       </form>
