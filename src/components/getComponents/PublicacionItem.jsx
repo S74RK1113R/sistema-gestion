@@ -89,86 +89,64 @@ export default function PublicacionItem({
       });
   }
   return (
-    <div className="border border-gray-300 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-6">
-      <div className="grid grid-cols-3 gap-4">
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Año</p>
-          <p className="text-sm font-medium text-gray-900">{año}</p>
-        </div>
-        <div className="col-span-2">
-          <p className="text-xs font-semibold text-gray-500 mb-1">Título</p>
-          <p className="text-sm font-medium text-gray-900">{titulo}</p>
-        </div>
-        <div className="col-span-2">
-          <p className="text-xs font-semibold text-gray-500 mb-1">Revista/Editorial</p>
-          <p className="text-sm font-medium text-gray-900">{revista_editorial}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">ISBN/ISSN</p>
-          <p className="text-sm font-medium text-gray-900">{isbn_issn}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Clasificación</p>
-          <p className="text-sm font-medium text-gray-900">{clasificacion}</p>
-        </div>
-        <div className="col-span-2">
-          <p className="text-xs font-semibold text-gray-500 mb-1">Base de datos de revista</p>
-          <p className="text-sm font-medium text-gray-900">{bd_revista}</p>
-        </div>
-        <div className="col-span-3">
-          <p className="text-xs font-semibold text-gray-500 mb-1">Autor principal</p>
-          <p className="text-sm font-medium text-gray-900">
-            {data.find((profesor) => profesor.id === autor_profesor_id)?.nombres +
-              " " +
-              data.find((profesor) => profesor.id === autor_profesor_id)?.primer_apellido +
-              " " +
-              data.find((profesor) => profesor.id === autor_profesor_id)?.segundo_apellido || "No definido"}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Coautor 1</p>
-          <p className="text-sm font-medium text-gray-900">
-            {data.find((profesor) => profesor.id === coautor_id)
-              ? `${data.find((profesor) => profesor.id === coautor_id).nombres} ${data.find((profesor) => profesor.id === coautor_id).primer_apellido}`
-              : "No definido"}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Coautor 2</p>
-          <p className="text-sm font-medium text-gray-900">
-            {data.find((profesor) => profesor.id === coautor_id_2)
-              ? `${data.find((profesor) => profesor.id === coautor_id_2).nombres} ${data.find((profesor) => profesor.id === coautor_id_2).primer_apellido}`
-              : "No definido"}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Coautor 3</p>
-          <p className="text-sm font-medium text-gray-900">
-            {data.find((profesor) => profesor.id === coautor_id_3)
-              ? `${data.find((profesor) => profesor.id === coautor_id_3).nombres} ${data.find((profesor) => profesor.id === coautor_id_3).primer_apellido}`
-              : "No definido"}
-          </p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">Grupo</p>
-          <p className="text-sm font-medium text-gray-900">{grupo}</p>
-        </div>
+    <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
+      <h1 className="font-bold">Año:</h1>
+      <div>{año}</div>
+      <h1 className="font-bold">Titulo:</h1>
+      <div>{titulo}</div>
+      <h1 className="font-bold">Revista/Editorial:</h1>
+      <div>{revista_editorial}</div>
+      <h1 className="font-bold">ISBN/ISSN:</h1>
+      <div>{isbn_issn}</div>
+      <h1 className="font-bold">Clasificación:</h1>
+      <div>{clasificacion}</div>
+      <h1 className="font-bold">Base de datos de revista:</h1>
+      <div>{bd_revista}</div>
+      <h1 className="font-bold">Autor principal:</h1>
+      <div>
+        {data.find((profesor) => profesor.id === autor_profesor_id)?.nombres +
+          " " +
+          data.find((profesor) => profesor.id === autor_profesor_id)
+            ?.primer_apellido +
+          " " +
+          data.find((profesor) => profesor.id === autor_profesor_id)
+            ?.segundo_apellido || "No definido"}
       </div>
+      <h1 className="font-bold">Coautor:</h1>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id)
+          ? `${data.find((profesor) => profesor.id === coautor_id).nombres} ${data.find((profesor) => profesor.id === coautor_id).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id).segundo_apellido}`
+          : "No definido"}
+      </div>
+      <h1 className="font-bold">Coautor 2:</h1>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id_2)
+          ? `${data.find((profesor) => profesor.id === coautor_id_2).nombres} ${data.find((profesor) => profesor.id === coautor_id_2).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id_2).segundo_apellido}`
+          : "No definido"}
+      </div>
+      <h1 className="font-bold">Coautor 3:</h1>
+      <div>
+        {data.find((profesor) => profesor.id === coautor_id_3)
+          ? `${data.find((profesor) => profesor.id === coautor_id_3).nombres} ${data.find((profesor) => profesor.id === coautor_id_3).primer_apellido} ${data.find((profesor) => profesor.id === coautor_id_3).segundo_apellido}`
+          : "No definido"}
+      </div>
+      <h1 className="font-bold">Grupo:</h1>
+      <div>{grupo}</div>
 
       {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-3 mt-6 justify-end">
+        <div className="flex flex-row gap-4 mt-4">
           <button
             onClick={() => {
               setShowDeleteModal(true);
             }}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
           >
-            Eliminar
+            Borrar
           </button>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
           >
             Modificar
           </button>
@@ -177,160 +155,169 @@ export default function PublicacionItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-            <div className="bg-white p-8 rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
+          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
+            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-4 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+              <h2 className="text-xl font-bold col-span-4">
                 Modificar Publicación
               </h2>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Año:</label>
-                  <Input type="number" inputName="año" defaultValue={año} ref={refs.año} placeholder="Año" />
-                </div>
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Título:</label>
-                  <Input type="text" inputName="titulo" defaultValue={titulo} ref={refs.titulo} placeholder="Título" />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2 col-span-2">
-                  <label className="text-sm font-semibold text-gray-700">Revista/Editorial:</label>
-                  <Input
-                    type="text"
-                    inputName="revista_editorial"
-                    defaultValue={revista_editorial}
-                    ref={refs.revista_editorial}
-                    placeholder="Revista/Editorial"
-                  />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">ISBN/ISSN:</label>
-                  <Input
-                    type="text"
-                    inputName="isbn_issn"
-                    defaultValue={isbn_issn}
-                    ref={refs.isbn_issn}
-                    placeholder="ISBN/ISSN"
-                  />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Clasificación:</label>
-                  <Select
-                    inputName="clasificacion"
-                    ref={refs.clasificacion}
-                    defaultValue={clasificacion}
-                  >
-                    <option value="articulo">Artículo</option>
-                    <option value="libro">Libro</option>
-                    <option value="libro digital">Libro digital</option>
-                    <option value="capitulo de libro">Capítulo de libro</option>
-                    <option value="texto de la carrera">Texto de la carrera</option>
-                    <option value="material docente interno">Material docente interno</option>
-                    <option value="patente">Patente</option>
-                  </Select>
-                </div>
-
-                <div className="flex flex-col justify-start gap-2 col-span-2">
-                  <label className="text-sm font-semibold text-gray-700">Base de datos de revista:</label>
-                  <Input
-                    type="text"
-                    inputName="bd_revista"
-                    ref={refs.bd_revista}
-                    defaultValue={bd_revista}
-                    placeholder="Base de datos"
-                  />
-                </div>
-
-                <div className="flex flex-col justify-start gap-2 col-span-2">
-                  <label className="text-sm font-semibold text-gray-700">Autor principal:</label>
-                  <Select
-                    inputName="autor_profesor"
-                    defaultValue={autor_profesor_id}
-                    ref={refs.autor_profesor_id}
-                  >
-                    {data?.map((p) => (
-                      <option key={p.id} value={p.id}>{`${p.nombres} ${p.primer_apellido}`}</option>
-                    ))}
-                  </Select>
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Coautor 1:</label>
-                  <Select inputName="coautor1" defaultValue={coautor_id} ref={refs.coautor_id}>
-                    <option value="0">--No definido--</option>
-                    {data?.map((p) => (
-                      <option key={p.id} value={p.id}>{`${p.nombres} ${p.primer_apellido}`}</option>
-                    ))}
-                  </Select>
-                </div>
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Coautor 2:</label>
-                  <Select inputName="coautor2" defaultValue={coautor_id_2} ref={refs.coautor_id_2}>
-                    <option value="0">--No definido--</option>
-                    {data?.map((p) => (
-                      <option key={p.id} value={p.id}>{`${p.nombres} ${p.primer_apellido}`}</option>
-                    ))}
-                  </Select>
-                </div>
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Coautor 3:</label>
-                  <Select inputName="coautor3" defaultValue={coautor_id_3} ref={refs.coautor_id_3}>
-                    <option value="0">--No definido--</option>
-                    {data?.map((p) => (
-                      <option key={p.id} value={p.id}>{`${p.nombres} ${p.primer_apellido}`}</option>
-                    ))}
-                  </Select>
-                </div>
-
-                <div className="flex flex-col justify-start gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Grupo:</label>
-                  <Input type="text" inputName="grupo" defaultValue={grupo} ref={refs.grupo} placeholder="Grupo" />
-                </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Año:</label>
+                <Input type="number" defaultValue={año} ref={refs.año} />
+              </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Título:</label>
+                <Input type="text" defaultValue={titulo} ref={refs.titulo} />
               </div>
 
-              <div className="flex gap-3 justify-end mt-6">
-                <button
-                  type="button"
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                  onClick={() => setShowModal(false)}
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Guardar
-                </button>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Revista/Editorial:</label>
+                <Input
+                  type="text"
+                  defaultValue={revista_editorial}
+                  ref={refs.revista_editorial}
+                />
               </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>ISBN/ISSN:</label>
+                <Input
+                  type="text"
+                  defaultValue={isbn_issn}
+                  ref={refs.isbn_issn}
+                />
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="clasificacion">Clasificación:</label>
+                <Select
+                  inputName="clasificacion"
+                  ref={refs.clasificacion}
+                  defaultValue={clasificacion}
+                >
+                  <option value="articulo">Artículo</option>
+                  <option value="libro">Libro</option>
+                  <option value="libro digital">Libro digital</option>
+                  <option value="capitulo de libro">Capitulo de libro</option>
+                  <option value="texto de la carrera">
+                    Texto de la carrera
+                  </option>
+                  <option value="material docente interno">
+                    Material docente interno
+                  </option>
+                  <option value="patente">Patente</option>
+                </Select>
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="bd_revista">Base de datos de la revista:</label>
+                <Input
+                  type="text"
+                  inputName="bd_revista"
+                  ref={refs.bd_revista}
+                  defaultValue={bd_revista}
+                />
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Autor principal:</label>
+                <Select
+                  defaultValue={autor_profesor_id}
+                  ref={refs.autor_profesor_id}
+                >
+                  {data?.map((p) => (
+                    <option
+                      key={p.id}
+                      value={p.id}
+                    >{`${p.nombres} ${p.primer_apellido}`}</option>
+                  ))}
+                </Select>
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Coautor 1:</label>
+                <Select defaultValue={coautor_id} ref={refs.coautor_id}>
+                  <option value="0" selected>
+                    --No definido--
+                  </option>
+                  {data?.map((p) => (
+                    <option
+                      key={p.id}
+                      value={p.id}
+                    >{`${p.nombres} ${p.primer_apellido}`}</option>
+                  ))}
+                </Select>
+              </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Coautor 2:</label>
+                <Select defaultValue={coautor_id_2} ref={refs.coautor_id_2}>
+                  <option value="0" selected>
+                    --No definido--
+                  </option>
+                  {data?.map((p) => (
+                    <option
+                      key={p.id}
+                      value={p.id}
+                    >{`${p.nombres} ${p.primer_apellido}`}</option>
+                  ))}
+                </Select>
+              </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Coautor 3:</label>
+                <Select defaultValue={coautor_id_3} ref={refs.coautor_id_3}>
+                  <option value="0" selected>
+                    --No definido--
+                  </option>
+                  {data?.map((p) => (
+                    <option
+                      key={p.id}
+                      value={p.id}
+                    >{`${p.nombres} ${p.primer_apellido}`}</option>
+                  ))}
+                </Select>
+              </div>
+
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label>Grupo:</label>
+                <Input type="text" defaultValue={grupo} ref={refs.grupo} />
+              </div>
+
+              <button
+                type="submit"
+                className="bg-blue-500 row-start-5 col-start-2 text-white px-4 py-2 my-5 rounded hover:bg-blue-600"
+              >
+                Guardar Cambios
+              </button>
+              <button
+                type="button"
+                className="bg-zinc-500 row-start-5 col-start-3 text-white px-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
+                onClick={() => setShowModal(false)}
+              >
+                Cancelar
+              </button>
             </div>
           </div>
         </form>
       )}
 
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-          <div className="bg-white rounded-lg shadow-2xl p-6 max-w-sm mx-4">
-            <h2 className="text-lg font-bold text-gray-900 mb-4">Confirmar eliminación</h2>
-            <p className="text-gray-600 mb-6">¿Está seguro que desea eliminar esta publicación?</p>
-            <div className="flex gap-3 justify-end">
-              <button
-                onClick={() => setShowDeleteModal(false)}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Cancelar
-              </button>
-              <button
-                onClick={() => {
-                  deleteItem(id);
-                }}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Eliminar
-              </button>
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
+          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
+          <div className="flex gap-5">
+            <button
+              onClick={() => {
+                deleteItem(id);
+              }}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            >
+              Borrar
+            </button>
+            <button
+              onClick={() => setShowDeleteModal(false)}
+              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
+            >
+              Cancelar
+            </button>
           </div>
         </div>
       )}

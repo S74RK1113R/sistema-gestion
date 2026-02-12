@@ -132,461 +132,110 @@ export default function EjerciciosIntegradoresItem({
   }
 
   return (
-    <div className="border border-gray-300 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-6">
-      <div className="grid grid-cols-4 gap-4">
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2">Matrícula</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{matricula_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{matricula_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{matricula_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{matricula_5to_año}</p>
-        </div>
+    <div className="border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg my-5">
+      <h1 className="font-bold">Matrícula 2do año:</h1>
+      <div>{matricula_2do_año}</div>
+      <h1 className="font-bold">Matrícula 3er año:</h1>
+      <div>{matricula_3er_año}</div>
+      <h1 className="font-bold">Matrícula 4to año:</h1>
+      <div>{matricula_4to_año}</div>
+      <h1 className="font-bold">Matrícula 5to año:</h1>
+      <div>{matricula_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Evaluados</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{evaluados_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{evaluados_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{evaluados_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{evaluados_5to_año}</p>
-        </div>
+      <h1 className="font-bold">Evaluados 2do año:</h1>
+      <div>{evaluados_2do_año}</div>
+      <h1 className="font-bold">Evaluados 3er año:</h1>
+      <div>{evaluados_3er_año}</div>
+      <h1 className="font-bold">Evaluados 4to año:</h1>
+      <div>{evaluados_4to_año}</div>
+      <h1 className="font-bold">Evaluados 5to año:</h1>
+      <div>{evaluados_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Con Calificación 2</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{con_2_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{con_2_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_2_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_2_5to_año}</p>
-        </div>
+      <h1 className="font-bold">Evaluados con 2 - 2do año:</h1>
+      <div>{con_2_2do_año}</div>
+      <h1 className="font-bold">Evaluados con 2 - 3er año:</h1>
+      <div>{con_2_3er_año}</div>
+      <h1 className="font-bold">Evaluados con 2 - 4to año:</h1>
+      <div>{con_2_4to_año}</div>
+      <h1 className="font-bold">Evaluados con 2 - 5to año:</h1>
+      <div>{con_2_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Con Calificación 3</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{con_3_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{con_3_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_3_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_3_5to_año}</p>
-        </div>
+      <h1 className="font-bold">Evaluados con 3 - 2do año:</h1>
+      <div>{con_3_2do_año}</div>
+      <h1 className="font-bold">Evaluados con 3 - 3er año:</h1>
+      <div>{con_3_3er_año}</div>
+      <h1 className="font-bold">Evaluados con 3 - 4to año:</h1>
+      <div>{con_3_4to_año}</div>
+      <h1 className="font-bold">Evaluados con 3 - 5to año:</h1>
+      <div>{con_3_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Con Calificación 4</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{con_4_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{con_4_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_4_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_4_5to_año}</p>
-        </div>
+      <h1 className="font-bold">Evaluados con 4 - 2do año:</h1>
+      <div>{con_4_2do_año}</div>
+      <h1 className="font-bold">Evaluados con 4 - 3er año:</h1>
+      <div>{con_4_3er_año}</div>
+      <h1 className="font-bold">Evaluados con 4 - 4to año:</h1>
+      <div>{con_4_4to_año}</div>
+      <h1 className="font-bold">Evaluados con 4 - 5to año:</h1>
+      <div>{con_4_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Con Calificación 5</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
-          <p className="text-sm font-medium text-gray-900">{con_5_2do_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
-          <p className="text-sm font-medium text-gray-900">{con_5_3er_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_5_4to_año}</p>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
-          <p className="text-sm font-medium text-gray-900">{con_5_5to_año}</p>
-        </div>
+      <h1 className="font-bold">Evaluados con 5 - 2do año:</h1>
+      <div>{con_5_2do_año}</div>
+      <h1 className="font-bold">Evaluados con 5 - 3er año:</h1>
+      <div>{con_5_3er_año}</div>
+      <h1 className="font-bold">Evaluados con 5 - 4to año:</h1>
+      <div>{con_5_4to_año}</div>
+      <h1 className="font-bold">Evaluados con 5 - 5to año:</h1>
+      <div>{con_5_5to_año}</div>
 
-        <div className="col-span-4">
-          <p className="text-xs font-semibold text-gray-500 mb-1">Año de la evaluación</p>
-          <p className="text-sm font-medium text-gray-900">{año_evaluacion}</p>
-        </div>
-      </div>
+      <h1 className="font-bold">Año de la evaluación:</h1>
+      <div>{año_evaluacion}</div>
 
-      {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-3 mt-6 justify-end">
-          <button
-            onClick={() => setShowDeleteModal(true)}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-          >
-            Eliminar
-          </button>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-          >
-            Modificar
-          </button>
-        </div>
-      )}
+      {(isAdmin || isDirective) && <div className="flex flex-row gap-4 mt-4">
+        <button
+          onClick={() => {
+            setShowDeleteModal(true);
+          }}
+          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+        >
+          Borrar
+        </button>
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+        >
+          Modificar
+        </button>
+      </div>}
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-            <div className="bg-white p-8 rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
-              <h3 className="text-xl font-bold mb-6 text-gray-900">Modificar Ejercicios Integradores</h3>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Matrícula 2do año</label>
-                  <input
-                    type="number"
-                    value={matricula_2do_año}
-                    onChange={(e) => refs.matricula_2do_año.current.value = e.target.value}
-                    defaultValue={matricula_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Matrícula 3er año</label>
-                  <input
-                    type="number"
-                    value={matricula_3er_año}
-                    onChange={(e) => refs.matricula_3er_año.current.value = e.target.value}
-                    defaultValue={matricula_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Matrícula 4to año</label>
-                  <input
-                    type="number"
-                    value={matricula_4to_año}
-                    onChange={(e) => refs.matricula_4to_año.current.value = e.target.value}
-                    defaultValue={matricula_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Matrícula 5to año</label>
-                  <input
-                    type="number"
-                    value={matricula_5to_año}
-                    onChange={(e) => refs.matricula_5to_año.current.value = e.target.value}
-                    defaultValue={matricula_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
+          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
+            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-5 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+              <h2 className="text-xl font-bold mb-4 col-span-5">
+                Modificar Ejercicios Integradores
+              </h2>
 
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Evaluados 2do año</label>
-                  <input
-                    type="number"
-                    value={evaluados_2do_año}
-                    onChange={(e) => refs.evaluados_2do_año.current.value = e.target.value}
-                    defaultValue={evaluados_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Evaluados 3er año</label>
-                  <input
-                    type="number"
-                    value={evaluados_3er_año}
-                    onChange={(e) => refs.evaluados_3er_año.current.value = e.target.value}
-                    defaultValue={evaluados_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Evaluados 4to año</label>
-                  <input
-                    type="number"
-                    value={evaluados_4to_año}
-                    onChange={(e) => refs.evaluados_4to_año.current.value = e.target.value}
-                    defaultValue={evaluados_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Evaluados 5to año</label>
-                  <input
-                    type="number"
-                    value={evaluados_5to_año}
-                    onChange={(e) => refs.evaluados_5to_año.current.value = e.target.value}
-                    defaultValue={evaluados_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 2 - 2do año</label>
-                  <input
-                    type="number"
-                    value={con_2_2do_año}
-                    onChange={(e) => refs.con_2_2do_año.current.value = e.target.value}
-                    defaultValue={con_2_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 2 - 3er año</label>
-                  <input
-                    type="number"
-                    value={con_2_3er_año}
-                    onChange={(e) => refs.con_2_3er_año.current.value = e.target.value}
-                    defaultValue={con_2_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 2 - 4to año</label>
-                  <input
-                    type="number"
-                    value={con_2_4to_año}
-                    onChange={(e) => refs.con_2_4to_año.current.value = e.target.value}
-                    defaultValue={con_2_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 2 - 5to año</label>
-                  <input
-                    type="number"
-                    value={con_2_5to_año}
-                    onChange={(e) => refs.con_2_5to_año.current.value = e.target.value}
-                    defaultValue={con_2_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 3 - 2do año</label>
-                  <input
-                    type="number"
-                    value={con_3_2do_año}
-                    onChange={(e) => refs.con_3_2do_año.current.value = e.target.value}
-                    defaultValue={con_3_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 3 - 3er año</label>
-                  <input
-                    type="number"
-                    value={con_3_3er_año}
-                    onChange={(e) => refs.con_3_3er_año.current.value = e.target.value}
-                    defaultValue={con_3_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 3 - 4to año</label>
-                  <input
-                    type="number"
-                    value={con_3_4to_año}
-                    onChange={(e) => refs.con_3_4to_año.current.value = e.target.value}
-                    defaultValue={con_3_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 3 - 5to año</label>
-                  <input
-                    type="number"
-                    value={con_3_5to_año}
-                    onChange={(e) => refs.con_3_5to_año.current.value = e.target.value}
-                    defaultValue={con_3_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 4 - 2do año</label>
-                  <input
-                    type="number"
-                    value={con_4_2do_año}
-                    onChange={(e) => refs.con_4_2do_año.current.value = e.target.value}
-                    defaultValue={con_4_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 4 - 3er año</label>
-                  <input
-                    type="number"
-                    value={con_4_3er_año}
-                    onChange={(e) => refs.con_4_3er_año.current.value = e.target.value}
-                    defaultValue={con_4_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 4 - 4to año</label>
-                  <input
-                    type="number"
-                    value={con_4_4to_año}
-                    onChange={(e) => refs.con_4_4to_año.current.value = e.target.value}
-                    defaultValue={con_4_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 4 - 5to año</label>
-                  <input
-                    type="number"
-                    value={con_4_5to_año}
-                    onChange={(e) => refs.con_4_5to_año.current.value = e.target.value}
-                    defaultValue={con_4_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 5 - 2do año</label>
-                  <input
-                    type="number"
-                    value={con_5_2do_año}
-                    onChange={(e) => refs.con_5_2do_año.current.value = e.target.value}
-                    defaultValue={con_5_2do_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 5 - 3er año</label>
-                  <input
-                    type="number"
-                    value={con_5_3er_año}
-                    onChange={(e) => refs.con_5_3er_año.current.value = e.target.value}
-                    defaultValue={con_5_3er_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 5 - 4to año</label>
-                  <input
-                    type="number"
-                    value={con_5_4to_año}
-                    onChange={(e) => refs.con_5_4to_año.current.value = e.target.value}
-                    defaultValue={con_5_4to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-                <div className="col-span-2">
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Con 5 - 5to año</label>
-                  <input
-                    type="number"
-                    value={con_5_5to_año}
-                    onChange={(e) => refs.con_5_5to_año.current.value = e.target.value}
-                    defaultValue={con_5_5to_año}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
-
-                <div className="col-span-2">
-                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Año de la evaluación</label>
-                  <input
-                    type="number"
-                    value={año_evaluacion}
-                    onChange={(e) => refs.año_evaluacion.current.value = e.target.value}
-                    defaultValue={año_evaluacion}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
-                  />
-                </div>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="matricula_2do">Matrícula 2do año:</label>
+                <Input
+                  type="number"
+                  inputName="matricula_2do"
+                  min="0"
+                  ref={refs.matricula_2do_año}
+                  defaultValue={matricula_2do_año}
+                />
               </div>
-
-              <div className="flex flex-row gap-3 mt-6 justify-end">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Guardar
-                </button>
+              <div className="flex flex-col justify-center items-center w-full gap-2">
+                <label htmlFor="matricula_3ro">Matrícula 3ro año:</label>
+                <Input
+                  type="number"
+                  inputName="matricula_3ro"
+                  min="0"
+                  ref={refs.matricula_3er_año}
+                  defaultValue={matricula_3er_año}
+                />
               </div>
-            </div>
-          </div>
-        </form>
-      )}
-
-      {showDeleteModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
-          <div className="bg-white rounded-lg shadow-2xl p-6 max-w-sm mx-4">
-            <p className="text-gray-900 mb-6">¿Está seguro que desea eliminar este registro?</p>
-            <div className="flex flex-row gap-3 justify-end">
-              <button
-                type="button"
-                onClick={() => setShowDeleteModal(false)}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Cancelar
-              </button>
-              <button
-                onClick={() => deleteItem(id)}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
-              >
-                Eliminar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
               <div className="flex flex-col justify-center items-center w-full gap-2">
                 <label htmlFor="matricula_4to">Matrícula 4to año:</label>
                 <Input

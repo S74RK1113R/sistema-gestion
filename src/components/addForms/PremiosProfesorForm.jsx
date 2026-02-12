@@ -51,18 +51,17 @@ export default function PremiosProfesorForm() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nombre_premio" className="text-sm font-semibold text-gray-700">Nombre del Premio:</label>
-            <Input type="text" inputName="nombre_premio" ref={nombreRef} placeholder="Nombre del premio" />
+    <div>
+      <form   onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 grid-rows-4 mx-auto size-max gap-5">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nombre_premio">Nombre del premio:</label>
+            <Input type="text" inputName="nombre_premio" ref={nombreRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="profesor_id" className="text-sm font-semibold text-gray-700">Profesor:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="profesor_id">Profesor:</label>
             <Select inputName="profesor_id" ref={profesorIdRef}>
-              <option value="">Seleccionar...</option>
               {data.map((item) => {
                 return (
                   <option
@@ -74,16 +73,16 @@ export default function PremiosProfesorForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={añoRef} placeholder="Año" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año_evaluacion">Año:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={añoRef} />
           </div>
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
           >
-            Crear Premio Profesor
+            Insertar
           </button>
         </div>
       </form>
