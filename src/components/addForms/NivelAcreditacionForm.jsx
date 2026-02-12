@@ -47,37 +47,37 @@ export default function NivelAcreditacionForm() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="nivel" className="text-sm font-semibold text-gray-700">Nivel:</label>
+        <div className="flex flex-col size-max gap-5 items-center mx-auto">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="nivel">Nivel:</label>
             <Select inputName="nivel" ref={nivelRef}>
-              <option value="">Seleccionar...</option>
-              <option value="carrera autorizada">Carrera Autorizada</option>
-              <option value="carrera avalada">Carrera Avalada</option>
-              <option value="carrera certificada">Carrera Certificada</option>
-              <option value="carrera de excelencia">Carrera de Excelencia</option>
-              <option value="no procede">No Procede</option>
+              <option value="carrera autorizada">Carrera autorizada</option>
+              <option value="carrera avalada">Carrera avalada</option>
+              <option value="carrera certificada">Carrera certificada</option>
+              <option value="carrera de excelencia">
+                Carrera de excelencia
+              </option>
+              <option value="no procede">No procede</option>
             </Select>
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año Evaluación:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="año_evaluacion">Año evaluación:</label>
             <Input
               type="number"
               inputName="año_evaluacion"
               min="0"
               ref={añoRef}
-              placeholder="Año"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
           >
-            Crear Acreditación
+            Insertar
           </button>
         </div>
       </form>

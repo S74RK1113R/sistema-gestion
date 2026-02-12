@@ -51,22 +51,21 @@ export default function TotalGraduadosForm() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div>
       <form onSubmit={handleSubmit} >
-        <div className="flex flex-col gap-6 p-2">
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="cd" className="text-sm font-semibold text-gray-700">Curso diurno:</label>
-            <Input type="number" inputName="cd" min="0" ref={cursoDiurnoRef} placeholder="Ingrese cantidad" />
+        <div className="flex flex-col size-max gap-5 items-center mx-auto">
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="cd">Curso diurno:</label>
+            <Input type="number" inputName="cd" min="0" ref={cursoDiurnoRef} />
           </div>
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="cpe" className="text-sm font-semibold text-gray-700">Curso por encuentro:</label>
-            <Input type="number" inputName="cpe" min="0" ref={cursoEncuentroRef} placeholder="Ingrese cantidad" />
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="cpe">Curso por encuentro:</label>
+            <Input type="number" inputName="cpe" min="0" ref={cursoEncuentroRef} />
           </div>
 
-          <div className="flex flex-col justify-start gap-2">
-            <label htmlFor="curso" className="text-sm font-semibold text-gray-700">Curso:</label>
+          <div className="flex flex-col justify-center items-center w-full gap-2">
+            <label htmlFor="curso">Curso:</label>
             <Select inputName="curso" ref={cursoRef}>
-              <option value="">Seleccione curso</option>
               {data.map((curso) => (
                 <option key={curso.id} value={curso.id}>
                   {curso.curso}
@@ -77,7 +76,7 @@ export default function TotalGraduadosForm() {
 
           <button
             type="submit"
-            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
+            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
           >
             Insertar
           </button>
