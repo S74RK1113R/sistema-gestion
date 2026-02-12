@@ -54,38 +54,39 @@ export default function PremiosEstudiantesForm() {
     setInsert(!insert);
   }
   return (
-    <div className="m-5">
+    <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 grid-rows-4 gap-2">
-          <div className="flex flex-col justify-center items-center gap-2">
-            <label htmlFor="nombre_premio">Nombre del premio:</label>
-            <Input type="text" inputName="nombre_premio" ref={nombreRef}/>
+        <div className="grid grid-cols-2 gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="nombre_premio" className="text-sm font-semibold text-gray-700">Nombre del Premio:</label>
+            <Input type="text" inputName="nombre_premio" ref={nombreRef} placeholder="Nombre del premio"/>
           </div>
           
-          <div className="flex flex-col justify-center items-center  gap-2">
-            <label htmlFor="nombres">Nombres del estudiante:</label>
-            <Input type="text" inputName="nombres" ref={nombresRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="nombres" className="text-sm font-semibold text-gray-700">Nombres del Estudiante:</label>
+            <Input type="text" inputName="nombres" ref={nombresRef} placeholder="Nombres"/>
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-2">
-            <label htmlFor="primer_apellido">Primer Apellido:</label>
-            <Input type="text" inputName="primer_apellido" ref={primerApellidoRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="primer_apellido" className="text-sm font-semibold text-gray-700">Primer Apellido:</label>
+            <Input type="text" inputName="primer_apellido" ref={primerApellidoRef} placeholder="Primer apellido"/>
           </div>
 
-          <div className="flex flex-col justify-center items-center  gap-2">
-            <label htmlFor="segundo_apellido">Segundo Apellido:</label>
-            <Input type="text" inputName="segundo_apellido" ref={segundoApellidoRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="segundo_apellido" className="text-sm font-semibold text-gray-700">Segundo Apellido:</label>
+            <Input type="text" inputName="segundo_apellido" ref={segundoApellidoRef} placeholder="Segundo apellido"/>
           </div>
-          <div className="flex flex-col justify-center items-center  gap-2">
-            <label htmlFor="año">Año:</label>
-            <Input type="number" inputName="año" min="0" ref={añoRef}/>
+          
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año" className="text-sm font-semibold text-gray-700">Año:</label>
+            <Input type="number" inputName="año" min="0" ref={añoRef} placeholder="Año"/>
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 row-start-4 col-span-2 mx-auto"
+            className="col-span-2 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
-            Insertar
+            Crear Premio Estudiante
           </button>
         </div>
       </form>
