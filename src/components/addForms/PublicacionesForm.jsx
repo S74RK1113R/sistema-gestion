@@ -52,31 +52,31 @@ export default function PublicacionesForm() {
   }
 
   return (
-    <div>
+    <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 grid-rows-3 size-max gap-5 mx-2">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="grupos1_4">Grupos 1-4:</label>
-            <Input type="number" inputName="grupos1_4" min="0" ref={grupos1_4Ref}/>
+        <div className="grid grid-cols-2 gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="grupos1_4" className="text-sm font-semibold text-gray-700">Grupos 1-4:</label>
+            <Input type="number" inputName="grupos1_4" min="0" ref={grupos1_4Ref} placeholder="Cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="grupos1_2">Grupos 1-2:</label>
-            <Input type="number" inputName="grupos1_2" min="0" ref={grupos1_2Ref}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="grupos1_2" className="text-sm font-semibold text-gray-700">Grupos 1-2:</label>
+            <Input type="number" inputName="grupos1_2" min="0" ref={grupos1_2Ref} placeholder="Cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="total">Total</label>
-            <Input type="number" inputName="total" min="0" ref={totalRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="total" className="text-sm font-semibold text-gray-700">Total:</label>
+            <Input type="number" inputName="total" min="0" ref={totalRef} placeholder="Cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="año_evaluacion">Año de la evaluación:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año de Evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef} placeholder="Año"/>
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-span-2 w-25 mx-auto"
+            className="col-span-2 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
-            Insertar
+            Crear Publicación
           </button>
         </div>
       </form>

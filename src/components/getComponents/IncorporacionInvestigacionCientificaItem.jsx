@@ -141,113 +141,140 @@ export default function IncorporacionInvestigacionCientificaItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
-            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-3 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+            <div className="bg-white p-8 rounded-lg shadow-2xl grid grid-cols-3 gap-5 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
               <h2 className="text-xl font-bold col-span-3">
                 Modificar Incorporacion Investigacion Cientifica
               </h2>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="institucional">Institucional:</label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="institucional" className="text-sm font-semibold text-gray-700">Institucional:</label>
                 <Input
                   type="number"
                   inputName="institucional"
                   min="0"
                   defaultValue={institucional}
                   ref={refs.institucional}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="nacional">Nacional:</label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="nacional" className="text-sm font-semibold text-gray-700">Nacional:</label>
                 <Input
                   type="number"
                   inputName="nacional"
                   min="0"
                   defaultValue={nacional}
                   ref={refs.nacional}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="internacional">Internacional:</label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="internacional" className="text-sm font-semibold text-gray-700">Internacional:</label>
                 <Input
                   type="number"
                   inputName="internacional"
                   min="0"
                   ref={refs.internacional}
                   defaultValue={internacional}
+                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="profesores_incorporados">
-                  Cantidad de profesores incorporados:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="profesores_incorporados" className="text-sm font-semibold text-gray-700">Profesores incorporados:</label>
                 <Input
                   type="number"
                   inputName="profesores_incorporados"
                   min="0"
                   ref={refs.cantidad_profesores_incorporados}
                   defaultValue={cantidad_profesores_incorporados}
+                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="estudiantes_investigando_1ro">
-                  Estudiantes investigando 1er año:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="estudiantes_investigando_1ro" className="text-sm font-semibold text-gray-700">1er año:</label>
                 <Input
                   type="number"
                   inputName="estudiantes_investigando_1ro"
                   min="0"
                   ref={refs.estudiantes_investigando_1er_año}
                   defaultValue={estudiantes_investigando_1er_año}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="estudiantes_investigando_2do">
-                  Estudiantes investigando 2do año:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="estudiantes_investigando_2do" className="text-sm font-semibold text-gray-700">2do año:</label>
                 <Input
                   type="number"
                   inputName="estudiantes_investigando_2do"
                   min="0"
                   ref={refs.estudiantes_investigando_2do_año}
                   defaultValue={estudiantes_investigando_2do_año}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="estudiantes_investigando_3ro">
-                  Estudiantes investigando 3er año:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="estudiantes_investigando_3ro" className="text-sm font-semibold text-gray-700">3er año:</label>
                 <Input
                   type="number"
                   inputName="estudiantes_investigando_3ro"
                   min="0"
                   ref={refs.estudiantes_investigando_3er_año}
                   defaultValue={estudiantes_investigando_3er_año}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="estudiantes_investigando_4to">
-                  Estudiantes investigando 4to año:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="estudiantes_investigando_4to" className="text-sm font-semibold text-gray-700">4to año:</label>
                 <Input
                   type="number"
                   inputName="estudiantes_investigando_4to"
                   min="0"
                   ref={refs.estudiantes_investigando_4to_año}
                   defaultValue={estudiantes_investigando_4to_año}
+                  placeholder="0"
                 />
               </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="estudiantes_investigando_5to">
-                  Estudiantes investigando 5to año:
-                </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="estudiantes_investigando_5to" className="text-sm font-semibold text-gray-700">5to año:</label>
                 <Input
                   type="number"
                   inputName="estudiantes_investigando_5to"
                   min="0"
                   ref={refs.estudiantes_investigando_5to_año}
+                  defaultValue={estudiantes_investigando_5to_año}
+                  placeholder="0"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año evaluación:</label>
+                <Input
+                  type="number"
+                  inputName="año_evaluacion"
+                  min="0"
+                  ref={refs.año_evaluacion}
+                  defaultValue={año_evaluacion}
+                  placeholder="2024"
+                />
+              </div>
+              <div className="col-span-3 flex gap-3 mt-4">
+                <button
+                  type="submit"
+                  className="flex-1 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+                >
+                  Guardar
+                </button>
+                <button
+                  type="button"
+                  className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
                   defaultValue={estudiantes_investigando_5to_año}
                 />
               </div>
@@ -281,23 +308,26 @@ export default function IncorporacionInvestigacionCientificaItem({
       )}
 
       {showDeleteModal && (
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
-          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
-          <div className="flex gap-5">
-            <button
-              onClick={() => {
-                deleteItem(id);
-              }}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-            >
-              Borrar
-            </button>
-            <button
-              onClick={() => setShowDeleteModal(false)}
-              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
-            >
-              Cancelar
-            </button>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+          <div className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full mx-4">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Confirmar eliminación</h2>
+            <p className="text-gray-600 mb-6">¿Está seguro que desea eliminar esta incorporación?</p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  deleteItem(id);
+                }}
+                className="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+              >
+                Eliminar
+              </button>
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -52,45 +52,47 @@ export default function InvestigacionForm() {
     setInsert(!insert);
   }
   return (
-    <div>
+    <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 grid-rows-3 size-max gap-5 mx-2">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="proyectos_investigacion">Proyectos de investigación:</label>
-            <Input type="number" inputName="proyectos_investigacion" min="0" ref={proyectos_investigacionRef}/>
+        <div className="grid grid-cols-2 gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="proyectos_investigacion" className="text-sm font-semibold text-gray-700">Proyectos de Investigación:</label>
+            <Input type="number" inputName="proyectos_investigacion" min="0" ref={proyectos_investigacionRef} placeholder="Cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="porciento_estudiantes_vinculados">
-              Porciento de estudiantes vinculados:
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="porciento_estudiantes_vinculados" className="text-sm font-semibold text-gray-700">
+              % Estudiantes Vinculados:
             </label>
             <Input
               type="number"
               inputName="porciento_estudiantes_vinculados"
               min="0"
               ref={porciento_estudiantes_vinculadosRef}
+              placeholder="Porcentaje"
             />
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="porciento_profesores_vinculados">
-              Porciento de profesores vinculados:
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="porciento_profesores_vinculados" className="text-sm font-semibold text-gray-700">
+              % Profesores Vinculados:
             </label>
             <Input
               type="number"
               inputName="porciento_profesores_vinculados"
               min="0"
               ref={porciento_profesores_vinculadosRef}
+              placeholder="Porcentaje"
             />
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="año_evaluacion">Año de la evaluación</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año de Evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef} placeholder="Año"/>
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-span-2 w-25 mx-auto"
+            className="col-span-2 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
-            Insertar
+            Crear Investigación
           </button>
         </div>
       </form>
