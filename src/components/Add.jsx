@@ -13,27 +13,33 @@ export default function Add({ children, formTitle }) {
 
   return (
     <>
-      {openForm && <div className="shadow-xl shadow-black/60 absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-zinc-100 max-w-11/12 max-h-11/12 rounded-sm p-5 z-50 gap-5">
-        <div
-          data-title={"titleBar"}
-          className="flex flex-row justify-end items-center rounded-md"
-        >
-          <div className="font-bold mx-6 text-xl text-nowrap">{formTitle}</div>
-          <div className="w-full"></div>
-          <div onClick={handleCloseForm} className="bg-red-500 text-zinc-200 rounded-full mx-1 my-1 cursor-pointer hover:bg-red-600 hover:text-white">
-            <AddIcon className="size-8 rotate-45" />
+      {openForm && <div className="shadow-2xl shadow-black/40 fixed inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+        <div className="bg-white rounded-lg max-w-3xl w-11/12 max-h-[90vh] shadow-xl border border-gray-200 flex flex-col">
+          <div
+            data-title={"titleBar"}
+            className="flex flex-row justify-between items-center px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-slate-50 to-slate-100"
+          >
+            <div className="font-semibold text-lg text-slate-800">{formTitle}</div>
+            <button 
+              onClick={handleCloseForm} 
+              className="bg-red-500 hover:bg-red-600 text-white rounded-lg p-2 transition-colors flex items-center justify-center"
+              title="Cerrar"
+            >
+              <AddIcon className="size-5 rotate-45" />
+            </button>
           </div>
+          <section className="flex-1 overflow-auto scroll p-6">
+            {children}
+          </section>
         </div>
-        <section className="size-full rounded-md overflow-auto scroll">
-          {children}
-        </section>
       </div>}
 
       <button
         onClick={handleOpenForm}
-        className="fixed p-1 size-12 bg-green-500 text-white font-bold rounded-full bottom-4 right-4 hover:bg-green-600 flex items-center text-4xl justify-center shadow-lg"
+        className="fixed p-3 size-14 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-full bottom-6 right-6 flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110 active:scale-95"
+        title="Agregar nuevo registro"
       >
-        <AddIcon className="w-full h-full" />
+        <AddIcon className="w-6 h-6" />
       </button>
     </>
   );

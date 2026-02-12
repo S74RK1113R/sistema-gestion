@@ -65,28 +65,36 @@ export default function ResultadoEjercicioIntegradoresItem({
   }
 
   return (
-    <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
-      <h1 className="font-bold">Porcentaje aprobados:</h1>
-      <div>{porciento_aprobados}</div>
-      <h1 className="font-bold">Porcentaje con 4-5:</h1>
-      <div>{porciento_con_4_5}</div>
-      <h1 className="font-bold">Año de evaluación:</h1>
-      <div>{año_evaluacion}</div>
+    <div className="border border-gray-300 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-6">
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="text-xs font-semibold text-gray-500">% Aprobados</p>
+          <p className="text-sm font-medium text-gray-900">{porciento_aprobados}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500">% con 4-5</p>
+          <p className="text-sm font-medium text-gray-900">{porciento_con_4_5}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500">Año de evaluación</p>
+          <p className="text-sm font-medium text-gray-900">{año_evaluacion}</p>
+        </div>
+      </div>
 
       {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-row gap-3 mt-6">
           <button
             onClick={() => {
               setShowDeleteModal(true);
             }}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Borrar
+            Eliminar
           </button>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
           >
             Modificar
           </button>
@@ -95,75 +103,83 @@ export default function ResultadoEjercicioIntegradoresItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
-            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-2 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+            <div className="bg-white p-8 rounded-lg shadow-2xl grid grid-cols-2 gap-5 max-w-lg w-full mx-4 max-h-96 overflow-y-auto">
               <h2 className="text-xl font-bold col-span-2">
                 Modificar Resultado Ejercicios Integradores
               </h2>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>Porcentaje aprobados:</label>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-gray-700">Porcentaje aprobados:</label>
                 <Input
                   type="number"
                   defaultValue={porciento_aprobados}
                   ref={refs.porciento_aprobados}
+                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>Porcentaje con 4-5:</label>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-gray-700">Porcentaje con 4-5:</label>
                 <Input
                   type="number"
                   defaultValue={porciento_con_4_5}
                   ref={refs.porciento_con_4_5}
+                  placeholder="0"
                 />
               </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>Año de evaluación:</label>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-gray-700">Año de evaluación:</label>
                 <Input
                   type="number"
                   defaultValue={año_evaluacion}
                   ref={refs.año_evaluacion}
+                  placeholder="2024"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="bg-blue-500 text-white row-start-4 px-4 py-2 my-5 rounded hover:bg-blue-600"
-              >
-                Guardar Cambios
-              </button>
-              <button
-                type="button"
-                className="bg-zinc-500 text-white row-start-4 px-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
-                onClick={() => setShowModal(false)}
-              >
-                Cancelar
-              </button>
+              <div className="col-span-2 flex gap-3 mt-4">
+                <button
+                  type="submit"
+                  className="flex-1 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+                >
+                  Guardar
+                </button>
+                <button
+                  type="button"
+                  className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
             </div>
           </div>
         </form>
       )}
 
        {showDeleteModal && (
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
-          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
-          <div className="flex gap-5">
-            <button
-              onClick={() => {
-                deleteItem(id);
-              }}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-            >
-              Borrar
-            </button>
-            <button
-              onClick={() => setShowDeleteModal(false)}
-              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
-            >
-              Cancelar
-            </button>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+          <div className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full mx-4">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Confirmar eliminación</h2>
+            <p className="text-gray-600 mb-6">¿Está seguro que desea eliminar este resultado?</p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  deleteItem(id);
+                }}
+                className="flex-1 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+              >
+                Eliminar
+              </button>
+              <button
+                onClick={() => setShowDeleteModal(false)}
+                className="flex-1 bg-gray-300 text-gray-900 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       )}

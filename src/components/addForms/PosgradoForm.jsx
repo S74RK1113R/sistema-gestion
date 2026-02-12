@@ -49,27 +49,27 @@ export default function PosgradoForm() {
   }
 
   return (
-    <div>
+    <div className="w-full max-w-md mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col size-max gap-5 items-center mx-auto">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="nombre">Nombre:</label>
-            <Input type="text" inputName="nombre" ref={nombreRef} />
+        <div className="flex flex-col gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="nombre" className="text-sm font-semibold text-gray-700">Nombre:</label>
+            <Input type="text" inputName="nombre" ref={nombreRef} placeholder="Ingrese nombre" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="año">Año:</label>
-            <Input type="number" inputName="año" min="0" ref={añoRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año" className="text-sm font-semibold text-gray-700">Año:</label>
+            <Input type="number" inputName="año" min="0" ref={añoRef} placeholder="Ingrese año" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="cantidad">Cantidad:</label>
-            <Input type="number" inputName="cantidad" min="0" ref={cantidadRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="cantidad" className="text-sm font-semibold text-gray-700">Cantidad:</label>
+            <Input type="number" inputName="cantidad" min="0" ref={cantidadRef} placeholder="Ingrese cantidad" />
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
+            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
             Insertar
           </button>

@@ -141,82 +141,150 @@ export default function PromocionItem({
   }
 
   return (
-    <div className="mb-5 border border-black w-11/12 flex flex-col items-center justify-center shadow-lg shadow-zinc-950/60 p-5 rounded-lg">
-      <h1 className="font-bold">MIE 1er año:</h1>
-      <div>{mie_1er_año}</div>
-      <h1 className="font-bold">MIE 2do año:</h1>
-      <div>{mie_2do_año}</div>
-      <h1 className="font-bold">MIE 3er año:</h1>
-      <div>{mie_3er_año}</div>
-      <h1 className="font-bold">MIE 4to año:</h1>
-      <div>{mie_4to_año}</div>
-      <h1 className="font-bold">MIE 5to año:</h1>
-      <div>{mie_5to_año}</div>
+    <div className="border border-gray-300 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-6">
+      <div className="grid grid-cols-5 gap-4">
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2">Matriculación Inicial de Estudiantes (MIE)</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">1er año</p>
+          <p className="text-sm font-medium text-gray-900">{mie_1er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
+          <p className="text-sm font-medium text-gray-900">{mie_2do_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
+          <p className="text-sm font-medium text-gray-900">{mie_3er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
+          <p className="text-sm font-medium text-gray-900">{mie_4to_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
+          <p className="text-sm font-medium text-gray-900">{mie_5to_año}</p>
+        </div>
 
-      <h1 className="font-bold">Aprobados limpios 1er año:</h1>
-      <div>{aprobados_limpios_1er_año}</div>
-      <h1 className="font-bold">Aprobados limpios 2do año:</h1>
-      <div>{aprobados_limpios_2do_año}</div>
-      <h1 className="font-bold">Aprobados limpios 3er año:</h1>
-      <div>{aprobados_limpios_3er_año}</div>
-      <h1 className="font-bold">Aprobados limpios 4to año:</h1>
-      <div>{aprobados_limpios_4to_año}</div>
-      <h1 className="font-bold">Aprobados limpios 5to año:</h1>
-      <div>{aprobados_limpios_5to_año}</div>
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Aprobados Limpios</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">1er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_limpios_1er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_limpios_2do_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_limpios_3er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_limpios_4to_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_limpios_5to_año}</p>
+        </div>
 
-      <h1 className="font-bold">Aprobados con 2 - 1er año:</h1>
-      <div>{aprobados_con_2_1er_año}</div>
-      <h1 className="font-bold">Aprobados con 2 - 2do año:</h1>
-      <div>{aprobados_con_2_2do_año}</div>
-      <h1 className="font-bold">Aprobados con 2 - 3er año:</h1>
-      <div>{aprobados_con_2_3er_año}</div>
-      <h1 className="font-bold">Aprobados con 2 - 4to año:</h1>
-      <div>{aprobados_con_2_4to_año}</div>
-      <h1 className="font-bold">Aprobados con 2 - 5to año:</h1>
-      <div>{aprobados_con_2_5to_año}</div>
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Aprobados con 2</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">1er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_2_1er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_2_2do_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_2_3er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_2_4to_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_2_5to_año}</p>
+        </div>
 
-      <h1 className="font-bold">Aprobados con 1 - 1er año:</h1>
-      <div>{aprobados_con_1_1er_año}</div>
-      <h1 className="font-bold">Aprobados con 1 - 2do año:</h1>
-      <div>{aprobados_con_1_2do_año}</div>
-      <h1 className="font-bold">Aprobados con 1 - 3er año:</h1>
-      <div>{aprobados_con_1_3er_año}</div>
-      <h1 className="font-bold">Aprobados con 1 - 4to año:</h1>
-      <div>{aprobados_con_1_4to_año}</div>
-      <h1 className="font-bold">Aprobados con 1 - 5to año:</h1>
-      <div>{aprobados_con_1_5to_año}</div>
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Aprobados con 1</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">1er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_1_1er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_1_2do_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_1_3er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_1_4to_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
+          <p className="text-sm font-medium text-gray-900">{aprobados_con_1_5to_año}</p>
+        </div>
 
-      <h1 className="font-bold">Bajas 1er año:</h1>
-      <div>{bajas_1er_año}</div>
-      <h1 className="font-bold">Bajas 2do año:</h1>
-      <div>{bajas_2do_año}</div>
-      <h1 className="font-bold">Bajas 3er año:</h1>
-      <div>{bajas_3er_año}</div>
-      <h1 className="font-bold">Bajas 4to año:</h1>
-      <div>{bajas_4to_año}</div>
-      <h1 className="font-bold">Bajas 5to año:</h1>
-      <div>{bajas_5to_año}</div>
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-700 mb-3 border-b pb-2 mt-2">Bajas</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">1er año</p>
+          <p className="text-sm font-medium text-gray-900">{bajas_1er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">2do año</p>
+          <p className="text-sm font-medium text-gray-900">{bajas_2do_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">3er año</p>
+          <p className="text-sm font-medium text-gray-900">{bajas_3er_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">4to año</p>
+          <p className="text-sm font-medium text-gray-900">{bajas_4to_año}</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-gray-500 mb-1">5to año</p>
+          <p className="text-sm font-medium text-gray-900">{bajas_5to_año}</p>
+        </div>
 
-      <h1 className="font-bold">Curso:</h1>
-      <div>
-        {data.find((curso) => curso.id === curso_id)?.curso ||
-          "Curso no encontrado"}
+        <div className="col-span-5">
+          <p className="text-xs font-semibold text-gray-500 mb-1">Curso</p>
+          <p className="text-sm font-medium text-gray-900">
+            {data.find((curso) => curso.id === curso_id)?.curso || "Curso no encontrado"}
+          </p>
+        </div>
       </div>
 
       {(isAdmin || isDirective) && (
-        <div className="flex flex-row gap-4 mt-4">
+        <div className="flex flex-row gap-3 mt-6 justify-end">
           <button
             onClick={() => {
               setShowDeleteModal(true);
             }}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
           >
-            Borrar
+            Eliminar
           </button>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg "
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
           >
             Modificar
           </button>
@@ -225,324 +293,297 @@ export default function PromocionItem({
 
       {showModal && (
         <form onSubmit={modifyItem}>
-          <div className="fixed inset-0 flex items-center justify-center gap-5 overflow-auto">
-            <div className="bg-zinc-100 p-6 rounded-lg shadow-xl shadow-black/50 grid grid-cols-6 gap-5 max-w-11/12 max-h-11/12 overflow-auto">
-              <h2 className="text-xl font-bold mb-4 col-span-6">
-                Modificar Promoción
-              </h2>
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+            <div className="bg-white p-8 rounded-lg shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+              <h3 className="text-xl font-bold mb-6 text-gray-900">Modificar Promoción</h3>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">MIE 1er año</label>
+                  <input
+                    type="number"
+                    value={mie_1er_año}
+                    onChange={(e) => setMie_1er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">MIE 2do año</label>
+                  <input
+                    type="number"
+                    value={mie_2do_año}
+                    onChange={(e) => setMie_2do_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">MIE 3er año</label>
+                  <input
+                    type="number"
+                    value={mie_3er_año}
+                    onChange={(e) => setMie_3er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">MIE 4to año</label>
+                  <input
+                    type="number"
+                    value={mie_4to_año}
+                    onChange={(e) => setMie_4to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">MIE 5to año</label>
+                  <input
+                    type="number"
+                    value={mie_5to_año}
+                    onChange={(e) => setMie_5to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="mie_1er_año">Mie 1er año:</label>
-                <Input
-                  type="number"
-                  inputName="mie_1er_año"
-                  min="0"
-                  ref={refs.mie_1er_año}
-                  defaultValue={mie_1er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="mie_2do_año">Mie 2do año:</label>
-                <Input
-                  type="number"
-                  inputName="mie_2do_año"
-                  min="0"
-                  ref={refs.mie_2do_año}
-                  defaultValue={mie_2do_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="mie_3ro_año">Mie 3ro año:</label>
-                <Input
-                  type="number"
-                  inputName="mie_3ro_año"
-                  min="0"
-                  ref={refs.mie_3er_año}
-                  defaultValue={mie_3er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="mie_4to_año">Mie 4to año:</label>
-                <Input
-                  type="number"
-                  inputName="mie_4to_año"
-                  min="0"
-                  ref={refs.mie_4to_año}
-                  defaultValue={mie_4to_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="mie_5to_año">Mie 5to año:</label>
-                <Input
-                  type="number"
-                  inputName="mie_5to_año"
-                  min="0"
-                  ref={refs.mie_5to_año}
-                  defaultValue={mie_5to_año}
-                />
-              </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados limpios 1er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_limpios_1er_año}
+                    onChange={(e) => setAprobados_limpios_1er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados limpios 2do año</label>
+                  <input
+                    type="number"
+                    value={aprobados_limpios_2do_año}
+                    onChange={(e) => setAprobados_limpios_2do_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados limpios 3er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_limpios_3er_año}
+                    onChange={(e) => setAprobados_limpios_3er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados limpios 4to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_limpios_4to_año}
+                    onChange={(e) => setAprobados_limpios_4to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados limpios 5to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_limpios_5to_año}
+                    onChange={(e) => setAprobados_limpios_5to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_limpios_1ro">
-                  Aprobados limpios 1ro
-                </label>
-                <Input
-                  type="number"
-                  inputName="aprobados_limpios_1ro"
-                  min="0"
-                  ref={refs.aprobados_limpios_1er_año}
-                  defaultValue={aprobados_limpios_1er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_limpios_2do">
-                  Aprobados limpios 2do
-                </label>
-                <Input
-                  type="number"
-                  inputName="aprobados_limpios_2do"
-                  min="0"
-                  ref={refs.aprobados_limpios_2do_año}
-                  defaultValue={aprobados_limpios_2do_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_limpios_3ro">
-                  Aprobados limpios 3ro
-                </label>
-                <Input
-                  type="number"
-                  inputName="aprobados_limpios_3ro"
-                  min="0"
-                  ref={refs.aprobados_limpios_3er_año}
-                  defaultValue={aprobados_limpios_3er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_limpios_4to">
-                  Aprobados limpios 4to
-                </label>
-                <Input
-                  type="number"
-                  inputName="aprobados_limpios_4to"
-                  min="0"
-                  ref={refs.aprobados_limpios_4to_año}
-                  defaultValue={aprobados_limpios_4to_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_limpios_5to">
-                  Aprobados limpios 5to
-                </label>
-                <Input
-                  type="number"
-                  inputName="aprobados_limpios_5to"
-                  min="0"
-                  ref={refs.aprobados_limpios_5to_año}
-                  defaultValue={aprobados_limpios_5to_año}
-                />
-              </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 2 - 1er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_2_1er_año}
+                    onChange={(e) => setAprobados_con_2_1er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 2 - 2do año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_2_2do_año}
+                    onChange={(e) => setAprobados_con_2_2do_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 2 - 3er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_2_3er_año}
+                    onChange={(e) => setAprobados_con_2_3er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 2 - 4to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_2_4to_año}
+                    onChange={(e) => setAprobados_con_2_4to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 2 - 5to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_2_5to_año}
+                    onChange={(e) => setAprobados_con_2_5to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_1_1ro">Aprobados con 1 1ro</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_1_1ro"
-                  min="0"
-                  ref={refs.aprobados_con_1_1er_año}
-                  defaultValue={aprobados_con_1_1er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_1_2do">Aprobados con 1 2do</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_1_2do"
-                  min="0"
-                  ref={refs.aprobados_con_1_2do_año}
-                  defaultValue={aprobados_con_1_2do_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_1_3ro">Aprobados con 1 3ro</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_1_3ro"
-                  min="0"
-                  ref={refs.aprobados_con_1_3er_año}
-                  defaultValue={aprobados_con_1_3er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_1_4to">Aprobados con 1 4to</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_1_4to"
-                  min="0"
-                  ref={refs.aprobados_con_1_4to_año}
-                  defaultValue={aprobados_con_1_4to_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_1_5to">Aprobados con 1 5to</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_1_5to"
-                  min="0"
-                  ref={refs.aprobados_con_1_5to_año}
-                  defaultValue={aprobados_con_1_5to_año}
-                />
-              </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 1 - 1er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_1_1er_año}
+                    onChange={(e) => setAprobados_con_1_1er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 1 - 2do año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_1_2do_año}
+                    onChange={(e) => setAprobados_con_1_2do_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 1 - 3er año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_1_3er_año}
+                    onChange={(e) => setAprobados_con_1_3er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 1 - 4to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_1_4to_año}
+                    onChange={(e) => setAprobados_con_1_4to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Aprobados con 1 - 5to año</label>
+                  <input
+                    type="number"
+                    value={aprobados_con_1_5to_año}
+                    onChange={(e) => setAprobados_con_1_5to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_2_1ro">Aprobados con 2 1ro</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_2_1ro"
-                  min="0"
-                  ref={refs.aprobados_con_2_1er_año}
-                  defaultValue={aprobados_con_2_1er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_2_2do">Aprobados con 2 2do</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_2_2do"
-                  min="0"
-                  ref={refs.aprobados_con_2_2do_año}
-                  defaultValue={aprobados_con_2_2do_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_2_3ro">Aprobados con 2 3ro</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_2_3ro"
-                  min="0"
-                  ref={refs.aprobados_con_2_3er_año}
-                  defaultValue={aprobados_con_2_3er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_2_4to">Aprobados con 2 4to</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_2_4to"
-                  min="0"
-                  ref={refs.aprobados_con_2_4to_año}
-                  defaultValue={aprobados_con_2_4to_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="aprobados_con_2_5to">Aprobados con 2 5to</label>
-                <Input
-                  type="number"
-                  inputName="aprobados_con_2_5to"
-                  min="0"
-                  ref={refs.aprobados_con_2_5to_año}
-                  defaultValue={aprobados_con_2_5to_año}
-                />
-              </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Bajas 1er año</label>
+                  <input
+                    type="number"
+                    value={bajas_1er_año}
+                    onChange={(e) => setBajas_1er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Bajas 2do año</label>
+                  <input
+                    type="number"
+                    value={bajas_2do_año}
+                    onChange={(e) => setBajas_2do_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Bajas 3er año</label>
+                  <input
+                    type="number"
+                    value={bajas_3er_año}
+                    onChange={(e) => setBajas_3er_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Bajas 4to año</label>
+                  <input
+                    type="number"
+                    value={bajas_4to_año}
+                    onChange={(e) => setBajas_4to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Bajas 5to año</label>
+                  <input
+                    type="number"
+                    value={bajas_5to_año}
+                    onChange={(e) => setBajas_5to_año(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  />
+                </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="bajas_1ro">Bajas 1ro</label>
-                <Input
-                  type="number"
-                  inputName="bajas_1ro"
-                  min="0"
-                  ref={refs.bajas_1er_año}
-                  defaultValue={bajas_1er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="bajas_2do">Bajas 2do</label>
-                <Input
-                  type="number"
-                  inputName="bajas_2do"
-                  min="0"
-                  ref={refs.bajas_2do_año}
-                  defaultValue={bajas_2do_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="bajas_3ro">Bajas 3ro</label>
-                <Input
-                  type="number"
-                  inputName="bajas_3ro"
-                  min="0"
-                  ref={refs.bajas_3er_año}
-                  defaultValue={bajas_3er_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="bajas_4to">Bajas 4to</label>
-                <Input
-                  type="number"
-                  inputName="bajas_4to"
-                  min="0"
-                  ref={refs.bajas_4to_año}
-                  defaultValue={bajas_4to_año}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label htmlFor="bajas_5to">Bajas 5to</label>
-                <Input
-                  type="number"
-                  inputName="bajas_5to"
-                  min="0"
-                  ref={refs.bajas_5to_año}
-                  defaultValue={bajas_5to_año}
-                />
+                <div className="col-span-2">
+                  <label className="text-xs font-semibold text-gray-500 mb-1 block">Curso</label>
+                  <select
+                    value={curso_id}
+                    onChange={(e) => setCurso_id(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
+                  >
+                    <option value="">Seleccionar curso</option>
+                    {data.map((curso) => (
+                      <option key={curso.id} value={curso.id}>
+                        {curso.curso}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
-              <div className="flex flex-col justify-center items-center w-full gap-2">
-                <label>Curso:</label>
-                <Select defaultValue={curso_id} ref={refs.curso_id}>
-                  {data?.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.curso || c.nombre || `Curso ${c.id}`}
-                    </option>
-                  ))}
-                </Select>
+              <div className="flex flex-row gap-3 mt-6 justify-end">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                >
+                  Guardar
+                </button>
               </div>
-
-              <button
-                type="submit"
-                className="bg-blue-500 row-start-7 col-start-3 text-white px-4 py-2 my-5 rounded hover:bg-blue-600"
-              >
-                Guardar Cambios
-              </button>
-              <button
-                type="button"
-                className="bg-zinc-500 row-start-7 col-start-4 text-white px-4 py-2 my-5 mx-5 rounded hover:bg-red-600"
-                onClick={() => setShowModal(false)}
-              >
-                Cancelar
-              </button>
             </div>
           </div>
         </form>
       )}
 
-       {showDeleteModal && (
-        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-5 overflow-auto shadow-xl shadow-black/60 bg-zinc-100 w-max h-max p-5 rounded-md">
-          <h1 className="font-bold">¿Está seguro que quiere eliminar?</h1>
-          <div className="flex gap-5">
-            <button
-              onClick={() => {
-                deleteItem(id);
-              }}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-            >
-              Borrar
-            </button>
-            <button
-              onClick={() => setShowDeleteModal(false)}
-              className="bg-zinc-500 hover:bg-zinc-600 text-white px-4 py-2 rounded-lg "
-            >
-              Cancelar
-            </button>
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm z-50">
+          <div className="bg-white rounded-lg shadow-2xl p-6 max-w-sm mx-4">
+            <p className="text-gray-900 mb-6">¿Está seguro que desea eliminar este registro?</p>
+            <div className="flex flex-row gap-3 justify-end">
+              <button
+                type="button"
+                onClick={() => setShowDeleteModal(false)}
+                className="bg-gray-300 hover:bg-gray-400 text-gray-900 px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={() => deleteItem(id)}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+              >
+                Eliminar
+              </button>
+            </div>
           </div>
         </div>
       )}
