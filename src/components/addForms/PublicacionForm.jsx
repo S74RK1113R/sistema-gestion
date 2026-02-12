@@ -71,40 +71,42 @@ export default function PublicacionForm() {
   }
 
   return (
-    <div>
+    <div className="w-full max-w-4xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-5 grid-rows-4 size-max gap-5 mx-2">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="año">Año:</label>
-            <Input type="number" inputName="año" min="0" ref={añoRef} />
+        <div className="grid grid-cols-3 gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año" className="text-sm font-semibold text-gray-700">Año:</label>
+            <Input type="number" inputName="año" min="0" ref={añoRef} placeholder="Ingrese año" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="titulo">Título:</label>
-            <Input type="text" inputName="titulo" ref={tituloRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="titulo" className="text-sm font-semibold text-gray-700">Título:</label>
+            <Input type="text" inputName="titulo" ref={tituloRef} placeholder="Ingrese título" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="revista_editorial">Revista editorial:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="revista_editorial" className="text-sm font-semibold text-gray-700">Revista/Editorial:</label>
             <Input
               type="text"
               inputName="revista_editorial"
               ref={revistaEditorialRef}
+              placeholder="Ingrese revista"
             />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="isbn_issn">ISBN/ISSN:</label>
-            <Input type="text" inputName="isbn_issn" ref={isbnIssnRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="isbn_issn" className="text-sm font-semibold text-gray-700">ISBN/ISSN:</label>
+            <Input type="text" inputName="isbn_issn" ref={isbnIssnRef} placeholder="Ingrese código" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="clasificacion">Clasificación:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="clasificacion" className="text-sm font-semibold text-gray-700">Clasificación:</label>
             <Select inputName="clasificacion" ref={clasificacionRef}>
+              <option value="">Seleccione clasificación</option>
               <option value="articulo">Artículo</option>
               <option value="libro">Libro</option>
               <option value="libro digital">Libro digital</option>
-              <option value="capitulo de libro">Capitulo de libro</option>
+              <option value="capitulo de libro">Capítulo de libro</option>
               <option value="texto de la carrera">Texto de la carrera</option>
               <option value="material docente interno">
                 Material docente interno
@@ -113,14 +115,15 @@ export default function PublicacionForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="bd_revista">Base de datos de la revista:</label>
-            <Input type="text" inputName="bd_revista" ref={bdRevistaRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="bd_revista" className="text-sm font-semibold text-gray-700">Base de datos:</label>
+            <Input type="text" inputName="bd_revista" ref={bdRevistaRef} placeholder="Ingrese BD" />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="autor">Autor:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="autor" className="text-sm font-semibold text-gray-700">Autor:</label>
             <Select inputName="autor" ref={autorRef}>
+              <option value="">Seleccione autor</option>
               {data.map((profesor) => (
                 <option key={profesor.id} value={profesor.id}>
                   {profesor.nombres} {profesor.primer_apellido}{" "}
@@ -130,12 +133,10 @@ export default function PublicacionForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="coautor1">Coautor 1:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="coautor1" className="text-sm font-semibold text-gray-700">Coautor 1:</label>
             <Select inputName="coautor1" ref={coautor1Ref}>
-              <option value="0" selected>
-                --No definido--
-              </option>
+              <option value="0">--No definido--</option>
               {data.map((profesor) => (
                 <option key={profesor.id} value={profesor.id}>
                   {profesor.nombres} {profesor.primer_apellido}{" "}
@@ -144,12 +145,10 @@ export default function PublicacionForm() {
               ))}
             </Select>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="coautor2">Coautor 2:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="coautor2" className="text-sm font-semibold text-gray-700">Coautor 2:</label>
             <Select inputName="coautor2" ref={coautor2Ref}>
-              <option value="0" selected>
-                --No definido--
-              </option>
+              <option value="0">--No definido--</option>
 
               {data.map((profesor) => (
                 <option key={profesor.id} value={profesor.id}>
@@ -159,12 +158,10 @@ export default function PublicacionForm() {
               ))}
             </Select>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="coautor3">Coautor 3:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="coautor3" className="text-sm font-semibold text-gray-700">Coautor 3:</label>
             <Select inputName="coautor3" ref={coautor3Ref}>
-              <option value="0" selected>
-                --No definido--
-              </option>
+              <option value="0">--No definido--</option>
 
               {data.map((profesor) => (
                 <option key={profesor.id} value={profesor.id}>
@@ -175,14 +172,14 @@ export default function PublicacionForm() {
             </Select>
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="grupo">Grupo:</label>
-            <Input type="number" inputName="grupo" min="1" max="4" ref={grupoRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="grupo" className="text-sm font-semibold text-gray-700">Grupo:</label>
+            <Input type="number" inputName="grupo" min="1" max="4" ref={grupoRef} placeholder="1-4" />
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 col-span-5 w-50 mx-auto"
+            className="col-span-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
             Insertar
           </button>

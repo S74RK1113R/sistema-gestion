@@ -42,20 +42,22 @@ export default function ProfesorPrincipalForm() {
   }
 
   return (
-    <div>
+    <div className="w-full max-w-md mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-5 items-center mx-2">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="disciplina">Disciplina:</label>
+        <div className="flex flex-col gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="disciplina" className="text-sm font-semibold text-gray-700">Disciplina:</label>
             <Select inputName="disciplina" ref={disciplina_idRef}>
+              <option value="">Seleccione disciplina</option>
               {data.map((item) => {
                 return <option value={item.id}>{item.nombre}</option>;
               })}
             </Select>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="profesor">Profesor:</label>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="profesor" className="text-sm font-semibold text-gray-700">Profesor:</label>
             <Select inputName="profesor" ref={profesor_idRef}>
+              <option value="">Seleccione profesor</option>
               {data2.map((item) => {
                 return (
                   <option
@@ -69,7 +71,7 @@ export default function ProfesorPrincipalForm() {
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800"
+            className="bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
             Insertar
           </button>

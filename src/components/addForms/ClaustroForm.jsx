@@ -62,42 +62,42 @@ export default function ClaustroForm() {
   }
 
   return (
-    <div>
+    <div className="w-full max-w-3xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-3 grid-rows-4 size-max gap-5 mx-2">
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="total_claustro">Total de claustro:</label>
-            <Input type="number" inputName="total_claustro" min="0" ref={total_claustroRef}/>
+        <div className="grid grid-cols-3 gap-6 p-2">
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="total_claustro" className="text-sm font-semibold text-gray-700">Total de claustro:</label>
+            <Input type="number" inputName="total_claustro" min="0" ref={total_claustroRef} placeholder="Ingrese total"/>
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="drc">Dr.C:</label>
-            <Input type="number" inputName="drc" min="0" ref={drcRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="drc" className="text-sm font-semibold text-gray-700">Dr.C:</label>
+            <Input type="number" inputName="drc" min="0" ref={drcRef} placeholder="Ingrese cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="drc_equivalentes">Dr.C/equivalentes:</label>
-            <Input type="number" inputName="drc_equivalentes" min="0" ref={drc_equivalentesRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="drc_equivalentes" className="text-sm font-semibold text-gray-700">Dr.C/equivalentes:</label>
+            <Input type="number" inputName="drc_equivalentes" min="0" ref={drc_equivalentesRef} placeholder="Ingrese cantidad" />
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="drc_afin">Dr.C/afin:</label>
-            <Input type="number" inputName="drc_afin" min="0" ref={drc_afinRef} />
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="drc_afin" className="text-sm font-semibold text-gray-700">Dr.C/afín:</label>
+            <Input type="number" inputName="drc_afin" min="0" ref={drc_afinRef} placeholder="Ingrese cantidad" />
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="mc_equivalentes">Mc/equivalentes:</label>
-            <Input type="number" inputName="mc_equivalentes" min="0" ref={mc_equivalentesRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="mc_equivalentes" className="text-sm font-semibold text-gray-700">Mc/equivalentes:</label>
+            <Input type="number" inputName="mc_equivalentes" min="0" ref={mc_equivalentesRef} placeholder="Ingrese cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="pt_pa">Pt/Pa:</label>
-            <Input type="number" inputName="pt_pa" min="0" ref={pt_paRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="pt_pa" className="text-sm font-semibold text-gray-700">Pt/Pa:</label>
+            <Input type="number" inputName="pt_pa" min="0" ref={pt_paRef} placeholder="Ingrese cantidad"/>
           </div>
-          <div className="flex flex-col justify-center items-center w-full gap-2">
-            <label htmlFor="año_evaluacion">Año evaluacion:</label>
-            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef}/>
+          <div className="flex flex-col justify-start gap-2">
+            <label htmlFor="año_evaluacion" className="text-sm font-semibold text-gray-700">Año evaluación:</label>
+            <Input type="number" inputName="año_evaluacion" min="0" ref={año_evaluacionRef} placeholder="Ingrese año"/>
           </div>
 
           <button
             type="submit"
-            className="bg-green-500 px-5 py-2 rounded-full text-white font-bold my-5 hover:bg-green-800 row-end-5 col-end-3"
+            className="col-span-3 bg-emerald-600 hover:bg-emerald-700 px-6 py-3 rounded-lg text-white font-semibold mt-6 transition-colors shadow-md"
           >
             Insertar
           </button>
