@@ -43,7 +43,15 @@ export default function NavBar() {
       </div>
       <div className="w-full"></div>
       
-      <div className={`fixed ${notification ? "right-4 opacity-100": "-right-80 opacity-0"} transition-all duration-500 top-24 rounded-lg px-6 py-4 mx-2 text-white font-bold text-lg shadow-xl ${notificationType === 'insert' ? 'bg-green-500 hover:bg-green-600' : notificationType === 'delete' ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500'}`}>
+      <div className={`fixed ${notification ? "right-4 opacity-100": "-right-80 opacity-0"} transition-all duration-500 top-24 rounded-lg px-6 py-4 mx-2 text-white font-bold text-lg shadow-xl ${
+          notificationType === 'insert'
+            ? 'bg-green-500 hover:bg-green-600'
+            : notificationType === 'delete'
+            ? 'bg-red-500 hover:bg-red-600'
+            : notificationType === 'error'
+            ? 'bg-yellow-500 hover:bg-yellow-600 text-black'
+            : 'bg-blue-500'
+        }`}> 
         {messageSucces}
       </div>
 

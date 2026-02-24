@@ -4,7 +4,7 @@ import Select from "../Select";
 import { useRef } from "react";
 
 export default function UsuariosForm() {
-  const { setUsuario, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
+  const { usuario, setUsuario, setInsert, insert, setMessageSucces, setNotification, setNotificationType } = tableUse();
 
   const usuarioRef = useRef();
   const contraseñaRef = useRef();
@@ -14,25 +14,34 @@ export default function UsuariosForm() {
   const rolRef = useRef();
 
   function erraseInput() {
-    usuarioRef.current.value;
-    contraseñaRef.current.value;
-    nombresRef.current.value;
-    primer_apellidoRef.current.value;
-    segundo_apellidoRef.current.value;
-    rolRef.current.value;
+    usuarioRef.current.value = "";
+    contraseñaRef.current.value = "";
+    nombresRef.current.value = "";
+    primer_apellidoRef.current.value = "";
+    segundo_apellidoRef.current.value = "";
+    rolRef.current.value = "";
   }
 
-  function handleSubmit() {
-    event.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    const usuarios = {
-      usuario: usuarioRef.current.value,
+    const newUser = {
+      usuario: usuarioRef.current.value.trim(),
       contraseña: contraseñaRef.current.value,
       nombres: nombresRef.current.value,
       primer_apellido: primer_apellidoRef.current.value,
       segundo_apellido: segundo_apellidoRef.current.value,
       rol: rolRef.current.value,
     };
+
+    // check if username already exists in context
+    if (usuario.some((u) => u.usuario === newUser.usuario)) {
+      setMessageSucces("El usuario ya existe");
+      setNotificationType("error");
+      setNotification(true);
+      erraseInput();
+      return; // abort insertion
+    }
 
     erraseInput();
 
@@ -41,7 +50,7 @@ export default function UsuariosForm() {
       method: "POST",
       headers: { "content-type": "application/json" },
       // Send your data in the request body as JSON
-      body: JSON.stringify(usuarios),
+      body: JSON.stringify(newUser),
     })
       .then((res) => {
         if (!res.ok) {
